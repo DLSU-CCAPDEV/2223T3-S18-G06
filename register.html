@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register User </title>
+
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background: #4CAF50;
+        }
+
+        .login-box{
+            display: flex;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 320px;
+            height: 420px;
+            background: white;
+            margin: auto;
+            margin-top: 50px;
+        }
+
+        .form{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+            background-color: whitesmoke;
+        }
+
+        .form h2{
+            font-size: 35px;
+            font-family: "Roboto", sans-serif;
+        }
+
+        .box{
+            padding: 12px;
+            width: 70%;
+            margin: 10px;
+            border: 1px solid black;
+            outline: none;
+            border-radius: 10px;
+        }
+
+        .submit{
+            padding: 12px 30px;
+            width: 50%;
+            margin-top: 30px;
+            background: #33B864;
+            color: white;
+            border-radius: 10px;
+        }
+
+        .submit:hover {
+            background: #43A047;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-box">
+        <form action="" class="form">
+            <h2> SIGN IN  </h2>
+            <input type="text" name="username" class="box" placeholder="Enter Username">
+            <input type="password" name="password" class="box"
+            placeholder="Enter Password">
+            <input type="submit" value="SIGN IN" class="submit">
+        </form>
+    </div>
+    
+</body>
+</html>
