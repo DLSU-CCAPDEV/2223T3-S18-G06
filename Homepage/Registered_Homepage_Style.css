@@ -93,8 +93,15 @@ body {
 }
 
 .post-username {
+    text-decoration: none;
     font-weight: 1000;
     color: white;
+    padding-top: 15px;
+    height: 15px;
+}
+
+.post-username:hover {
+    text-decoration: underline;
 }
 
 .dot {
@@ -104,7 +111,14 @@ body {
 }
 
 .post-title {
+    text-decoration: none;
     color: white; 
+    padding-top: 15px;
+    height: 15px;
+}
+
+.post-title:hover {
+    text-decoration: underline;
 }
 
 .post-content {
