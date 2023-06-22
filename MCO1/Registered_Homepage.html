@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Homepage </title>
+        <link rel="stylesheet" type="text/css" href="Registered_Homepage_Style.css">
+        <script src="https://kit.fontawesome.com/4c2cf73d4b.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js" type="text/javascript"></script>
+
+        <script>
+            $(document).ready(function() {
+                $('.fa-angle-up').click(function() {
+                    var count = parseInt($(this).siblings('.vote-count').text());
+                    $(this).siblings('.vote-count').text(count + 1);
+                    $(this).unbind("click");
+                    $(this).siblings('.fa-solid').unbind("click");
+                });
+
+                $('.fa-angle-down').click(function() {
+                    var count = parseInt($(this).siblings('.vote-count').text());
+                    $(this).siblings('.vote-count').text(count + 1);
+                    $(this).unbind("click");
+                    $(this).siblings('.fa-solid').unbind("click");
+                });
+            });
+        </script>
+    </head>
+
+    <body>
+        <div id = "navbar">
+            <img id = "hive-icon" src="Hive_Icon.png" alt="Hive_Icon">
+            <span id = "hive"> HIVE </span>
+            <input id = "search-bar" type="text" name="search" placeholder="Search" size = "100">
+            <div id = "nav-links">
+                <a class = "nav-link"> • Home </a> 
+                <a class = "nav-link" href = "ProfileMain.html"> Profile </a> 
+                <a class = "nav-link" href = "RegisterLogin.html"> Logout </a> 
+            </div>
+        </div>
+
+        <div class = "post">
+            <div class = "post-header">
+                <img  class = "user-icon" src="user1_icon.jpg" alt="user_icon" width="32" height="32">
+                <a class = "post-username" href = "drinkwater_profile.html" title = "view profile"> drinkwater </a>
+                <p class = "dot"> • </p>
+                <a class = "post-title" href = "drinkwater_post.html" title = "view post"> A daily reminder to drink water </a>
+            </div>
+            <br> <br> 
+            <p class = "post-content"> Drinking water is a brilliant investment in your well-being, as it nourishes your body, fuels your mind, 
+                and replenishes your spirit, allowing you to flow through life with clarity, vitality, and utmost brilliance. </p>
+            <br>
+            <div class = "post-footer">
+                <a href = "drinkwater_post.html" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
+                <span class = "comment-count"> 1 </span>
+                <i class="fa-solid fa-angle-up" title = "upvote" style="color: #ffd201; cursor: pointer;"></i>
+                <span class = "vote-count"> 12456 </span>
+                <i class="fa-solid fa-angle-down" title = "downvote" style="color: #ffd201; margin-right: 50px; cursor: pointer;"></i>
+            </div>
+        </div>
+        <br>
+        <div class = "post">
+            <div class = "post-header">
+                <img  class = "user-icon" src="user2_icon.jpg" alt="user_icon" width="32" height="32">
+                <a class = "post-username" href = "PawsomePal_profile.html" title = "view profile"> PawsomePal </a>
+                <p class = "dot"> • </p>
+                <a class = "post-title" href = "PawsomePal_post.html" title = "view post"> Just dog things </a>
+            </div>
+            <br> <br> 
+            <p class = "post-content"> Does anyone else talk to their dog like they're a human? Asking for a friend... 🙈😂 #DogConversations </p>
+            <br>
+            <div class = "post-footer">
+                <a href = "PawsomePal_post.html" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
+                <span class = "comment-count"> 2 </span>
+                <i class="fa-solid fa-angle-up" title = "upvote" style="color: #ffd201; cursor: pointer;"></i>
+                <span class = "vote-count"> 654 </span>
+                <i class="fa-solid fa-angle-down" title = "downvote" style="color: #ffd201; margin-right: 50px; cursor: pointer;"></i>
+            </div>
+        </div>
+        <br>
+        <div class = "post">
+            <div class = "post-header">
+                <img  class = "user-icon" src="user3_icon.jpg" alt="user_icon" width="32" height="32">
+                <a class = "post-username" href = "TheCAGE_profile.html" title = "view profile"> TheCAGE </a>
+                <p class = "dot"> • </p>
+                <a class = "post-title" href = "TheCAGE_post.html" title = "view post"> Long live Nicolas Cage! </a>
+            </div>
+            <br> <br> 
+            <p class = "post-content"> Can we take a moment to appreciate Nicolas Cage's versatility as an actor? From intense dramas to hilarious comedies, he can do it all! </p>
+            <br>
+            <div class = "post-footer">
+                <a href = "TheCAGE_post.html" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
+                <span class = "comment-count"> 1 </span>
+                <i class="fa-solid fa-angle-up" title = "upvote" style="color: #ffd201; cursor: pointer;"></i>
+                <span class = "vote-count"> 32 </span>
+                <i class="fa-solid fa-angle-down" title = "downvote" style="color: #ffd201; margin-right: 50px; cursor: pointer;"></i>
+            </div>
+        </div>
+        <br>
+        <div class = "post">
+            <div class = "post-header">
+                <img  class = "user-icon" src="user4_icon.jpg" alt="user_icon" width="32" height="32">
+                <a class = "post-username" href = "Busy_Beekeeper_profile.html" title = "view profile"> Busy_Beekeeper </a>
+                <p class = "dot"> • </p>
+                <a class = "post-title" href = "Busy_Beekeeper_post.html" title = "view post"> The Bee Transfer Chronicles </a>
+            </div>
+            <br> <br> 
+            <p class = "post-content"> Today, I stepped into the enchanting world of beekeeping by transferring a bee colony. With protective gear on and heart pounding, 
+                I witnessed the intricate choreography of bees, their fascinating communication, and the profound connection between beekeeper and colony. 🌺🐝 #BeekeepingAdventure </p>
+            <br>
+            <div class = "post-footer">
+                <a href = "Busy_Beekeeper_post.html" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
+                <span class = "comment-count"> 1 </span>
+                <i class="fa-solid fa-angle-up" title = "upvote" style="color: #ffd201; cursor: pointer;"></i>
+                <span class = "vote-count"> 3 </span>
+                <i class="fa-solid fa-angle-down" title = "downvote" style="color: #ffd201; margin-right: 50px; cursor: pointer;"></i>
+            </div>
+        </div>
+        <br>
+        <div class = "post">
+            <div class = "post-header">
+                <img  class = "user-icon" src="user5_icon.jpg" alt="user_icon" width="32" height="32">
+                <a class = "post-username" href = "dave_profile.html" title = "view profile"> dave </a>
+                <p class = "dot"> • </p>
+                <a class = "post-title" href = "dave_post.html" title = "view post"> Anyone up for a roadtrtip? </a>
+            </div>
+            <br> <br> 
+            <p class = "post-content"> Excited to announce that I've just become the proud owner of a brand new Toyota Wigo! 
+                The perfect combination of style, efficiency, and reliability. Ready to hit the road and create unforgettable memories. 🚗💨 #NewCarFeels #ToyotaWigo </p>
+            <br>
+            <div class = "post-footer">
+                <a href = "dave_post.html" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
+                <span class = "comment-count"> 3 </span>
+                <i class="fa-solid fa-angle-up" title = "upvote" style="color: #ffd201; cursor: pointer;"></i>
+                <span class = "vote-count"> 35 </span>
+                <i class="fa-solid fa-angle-down" title = "downvote" style="color: #ffd201; margin-right: 50px; cursor: pointer;"></i>
+            </div>
+        </div>
+    </body>
+</html>
