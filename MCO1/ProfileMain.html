@@ -8,17 +8,26 @@
         <script src="https://code.jquery.com/jquery-3.7.0.min.js" type="text/javascript"></script>
 
         <script>
+            var isClicked = false;
             $(document).ready(function() {
                 $('.fa-angle-up').click(function() {
                     var count = parseInt($(this).siblings('.vote-count').text());
-                    $(this).siblings('.vote-count').text(count + 1);
-                    $(this).unbind("click");
-                    $(this).siblings('.fa-solid').unbind("click");
+                    if(isClicked==false){
+                        $(this).siblings('.vote-count').text(count + 1);
+                        $(this).unbind("click");
+                        $(this).siblings('.fa-solid').unbind("click");
+                        isClicked = true;
+                    } else{
+                        $(this).siblings('.vote-count').text(count - 1);
+                        $(this).unbind("click");
+                        $(this).siblings('.fa-solid').unbind("click");
+                        isClicked = false;
+                    }
                 });
 
                 $('.fa-angle-down').click(function() {
                     var count = parseInt($(this).siblings('.vote-count').text());
-                    $(this).siblings('.vote-count').text(count + 1);
+                    $(this).siblings('.vote-count').text(count - 1);
                     $(this).unbind("click");
                     $(this).siblings('.fa-solid').unbind("click");
                 });
@@ -44,11 +53,13 @@
             <span id = "hive"> HIVE </span>
             <input id = "search-bar" type="text" name="search" placeholder="Search" size = "100">
             <div id = "nav-links">
-                <span class = "nav-link" href="Registered_Homepage.html"> Home </span> 
-                <span class = "nav-link" href="ProfileMain.html"> • Profile </span> 
-                <span class = "nav-link" href="Unregistered_Homepage.html"> Logout </span> 
+                <a class = "nav-link" href="Registered_Homepage.html"> Home </a> 
+                <a class = "nav-link" href="ProfileMain.html"> • Profile </a> 
+                <a class = "nav-link" href="Unregistered_Homepage.html"> Logout </a> 
             </div>
         </div>
+
+        <br><br>
 
         <div class="profilecard">
 
@@ -87,7 +98,7 @@
         <div class = "create-post">
                 <div class =create-first">
                     <p class="create-ftitle"> CREATE POST </p>
-                    <p> -------------------------------------------------------------------------------------------------------- <p>
+                    <br><br>
                 </div>
                 <div class = "create-header">
                     <img  class = "user-icon" src="default_icon.jpg" alt="user_icon" width="32" height="32">
@@ -111,7 +122,7 @@
         <div class = "edit-post">
                 <div class =edit-first">
                     <p class="edit-ftitle"> EDIT PROFILE </p>
-                    <p> -------------------------------------------------------------------------------------------------------- <p>
+                    <br><br>
                 </div>
                 <div class = "edit-header">
                     <p> Profile Picture •</p>
