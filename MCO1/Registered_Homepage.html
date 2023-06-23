@@ -9,17 +9,31 @@
         <script>
             $(document).ready(function() {
                 $('.fa-angle-up').click(function() {
-                    var count = parseInt($(this).siblings('.vote-count').text());
-                    $(this).siblings('.vote-count').text(count + 1);
-                    $(this).unbind("click");
-                    $(this).siblings('.fa-solid').unbind("click");
+                    if ($(this).siblings('.fa-angle-down').css('color') == 'rgb(255, 210, 1)') {
+                        if ($(this).css('color') == 'rgb(255, 210, 1)') {
+                            var count = parseInt($(this).siblings('.vote-count').text());
+                            $(this).siblings('.vote-count').text(count + 1); 
+                            $(this).css('color', 'green');
+                        } else {
+                            var count = parseInt($(this).siblings('.vote-count').text());
+                            $(this).siblings('.vote-count').text(count - 1); 
+                            $(this).css('color', '#ffd201');
+                        }
+                    }
                 });
 
                 $('.fa-angle-down').click(function() {
-                    var count = parseInt($(this).siblings('.vote-count').text());
-                    $(this).siblings('.vote-count').text(count + 1);
-                    $(this).unbind("click");
-                    $(this).siblings('.fa-solid').unbind("click");
+                    if ($(this).siblings('.fa-angle-up').css('color') == 'rgb(255, 210, 1)') {
+                        if ($(this).css('color') == 'rgb(255, 210, 1)') {
+                            var count = parseInt($(this).siblings('.vote-count').text());
+                            $(this).siblings('.vote-count').text(count - 1); 
+                            $(this).css('color', 'red');
+                        } else {
+                            var count = parseInt($(this).siblings('.vote-count').text());
+                            $(this).siblings('.vote-count').text(count + 1); 
+                            $(this).css('color', '#ffd201');
+                        }
+                    }
                 });
             });
         </script>
@@ -30,6 +44,7 @@
             <img id = "hive-icon" src="Hive_Icon.png" alt="Hive_Icon">
             <span id = "hive"> HIVE </span>
             <input id = "search-bar" type="text" name="search" placeholder="Search" size = "100">
+            <i class="fa-solid fa-magnifying-glass" style="color: #ffd201;"></i>
             <div id = "nav-links">
                 <a class = "nav-link" href = "Registered_Homepage.html"> • Home </a> 
                 <a class = "nav-link" href = "ProfileMain.html"> Profile </a> 
@@ -39,7 +54,7 @@
 
         <div class = "create-post">
             <form action="#" method="POST">
-                <div class =create-first">
+                <div class ="create-first">
                     <p class="create-ftitle"> CREATE POST </p>
                     <p> -------------------------------------------------------------------------------------------------------------------------------- <p>
                 </div>
