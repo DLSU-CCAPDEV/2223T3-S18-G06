@@ -51,6 +51,7 @@
             <div id = "nav-links">
                 <a class = "nav-link" href = "Registered_Homepage.html"> • Home </a> 
                 <a class = "nav-link" href = "ProfileMain.html"> Profile </a> 
+                
                 <a class = "nav-link" href = "Unregistered_Homepage.html"> Logout </a> 
             </div>
         </div>
@@ -63,7 +64,12 @@
                 </div>
                 <div class = "create-header">
                     <img  class = "user-icon" src="default_icon.jpg" alt="user_icon" width="32" height="32">
-                    <p class = "create-username"> u/MyProfile </p>
+                    <p class = "create-username">
+                        <script>
+                            document.write("/u");
+                            document.write(localStorage.getItem("username"));
+                        </script>    
+                    </p>
                     <p class = "dot"> • </p>
                     <div class = "create-title"> <input type="text" id="title" name="title" placeholder="Title"  style="width: 300px; font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white;" required><br><br> 
                     </div>

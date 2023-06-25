@@ -38,7 +38,7 @@ function login(){
         return v.username==username && v.pass==password;
     })){
         let current_user=user_record.filter((v)=>{
-            return v.username==username && v.pass==password
+            return v.username==username && v.pass==password;
         })[0]
 
         localStorage.setItem("username",current_user.username);

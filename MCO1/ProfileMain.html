@@ -57,7 +57,7 @@
             <input id = "search-bar" type="text" name="search" placeholder="Search" size = "100">
             <div id = "nav-links">
                 <a class = "nav-link" href="Registered_Homepage.html"> Home </a> 
-                <a class = "nav-link" href="ProfileMain.html"> • Profile </a> 
+                <a class = "nav-link" href="ProfileMain.html"> • Profile </a>
                 <a class = "nav-link" href="Unregistered_Homepage.html"> Logout </a> 
             </div>
         </div>
@@ -70,7 +70,11 @@
             <img  class = "profile-icon" id="profilePicture" src="default_icon.jpg" alt="profile_icon" width="100" height="100">
             
 
-            <h1 class="profile-username" id="profile-username"> u/MyProfile </h1>
+            <h1 class="profile-username" id="profile-username"> 
+                <script> 
+                    document.write(localStorage.getItem("username"));
+                </script>
+            </h1>
             <p class="bio-content" id="bio-content">Welcome to My Profile!</p>
 
             <a href="#" class="editprofile-btn" onclick="showEdit()">Edit Profile</a>
@@ -99,13 +103,17 @@
         </div>
 
         <div class = "create-post">
-                <div class =create-first">
+                <div class ="create-first">
                     <p class="create-ftitle"> CREATE POST </p>
                     <br><br>
                 </div>
                 <div class = "create-header">
                     <img  class = "user-icon" src="default_icon.jpg" alt="user_icon" width="32" height="32">
-                    <p class = "create-username"> u/MyProfile </p>
+                    <p class = "create-username"> 
+                        <script> 
+                            document.write(localStorage.getItem("username"));
+                        </script>
+                    </p>
                     <p class = "dot"> • </p>
                     <div class = "create-title"> <input type="text" id="create-title" name="create-title" placeholder="Title"  style="width: 270px; font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white;" required><br><br> 
                     </div>
@@ -123,7 +131,7 @@
         </div>
 
         <div class = "edit-post">
-                <div class =edit-first">
+                <div class ="edit-first">
                     <p class="edit-ftitle"> EDIT PROFILE </p>
                     <br><br>
                 </div>
@@ -156,7 +164,12 @@
         <div class = "post">
             <div class = "post-header">
                 <img  class = "user-icon" src="default_icon.jpg" alt="user_icon" width="32" height="32">
-                <a class = "post-username" title = "view profile"> u/MyProfile </a>
+                <a class = "post-username" title = "view profile"> 
+                    <script>
+                        document.write("/u");
+                        document.write(localStorage.getItem("username"));
+                    </script>    
+                </a>
                 <p class = "dot"> • </p>
                 <a class = "post-title" id="post-title" title = "view post"> </a>
             </div>
