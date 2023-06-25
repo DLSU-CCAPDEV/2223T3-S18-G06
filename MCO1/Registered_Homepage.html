@@ -50,9 +50,19 @@
             <i class="fa-solid fa-magnifying-glass" style="color: #ffd201;"></i>
             <div id = "nav-links">
                 <a class = "nav-link" href = "Registered_Homepage.html"> • Home </a> 
-                <a class = "nav-link" href = "ProfileMain.html"> Profile </a> 
-                
+                <a class = "nav-link" onclick="viewProfile()"> Profile </a> 
                 <a class = "nav-link" href = "Unregistered_Homepage.html"> Logout </a> 
+
+                <script>
+                    function viewProfile(){
+                        if(localStorage.getItem("username")=="drinkwater"){
+                            window.location.href="main_user1.html";
+                        // } else if(localStorage.getItem("username")=="Busy_BeeKeeper"){
+                        //     windows.location.href="main_user2.html";
+                        // } else if(localStorage.getItem("username")=="")
+                        }
+                    }
+                </script>
             </div>
         </div>
 

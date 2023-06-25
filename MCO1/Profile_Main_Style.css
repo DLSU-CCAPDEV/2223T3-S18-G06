@@ -93,11 +93,12 @@ body {
 
 #Posts{
     text-decoration: overline;
+    color: none;
 }
 
 #Comments{
     text-decoration: none;
-    color:#fff;
+    color: #fff;
 }
 
 #Comments:hover{
