@@ -3,6 +3,7 @@
         
         <title> My Profile - Hive </title>
         <link rel="stylesheet" type="text/css" href="Profile_Main_Style.css">
+        <link rel="stylesheet" type="text/css" href="Post_Style.css">
         <script src="https://kit.fontawesome.com/4c2cf73d4b.js" crossorigin="anonymous"></script>
         <script src="https://kit.fontawesome.com/4c2cf73d4b.js" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.7.0.min.js" type="text/javascript"></script>
@@ -44,6 +45,20 @@
                 padding: 0;
                 background: #36393e;
             }
+
+            #comment-list{
+                color: rgba(255,210,1,255);
+                float: none;
+                position: relative;
+                top: 10;
+                margin-top: 50px;
+                margin-left: 34%;
+                margin-bottom: 0 auto;
+                width: 50%;
+                height: 10px;
+                padding: 0 auto;
+                visibility: hidden;
+            }
             
         </style>
 
@@ -58,7 +73,7 @@
             <div id = "nav-links">
                 <a class = "nav-link" href="Registered_Homepage.html"> Home </a> 
                 <a class = "nav-link" href="main_user1.html"> • Profile </a>
-                <a class = "nav-link" href="Unregistered_Homepage.html"> Logout </a>
+                <a class = "nav-link" href="index.html"> Logout </a> 
             </div>
         </div>
 
@@ -117,7 +132,7 @@
                 </div>
 
                 <div class = "create-footer">
-                    <input href="ProfileMain.html" class="create-post-btn" type="submit" value="Post" style="width: 150px; height: 30px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white;" onclick="createPost(), clearText(), hidePost()">
+                    <input href="main_user1.html" class="create-post-btn" type="submit" value="Post" style="width: 150px; height: 30px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white;" onclick="createPost(), clearText(), hidePost()">
                 </div>
                 <br>
         </div>
@@ -139,7 +154,7 @@
                 </div>
 
                 <div class = "edit-footer">
-                    <input href="ProfileMain.html" class="edit-post-btn" type="submit" value="Save Profile" style="width: 150px; height: 30px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white;" onclick="editProfile(), changePhoto(), clearText(), hideEdit()">
+                    <input href="main_user1.html" class="edit-post-btn" type="submit" value="Save Profile" style="width: 150px; height: 30px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white;" onclick="editProfile(), changePhoto(), clearText(), hideEdit()">
                 </div>
                 <br>
         </div>
@@ -168,11 +183,30 @@
                             hidePost[i].style.visibility = "hidden";
                             hidePost[i].style.display = "none";
                         }
+
+                        var showComment = document.getElementById('comment-list');
+
+                        showComment.style.visibility = "visible";
+                        showComment.style.display = "flex";
+                        showComment.style.flex = "none";
                     }
 
                     function viewPost(){
                         var comment = document.getElementById('Comments');
                         var post = document.getElementById('Posts');
+                        var user1_post = document.getElementById("user1_post");
+
+                        if(user1_post.style.visibility === "hidden"){
+
+                            var hidePost = document.getElementsByClassName("post");
+
+                            for(var i = 0; i < hidePost.length; i++){
+                                hidePost[i].style.visibility = "visible";
+                                hidePost[i].style.display = "flex";
+                            }
+                        }
+
+                        var hideComment = document.getElementById('comment-list');
 
                         comment.style.textDecoration = "none";
                         comment.style.color = "#fff";
@@ -181,19 +215,17 @@
                         comment.style.cursor = "pointer";
                         post.style.cursor = "pointer";
 
-                        var hidePost = document.getElementsByClassName("post");
+                        hideComment.style.vissbility = "hidden";
+                        hideComment.style.display = "none";
 
-                        for(var i = 0; i < hidePost.length; i++){
-                            hidePost[i].style.visibility = "visible";
-                            hidePost[i].style.display = "flex";
-                        }
+                        
                     }
                 </script>
             </div>
 
         </div>
 
-        <div class = "post">
+        <div class = "post" id="user1_post">
             <div class = "post-header">
                 <img  class = "user-icon" src="user1_icon.jpg" alt="user_icon" width="32" height="32">
                 <a class = "post-username" title = "view profile"> 
@@ -204,6 +236,38 @@
                 </a>
                 <p class = "dot"> • </p>
                 <a class = "post-title" id="post-title" title = "view post" href="main_user1.html"> A daily reminder to drink water </a>
+                
+                <div class="dropdown-menu" onclick="showOpt()">
+                    <div class="dot-menu" style="top: 5px;">•</div>
+                    <div class="dot-menu" style="top: -5px;">•</div>
+                    <div class="dot-menu" style="top: -15px;">•</div>
+                </div>
+
+                <div class="dropdown-opt" id="dropdown-opt">
+                    <div style="text-align: center; position: relative; top: 15px; cursor: pointer;" onclick="deletePost(), showOpt()">Delete</div>
+                </div>
+
+                <script>
+                    function showOpt(){
+                        var options = document.getElementById("dropdown-opt");
+
+                        if(options.style.visibility === "hidden"){
+                            options.style.visibility = "visible";
+                            options.classList.add("dropdown-style");
+                        } else{
+                            options.style.visibility = "hidden";
+                            options.classList.remove("dropdown-style");
+                        }
+                        
+                    }
+
+                    function deletePost(){
+                        var post = document.getElementById("user1_post");
+                        post.style.visibility = "hidden";
+                        post.style.display = "none";
+                    }
+                </script>
+
             </div>
             <br> <br> 
             <p class = "post-content" id="post-content">Drinking water is a brilliant investment in your well-being, as it nourishes your body, fuels your mind, 
@@ -217,6 +281,35 @@
                 <i class="fa-solid fa-angle-down" title = "downvote" style="color: #ffd201; margin-right: 50px; cursor: pointer;"></i>
             </div>
         </div>
+
+        <div id="comment-list">
+
+            <script> 
+                var hideComment = getElementById('comment-list');
+
+                hideComment.style.display = "none";
+            </script>
+
+            <div class="comment" id="user1_comment">
+                <div class = "comment-post">
+                    <div class = "post-header">
+                        <img  class = "user-icon" src="user1_icon.jpg" alt="user_icon" width="32" height="32">
+                        <a class = "post-username" href = "drinkwater_profile.html"> drinkwater </a>
+                        <p class = "dot"> • </p>
+                        <a class = "post-title" href = "drinkwater_post.html"> replying to - u/drinkwater's post </a>
+                    </div>
+                    <br> <br> 
+                    <p class = "post-content"> Not sponsored BTW! Just spreading useful information :D </p>
+                    <br>
+                    <div class = "post-footer">
+                        <a href = "drinkwater_post.html" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
+                        <span class = "comment-count"> 0 </span>
+                        <i class="fa-solid fa-angle-up" title = "upvote" style="color: #ffd201; cursor: pointer;"></i>
+                        <span class = "vote-count"> 1056 </span>
+                        <i class="fa-solid fa-angle-down" title = "downvote" style="color: #ffd201; margin-right: 50px; cursor: pointer;"></i>
+                    </div>
+                </div>
+            </div>
 
         <script src="Create_Post.js"></script>
         <script src="login_register.js"></script>
