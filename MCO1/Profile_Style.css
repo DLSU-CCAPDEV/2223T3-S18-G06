@@ -97,7 +97,6 @@ body {
 #Comments{
     text-decoration: none;
     color:#fff;
-    cursor: pointer
 }
 
 #Comments:hover{
@@ -241,12 +240,6 @@ body {
 
 .post-username:hover {
     text-decoration: underline;
-}
-
-.dot {
-    font-weight: 700;
-	margin-left: 10px;
-	margin-right: 10px;
 }
 
 .post-title {

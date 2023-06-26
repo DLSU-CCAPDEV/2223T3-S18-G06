@@ -84,21 +84,21 @@ body {
 }
 
 .prof-link{
-
     margin-left: 1px;
     padding: 1;
     padding-right: 2rem;
-
 }
 
 #Posts{
     text-decoration: overline;
     color: none;
+    cursor: pointer;
 }
 
 #Comments{
     text-decoration: none;
     color: #fff;
+    cursor: pointer;
 }
 
 #Comments:hover{
@@ -264,6 +264,32 @@ body {
     font-weight: 700;
 	margin-left: 10px;
 	margin-right: 10px;
+}   
+
+.dot-menu{
+    font-weight: 700;
+    position: relative;
+}
+
+.dropdown-menu{
+    position: relative;
+    left: 450px;
+    cursor: pointer;
+}
+
+.dropdown-opt{
+    visibility: hidden;
+}
+
+.dropdown-style{
+    position: relative;
+    left: 385px;
+    top: 35px;
+    width: 70px;
+    height: 50px;
+    background-color: #36393e;
+    border-radius: 10px;
+    z-index: 1;
 }
 
 .post-title {
@@ -458,6 +484,7 @@ body {
     border-radius: 5px;
     padding-right: 10px;
     padding-left: 10px;
+    visibility: visible;
 }
 
 .input-txt {

@@ -72,7 +72,7 @@
             <input id = "search-bar" type="text" name="search" placeholder="Search" size = "100">
             <div id = "nav-links">
                 <a class = "nav-link" href="Registered_Homepage.html"> Home </a> 
-                <a class = "nav-link" href="ProfileMain.html"> • Profile </a>
+                <a class = "nav-link" href="main_user2.html"> • Profile </a>
                 <a class = "nav-link" href="Unregistered_Homepage.html"> Logout </a> 
             </div>
         </div>
@@ -81,11 +81,11 @@
 
         <div class="profilecard">
 
-            <img  class = "cover-icon" src="user1_cover.png" alt="cover_icon" width="100" height="100">
-            <img  class = "profile-icon" id="profilePicture" src="user1_icon.jpg" alt="profile_icon" width="100" height="100">
+            <img  class = "cover-icon" src="user2_cover.png" alt="cover_icon" width="100" height="100">
+            <img  class = "profile-icon" id="profilePicture" src="user2_icon.jpg" alt="profile_icon" width="100" height="100">
             
 
-            <h1 class="profile-username" id="profile-username">drinkwater</h1>
+            <h1 class="profile-username" id="profile-username">PawsomePal</h1>
             <p class="bio-content" id="bio-content">Welcome to My Profile!</p>
 
             <a href="#" class="editprofile-btn" onclick="showEdit()">Edit Profile</a>
@@ -94,7 +94,7 @@
 
                 <div>
                     <p>Followers</p>
-                    <h2>50.1k</h2>
+                    <h2>13.2k</h2>
                 </div>
                 <div>
                     <p>Posts</p>
@@ -119,8 +119,8 @@
                     <br><br>
                 </div>
                 <div class = "create-header">
-                    <img  class = "user-icon" src="user1_icon.jpg" alt="user_icon" width="32" height="32">
-                    <p class = "create-username">/udrinkwater</p>
+                    <img  class = "user-icon" src="user2_icon.jpg" alt="user_icon" width="32" height="32">
+                    <p class = "create-username">/uPawsomePal</p>
                     <p class = "dot"> • </p>
                     <div class = "create-title"> <input type="text" id="create-title" name="create-title" placeholder="Title"  style="width: 270px; font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white;" required><br><br> 
                     </div>
@@ -225,9 +225,9 @@
 
         </div>
 
-        <div class = "post" id="user1_post">
+        <div class = "post" id="user2_post">
             <div class = "post-header">
-                <img  class = "user-icon" src="user1_icon.jpg" alt="user_icon" width="32" height="32">
+                <img  class = "user-icon" src="user2_icon.jpg" alt="user_icon" width="32" height="32">
                 <a class = "post-username" title = "view profile"> 
                     <script>
                         document.write("/u");
@@ -235,7 +235,7 @@
                     </script>    
                 </a>
                 <p class = "dot"> • </p>
-                <a class = "post-title" id="post-title" title = "view post" href="main_user1.html"> A daily reminder to drink water </a>
+                <a class = "post-title" id="post-title" title = "view post" href="main_user2.html"> Just dog things </a>
                 
                 <div class="dropdown-menu" onclick="showOpt()">
                     <div class="dot-menu" style="top: 5px;">•</div>
@@ -243,13 +243,13 @@
                     <div class="dot-menu" style="top: -15px;">•</div>
                 </div>
 
-                <div class="dropdown-opt" id="dropdown-opt">
+                <div class="dropdown-opt" id="dropdown-opt_post_user2">
                     <div style="text-align: center; position: relative; top: 15px; cursor: pointer;" onclick="deletePost(), showOpt()">Delete</div>
                 </div>
 
                 <script>
                     function showOpt(){
-                        var options = document.getElementById("dropdown-opt");
+                        var options = document.getElementById("dropdown-opt_post_user2");
 
                         if(options.style.visibility === "hidden"){
                             options.style.visibility = "visible";
@@ -262,7 +262,7 @@
                     }
 
                     function deletePost(){
-                        var post = document.getElementById("user1_post");
+                        var post = document.getElementById("user2_post");
                         post.style.visibility = "hidden";
                         post.style.display = "none";
                     }
@@ -270,11 +270,10 @@
 
             </div>
             <br> <br> 
-            <p class = "post-content" id="post-content">Drinking water is a brilliant investment in your well-being, as it nourishes your body, fuels your mind, 
-                and replenishes your spirit, allowing you to flow through life with clarity, vitality, and utmost brilliance. </p>
+            <p class = "post-content" id="post-content">Does anyone else talk to their dog like they're a human? Asking for a friend... 🙈😂 #DogConversations </p>
             <br>
             <div class = "post-footer">
-                <a href = "drinkwater_post.html" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
+                <a href = "main_user2.html" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
                 <span class = "comment-count"> 1 </span>
                 <i class="fa-solid fa-angle-up" title = "upvote" style="color: #ffd201; cursor: pointer;"></i>
                 <span class = "vote-count"> 12456 </span>
@@ -293,16 +292,16 @@
             <div class="comment" id="user1_comment">
                 <div class = "comment-post">
                     <div class = "post-header">
-                        <img  class = "user-icon" src="user1_icon.jpg" alt="user_icon" width="32" height="32">
-                        <a class = "post-username" href = "drinkwater_profile.html"> drinkwater </a>
+                        <img  class = "user-icon" src="user2_icon.jpg" alt="user_icon" width="32" height="32">
+                        <a class = "post-username" href = "main_user2.html"> PawsomePal </a>
                         <p class = "dot"> • </p>
-                        <a class = "post-title" href = "drinkwater_post.html"> replying to - u/drinkwater's post </a>
+                        <a class = "post-title" href = "main_user2.html"> replying to - u/drinkwater's post </a>
                     </div>
                     <br> <br> 
-                    <p class = "post-content"> Not sponsored BTW! Just spreading useful information :D </p>
+                    <p class = "post-content"> I like dogs </p>
                     <br>
                     <div class = "post-footer">
-                        <a href = "drinkwater_post.html" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
+                        <a href = "main_user2.html" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
                         <span class = "comment-count"> 0 </span>
                         <i class="fa-solid fa-angle-up" title = "upvote" style="color: #ffd201; cursor: pointer;"></i>
                         <span class = "vote-count"> 1056 </span>
