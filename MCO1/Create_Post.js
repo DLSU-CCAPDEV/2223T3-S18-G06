@@ -70,3 +70,9 @@ function hideEdit() {
 
     edit_post[0].style.display = "none";
 }
+
+function showPosted() {
+    var post = document.getElementsByClassName('post');
+
+    post[0].style.display = "block";
+}
