@@ -82,24 +82,30 @@ body {
 }
 
 .prof-link{
-
+    cursor: pointer;
     margin-left: 1px;
     padding: 1;
     padding-right: 2rem;
-
 }
 
 #Posts{
     text-decoration: overline;
+    color: rgba(255,210,1,255);
+    cursor: pointer;
 }
 
 #Comments{
     text-decoration: none;
     color:#fff;
+    cursor: pointer
 }
 
 #Comments:hover{
     color:rgba(255,210,1,255);
+}
+
+#Posts:hover{
+    color: rgba(255, 210, 1, 255);
 }
 
 .profilecard{

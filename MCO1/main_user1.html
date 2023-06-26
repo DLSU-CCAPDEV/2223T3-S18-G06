@@ -147,12 +147,46 @@
         <div id="profile-nav">
 
             <div id="profile-navlinks">
-                <span class="prof-link" id="Posts">Posts</span>
-                <span class="prof-link" id="Comments" onclick="showProfileContent()">Comments</span>
+                <span class="prof-link" id="Posts" onclick="viewPost()">Posts</span>
+                <span class="prof-link" id="Comments" onclick="viewComment()">Comments</span>
 
                 <script>
-                    function showProfileContent(){
-                        document.getElementById("Comments").style.color="none";
+                    function viewComment(){
+                        var comment = document.getElementById('Comments');
+                        var post = document.getElementById('Posts');
+                        
+                        comment.style.textDecoration = "overline";
+                        comment.style.color = "rgba(255,210,1,255)";
+                        post.style.textDecoration = "none";
+                        post.style.color = "#fff";
+                        comment.style.cursor = "pointer";
+                        post.style.cursor = "pointer";
+
+                        var hidePost = document.getElementsByClassName("post");
+
+                        for(var i = 0; i < hidePost.length; i++){
+                            hidePost[i].style.visibility = "hidden";
+                            hidePost[i].style.display = "none";
+                        }
+                    }
+
+                    function viewPost(){
+                        var comment = document.getElementById('Comments');
+                        var post = document.getElementById('Posts');
+
+                        comment.style.textDecoration = "none";
+                        comment.style.color = "#fff";
+                        post.style.textDecoration = "overline";
+                        post.style.color = "rgba(255, 210, 1, 255)";
+                        comment.style.cursor = "pointer";
+                        post.style.cursor = "pointer";
+
+                        var hidePost = document.getElementsByClassName("post");
+
+                        for(var i = 0; i < hidePost.length; i++){
+                            hidePost[i].style.visibility = "visible";
+                            hidePost[i].style.display = "flex";
+                        }
                     }
                 </script>
             </div>
