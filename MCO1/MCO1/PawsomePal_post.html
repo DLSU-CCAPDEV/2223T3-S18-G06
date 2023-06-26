@@ -9,31 +9,17 @@
         <script>
             $(document).ready(function() {
                 $('.fa-angle-up').click(function() {
-                    if ($(this).siblings('.fa-angle-down').css('color') == 'rgb(255, 210, 1)') {
-                        if ($(this).css('color') == 'rgb(255, 210, 1)') {
-                            var count = parseInt($(this).siblings('.vote-count').text());
-                            $(this).siblings('.vote-count').text(count + 1); 
-                            $(this).css('color', 'green');
-                        } else {
-                            var count = parseInt($(this).siblings('.vote-count').text());
-                            $(this).siblings('.vote-count').text(count - 1); 
-                            $(this).css('color', '#ffd201');
-                        }
-                    }
+                    var count = parseInt($(this).siblings('.vote-count').text());
+                    $(this).siblings('.vote-count').text(count + 1);
+                    $(this).unbind("click");
+                    $(this).siblings('.fa-solid').unbind("click");
                 });
 
                 $('.fa-angle-down').click(function() {
-                    if ($(this).siblings('.fa-angle-up').css('color') == 'rgb(255, 210, 1)') {
-                        if ($(this).css('color') == 'rgb(255, 210, 1)') {
-                            var count = parseInt($(this).siblings('.vote-count').text());
-                            $(this).siblings('.vote-count').text(count - 1); 
-                            $(this).css('color', 'red');
-                        } else {
-                            var count = parseInt($(this).siblings('.vote-count').text());
-                            $(this).siblings('.vote-count').text(count + 1); 
-                            $(this).css('color', '#ffd201');
-                        }
-                    }
+                    var count = parseInt($(this).siblings('.vote-count').text());
+                    $(this).siblings('.vote-count').text(count + 1);
+                    $(this).unbind("click");
+                    $(this).siblings('.fa-solid').unbind("click");
                 });
             });
         </script>
@@ -121,19 +107,35 @@
         </div>
         <!--- COMMENT --->
         <div class="create-comment">
-            <div class = "post-header">
-                <p class="comment-title"> Create Comment </p>
-                <p class = "dot"> • </p>
-                <a class = "post-title" href = "drinkwater_post.html"> A daily reminder to drink water </a>
-            </div>
-            <br> <br> 
+            <form>
 
             <!-- SUBMIT COMMENT -->
-            <textarea class="comment-content" rows="5" cols="50">
-            </textarea>
-            <a href="#" class="submit">Submit</a>
-            <br>
-        </div>
+            
+            <div class="create-content">
+
+                <div class = "post-header">
+                    <p class="comment-title"> Create Comment </p>
+                    <p class = "dot"> • </p>
+                    <a class = "post-title" href = "drinkwater_post.html"> A daily reminder to drink water </a>
+                </div>
+                <br> <br> <br>
+                
+                Name: <input type="text" id="name" style="font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white; border-radius: 5px;" required><br/>
+
+                <textarea class="comment-content" rows="5" cols="103" id="bodyText" placeholder="Write a comment" style="font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white; border-radius: 5px;" required>
+                </textarea>
+                <input class="create-comment-btn" id="addComment" type="button" value="Add Comment" />
+                <div class = "create-footer">
+                    
+                </div>
+                <br>
+            
+            </div>
+                
+
+            </form>
+         </div>
+        <!-- COMMENT LIST -->
         <br>
         <div id="comment-list">
 
@@ -181,9 +183,19 @@
                 </div>
             </div>
 
-        </div>
-        <br>        
+            <!-- PLACEHOLDER FOR CREATE COMMENT -->
+            <div class="comment-container">
+                <div class="comment" id="container">
+                    <!-- COMMENTS BY THE USER WILL BE APPENDED HERE -->
+                </div>
+            </div>
 
+            </div>
+            <br>
+
+
+            <script src="Create-Comment.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     </body>
 
 </html>
