@@ -264,7 +264,10 @@ body {
     justify-content: left;
 }
 
-.submit{
+
+
+
+.create-comment-btn{
     display: inline-block;
     text-decoration: none;
     font-weight: 700px;
@@ -272,14 +275,15 @@ body {
     box-shadow: 0 0px 0px 0px rgba(255,210,1,255);
     background-color: rgba(32,32,32,255);
     border-radius: 5%;
-    left: 10px;
+    left: 5px;
     color: #fff;
     padding: 6px 35px;
     margin: 1px auto;
-    margin-top: 20px;
-    margin-left: 725px;
+    margin-top: 15px;
+    margin-left: 685px;
+    margin-bottom: -15px;
     text-align: center;
-    
+    cursor: pointer;
 }
 
 .submit:hover {
