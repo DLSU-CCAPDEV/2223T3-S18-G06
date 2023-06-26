@@ -117,7 +117,7 @@
                 </div>
 
                 <div class = "create-footer">
-                    <input href="ProfileMain.html" class="create-post-btn" type="submit" value="Post" style="width: 150px; height: 30px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white;" onclick="createPost(), clearText(), hidePost()">
+                    <input href="ProfileMain.html" class="create-post-btn" type="submit" value="Post" style="width: 150px; height: 30px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white;" onclick="createPost(), clearText(), hidePost(), showPosted()">
                 </div>
                 <br>
         </div>
@@ -125,7 +125,7 @@
         <div class = "edit-post">
                 <div class =edit-first">
                     <p class="edit-ftitle"> EDIT PROFILE </p>
-                    <br><br>
+                    <br>
                 </div>
                 <div class = "edit-header">
                     <p> Profile Picture •</p>
@@ -136,12 +136,17 @@
                     </div>
                     <p> Bio • </p>
                     <textarea id="edit-content" name="edit-content" rows="5" cols="35" placeholder="Write something about yourself." style="font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white;" required></textarea>
+
+                    <br>
+                    <div class = "edit-header">
+                    <input class = "edit-footer" href="ProfileMain.html" class="edit-post-btn" type="submit" value="Save Profile" style="width: 150px; height: 30px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white;" onclick="editProfile(), changePhoto(), clearText(), hideEdit()">
+                    </div>
+                    <br>
+
                 </div>
 
-                <div class = "edit-footer">
-                    <input href="ProfileMain.html" class="edit-post-btn" type="submit" value="Save Profile" style="width: 150px; height: 30px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white;" onclick="editProfile(), changePhoto(), clearText(), hideEdit()">
-                </div>
-                <br>
+                
+                                    
         </div>
 
         <div id="profile-nav">
