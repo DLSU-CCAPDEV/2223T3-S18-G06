@@ -34,6 +34,14 @@ body {
     color: rgba(255,210,1,255);
 }
 
+.fa-magnifying-glass {
+    position: absolute;
+    color: #ffd201;
+    top: 37.3%;
+    left: 23.5%;
+    cursor: pointer;
+}
+
 #search-bar {
     position: absolute;
     margin: auto;
@@ -254,7 +262,7 @@ body {
     text-decoration: none;
     font-weight: 1000;
     color: white;
-    padding-top: 15px;
+    padding-top: 12px;
     height: 15px;
 }
 

@@ -6,23 +6,7 @@
         <script src="https://kit.fontawesome.com/4c2cf73d4b.js" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.7.0.min.js" type="text/javascript"></script>
 
-        <script>
-            $(document).ready(function() {
-                $('.fa-angle-up').click(function() {
-                    var count = parseInt($(this).siblings('.vote-count').text());
-                    $(this).siblings('.vote-count').text(count + 1);
-                    $(this).unbind("click");
-                    $(this).siblings('.fa-solid').unbind("click");
-                });
-
-                $('.fa-angle-down').click(function() {
-                    var count = parseInt($(this).siblings('.vote-count').text());
-                    $(this).siblings('.vote-count').text(count + 1);
-                    $(this).unbind("click");
-                    $(this).siblings('.fa-solid').unbind("click");
-                });
-            });
-        </script>
+        <script src="voting.js"></script>
         
         <style>
 
@@ -41,7 +25,25 @@
         <div id = "navbar">
             <img id = "hive-icon" src="Hive_Icon.png" alt="Hive_Icon">
             <span id = "hive"> HIVE </span>
-            <input id = "search-bar" type="text" name="search" placeholder="Search" size = "100">
+            <i class = "fa-solid fa-magnifying-glass" onclick = "search()"></i>
+            <script>
+                function search() {
+                    var value = document.getElementById("search-bar").value;
+                    var option = document.querySelector("#list option[value='" + value + "']");
+                    if (option != null) {
+                        window.location.href = value + "_profile.html";
+                    } else
+                        alert("no results found");
+                }
+            </script>
+            <input type="text" id = "search-bar" list = "list" name="search" placeholder = "search" size = "100">
+            <datalist id="list">
+                <option value="drinkwater">
+                <option value="PawsomePal">
+                <option value="TheCAGE">
+                <option value="Busy_Beekeeper">
+                <option value="dave">
+            </datalist>
             <div id = "nav-links">
                 <a class = "nav-link" href="Registered_Homepage.html"> Home </a> 
                 <a class = "nav-link" href = "ProfileMain.html"> • Profile </a> 

@@ -34,6 +34,14 @@ body {
     color: rgba(255,210,1,255);
 }
 
+.fa-magnifying-glass {
+    position: absolute;
+    color: #ffd201;
+    top: 37.3%;
+    left: 23.5%;
+    cursor: pointer;
+}
+
 #search-bar {
     position: absolute;
     margin: auto;
@@ -92,8 +100,10 @@ body {
 }
 
 .post-username {
+    text-decoration: none;
     font-weight: 1000;
     color: white;
+    margin-top: 12px;
 }
 
 .dot {
