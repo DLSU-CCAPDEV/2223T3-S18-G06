@@ -81,8 +81,8 @@ body {
 
 .create-post {
     background-color: rgba(32,32,32,255);
-    width: 30%;
     height: auto;
+    width: 29%;
     position: absolute;
     top: 87px;
     left: 57%;
@@ -93,6 +93,7 @@ body {
     color: rgba(255,210,1,255);
     border-radius: 5px;
     padding-left: 25px;
+    padding-right: 25px;  
 }
 
 .create-first {

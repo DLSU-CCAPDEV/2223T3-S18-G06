@@ -49,32 +49,6 @@
                 </script>
             </div>
         </div>
-
-        <div class = "create-post">
-            <form action="#" method="POST">
-                <p class ="create-first">CREATE POST</p>
-                <div class = "create-header">
-                    <img  class = "user-icon" src="default_icon.jpg" alt="user_icon" width="32" height="32">
-                    <p class = "create-username">
-                        <script>
-                            document.write("/u");
-                            document.write(localStorage.getItem("username"));
-                        </script> 
-                    </p>
-                    <p class = "dot"> • </p>
-                    <div class = "create-title"> <input type="text" id="title" name="title" placeholder="Title"  style="width: 300px; font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white;" required><br><br> 
-                    </div>
-                </div>
-
-                <div class = "create-content">
-                    <textarea id="content" name="content" rows="5" cols="65" placeholder="Write a post" style="font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white;" required></textarea> 
-                    <div class = "create-footer">
-                        <input class="create-post-btn" type="submit" value="Post" style="width: 200px; height: 30px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white;">
-                    </div>
-                </div>
-                <br>
-            </form>
-        </div>
         
         <div class = "post">
             <div class = "post-header">
@@ -173,6 +147,34 @@
                 <i class="fa-solid fa-angle-down" title = "downvote" style="color: #ffd201; margin-right: 50px; cursor: pointer;"></i>
             </div>
         </div>
+
+        <div class = "create-post">
+            <form action="#" method="POST">
+                <p class ="create-first">CREATE POST</p>
+                <div class = "create-header">
+                    <img  class = "user-icon" src="default_icon.jpg" alt="user_icon" width="32" height="32">
+                    <p class = "create-username">
+                        <script>
+                            document.write("/u");
+                            document.write(localStorage.getItem("username"));
+                        </script> 
+                    </p>
+                    <p class = "dot"> • </p>
+                    <div class = "create-title"> <input type="text" id="title" name="title" placeholder="Title"  style="width: 300px; font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white;" required><br><br> 
+                    </div>
+                </div>
+
+                <div class = "create-content">
+                    <textarea id="content" name="content" rows="5" cols="65" placeholder="Write a post" style="font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white;" required></textarea> 
+                    <div class = "create-footer">
+                        <input class="create-post-btn" type="submit" value="Post" style="width: 200px; height: 30px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white;">
+                    </div>
+                </div>
+                <br>
+            </form>
+        </div>
+
+        
     </body>
     <script src="login_register.js"></script>
     <script src="voting.js"></script>
