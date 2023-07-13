@@ -76,3 +76,14 @@ function showPosted() {
 
     post[0].style.display = "block";
 }
+
+const postBtn = document.querySelector("create-post-btn");
+
+postBtn.addEventListener("click", function(e) {
+    e.preventDefault();
+
+    var title = document.getElementById("title").value;
+
+    console.log(title);
+
+});
