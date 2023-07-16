@@ -1,3 +1,99 @@
+function addPost() {
+
+    const createTitle = document.getElementById("create-title");
+    const createTitleValue = createTitle.value;
+
+    const create_content = document.getElementById('create-content');
+    const createContentValue = create_content.value;
+
+    const brElement = document.createElement('br');
+    const bodyElement = document.body;
+
+    const post = document.createElement("div");
+    post.className = "post";
+
+    const postHeader = document.createElement("div");
+    postHeader.className = "post-header";
+
+    const userIcon = document.createElement("img");
+    userIcon.className = "user-icon";
+    userIcon.src = "/user5_icon.jpg";
+    userIcon.alt = "user_icon";
+    userIcon.width = 32;
+    userIcon.height = 32;
+
+    const postUserName = document.createElement("a");
+    postUserName.className = "post-username";
+    postUserName.title = "view profile";
+    postUserName.textContent = "New";
+
+    const dot = document.createElement("p");
+    dot.className = "dot";
+    dot.textContent = "•";
+
+    const postTitle = document.createElement("a");
+    postTitle.className = "post-title";
+    postTitle.id = "post-title";
+    postTitle.title = "view post";
+    postTitle.innerText = createTitle.value;
+
+    const postContent = document.createElement("p");
+    postContent.className = "post-content";
+    postContent.id = "post-content";
+    postContent.textContent = "INSERT CONTENT";
+
+    const postFooter = document.createElement("div");
+    postFooter.className = "post-footer";
+
+    // const for href
+
+    const faSolidComment = document.createElement("i");
+    faSolidComment.className ="fa-solid fa-comment";
+    faSolidComment.style.color = "#ffd201;"
+
+    const commentCount = document.createElement("span");
+    commentCount.className = "comment-count";
+    commentCount.textContent = "0";
+
+    const upVote = document.createElement("i");
+    upVote.className = "fa-solid fa-angle-up";
+    upVote.title = "upvote";
+    upVote.style.color = "#ffd201";
+    upVote.style.cursor = "pointer";
+
+    const voteCount = document.createElement("span");
+    voteCount.className = "vote-count";
+    voteCount.textContent = "0";
+
+    const downVote = document.createElement("i");
+    downVote.className = "fa-solid fa-angle-down";
+    downVote.title = "downvote";
+    downVote.style.color = "#ffd201";
+    downVote.style.marginRight = "50px";
+    downVote.style.cursor = "pointer";
+
+    postHeader.appendChild(userIcon); 
+    postHeader.appendChild(postUserName);
+    postHeader.appendChild(dot);
+    postHeader.appendChild(postTitle);
+
+    
+
+    postFooter.appendChild(faSolidComment);
+    postFooter.appendChild(commentCount);
+    postFooter.appendChild(upVote);
+    postFooter.appendChild(voteCount);
+    postFooter.appendChild(downVote);
+
+    post.appendChild(postHeader);
+    post.appendChild(postContent);
+    post.appendChild(brElement);
+    post.appendChild(postFooter);
+    bodyElement.appendChild(post);
+    
+}
+
+
 function createPost(){
     const create_title = document.getElementById('create-title');
     const post_title = document.getElementById('post-title');
