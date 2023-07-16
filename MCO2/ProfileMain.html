@@ -111,14 +111,14 @@
                     <div class = "create-title"> <input type="text" id="create-title" name="create-title" placeholder="Title"  style="width: 270px; font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white;" required><br><br> 
                     </div>
                 </div>
-                <br><br><br>
+                <br><br><br><br>
 
                 <div class = "create-content">
                     <textarea id="create-content" name="create-content" rows="5" cols="51" placeholder="Write a post" style="font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white;" required></textarea> 
                 </div>
 
                 <div class = "create-footer">
-                    <input href="ProfileMain.html" class="create-post-btn" type="submit" value="Post" style="width: 150px; height: 30px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white;" onclick="createPost(), clearText(), hidePost(), showPosted()">
+                    <input href="ProfileMain.html" class="create-post-btn" type="submit" value="Post" style="width: 150px; height: 30px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white;" onclick="clearText(), hidePost(), addPost()">
                 </div>
                 <br>
         </div>
@@ -157,30 +157,6 @@
                 <span class="prof-link" id="Comments">Comments</span>
             </div>
 
-        </div>
-
-        <div class = "post">
-            <div class = "post-header">
-                <img  class = "user-icon" src="default_icon.jpg" alt="user_icon" width="32" height="32">
-                <a class = "post-username" title = "view profile"> 
-                    <script>
-                        document.write("/u");
-                        document.write(localStorage.getItem("username"));
-                    </script>    
-                </a>
-                <p class = "dot"> • </p>
-                <a class = "post-title" id="post-title" title = "view post"> </a>
-            </div>
-            <br> <br> 
-            <p class = "post-content" id="post-content"> </p>
-            <br>
-            <div class = "post-footer">
-                <a href = "drinkwater_post.html" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
-                <span class = "comment-count"> 0 </span>
-                <i class="fa-solid fa-angle-up" title = "upvote" style="color: #ffd201; cursor: pointer;"></i>
-                <span class = "vote-count"> 0 </span>
-                <i class="fa-solid fa-angle-down" title = "downvote" style="color: #ffd201; margin-right: 50px; cursor: pointer;"></i>
-            </div>
         </div>
 
         <script src="Create_Post.js"></script>
