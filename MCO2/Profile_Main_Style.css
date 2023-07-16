@@ -289,6 +289,7 @@ body {
 
 .post-content {
     position: relative;
+    padding-top: 28px;
     font-size: 20px;
     color: white;
 }
@@ -379,7 +380,7 @@ body {
 
 .create-header {
     display: flex;
-    position: absolute;
+    position: relative;
     top: 70px;
     left: 15px;
 }
@@ -402,13 +403,12 @@ body {
     position: relative;
     font-size: 20px;
     color: white;
-    top: -10px;
+    top: 10px;
 }
 
 .create-footer {
     display: flex;
-    position: absolute;
-    padding-left: 120px;
+    position: relative;
     bottom: 10px;
     left: 20px;
 }
@@ -476,93 +476,5 @@ body {
     box-shadow: 0 0px 2px 1px rgba(255,210,1,255);
 
 }
-
-.post {
-    background-color: rgba(32,32,32,255);
-    width: 45%;
-    position: relative;
-    top: 80px;
-    left: 10%;
-    right: 50%;
-    display: flex;
-    flex-direction: column;
-    font-size: 15px;
-    font-family: Roboto, sans-serif;
-    color: rgba(255,210,1,255);
-    border-radius: 5px;
-    padding-right: 10px;
-    padding-left: 10px;
-    display: none;
-}
-
-.input-txt {
-    font-family: Impact, sans-serif;
-}
-
-.post-header {
-    display: flex;
-    position: absolute;
-    top: 5px;
-    left: 20px;
-}
-
-.user-icon {
-    border-radius: 50%;
-    margin-right: 10px;
-    margin-top: 7px;
-}
-
-.post-username {
-    text-decoration: none;
-    font-weight: 1000;
-    color: white;
-    padding-top: 15px;
-    height: 15px;
-}
-
-.post-username:hover {
-    text-decoration: underline;
-}
-
-.dot {
-    font-weight: 700;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-.post-title {
-    text-decoration: none;
-    color: white; 
-    padding-top: 15px;
-    height: 15px;
-}
-
-.post-title:hover {
-    text-decoration: underline;
-}
-
-.post-content {
-    position: relative;
-    font-size: 20px;
-    color: white;
-}
-
-.post-footer {
-    display: flex;
-    position: absolute;
-    bottom: 5px;
-    left: 20px;
-}
-
-.comment-count {
-    margin-left: 10px;
-    margin-right: 40px;
-}
-
-.vote-count {
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
 
 
