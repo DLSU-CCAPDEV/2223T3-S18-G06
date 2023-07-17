@@ -35,7 +35,8 @@
             </div>
         </div>
 
-        {{#each posts}}
+        {{!-- Request all documents from collection 'posts' --}}
+        {{#each result}}
             <div class = "post">
                 <div class = "post-header">
                     <img  class = "user-icon" src="{{filename}}" alt="user_icon" width="32" height="32">

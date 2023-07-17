@@ -1,12 +1,18 @@
+const db = require('../models/db.js');
+
 const controller = {
 
     getRoot: function(req, res) {
-        res.render("index", {
-            posts: [
-                {filename: "/user5_icon.jpg", username: "dave", title: "Anyone up for a roadtrtip?",
-                    content: "Excited to announce that I've just become the proud owner of a brand new Toyota Wigo! The perfect combination of style, efficiency, and reliability. Ready to hit the road and create unforgettable memories. 🚗💨 #NewCarFeels #ToyotaWigo",
-                        comments: "3", votes: "55"} 
-            ]
+        // res.render("index", {
+        //     posts: [
+        //         {filename: "/user5_icon.jpg", username: "dave", title: "Anyone up for a roadtrtip?",
+        //             content: "Excited to announce that I've just become the proud owner of a brand new Toyota Wigo! The perfect combination of style, efficiency, and reliability. Ready to hit the road and create unforgettable memories. 🚗💨 #NewCarFeels #ToyotaWigo",
+        //                 comments: "3", votes: "55"} 
+        //     ]
+        // });
+
+        db.findMany('posts', {}, function(result){
+            res.render('index', result);
         });
     },
 
