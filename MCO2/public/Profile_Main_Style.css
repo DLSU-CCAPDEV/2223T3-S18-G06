@@ -365,17 +365,15 @@ body {
 
 .create-first {
     color: white;
-    display: flex;
-    position: absolute;
-    top: 5px;
-    left: 20px;
-}
-
-.create-ftitle {
     font-family: cursive;
     font-weight: 1000;
     color: rgba(255,210,1,255);
-    padding-left: 160px;
+    display: flex;
+    position: absolute;
+    padding-top: 30px;
+    padding-left: 150px;
+    top: 5px;
+    left: 20px;
 }
 
 .create-header {
@@ -476,4 +474,5 @@ body {
     box-shadow: 0 0px 2px 1px rgba(255,210,1,255);
 
 }
+
 
