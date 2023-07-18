@@ -27,7 +27,7 @@
     <body>
 
         <div id = "navbar">
-            <img id = "hive-icon" src="Hive_Icon.png" alt="Hive_Icon">
+            <img id = "hive-icon" src="/Hive_Icon.png" alt="Hive_Icon">
             <span id = "hive"> HIVE </span>
             <i class = "fa-solid fa-magnifying-glass" onclick = "search()"></i>
             <script>
@@ -35,7 +35,7 @@
                     var value = document.getElementById("search-bar").value;
                     var option = document.querySelector("#list option[value='" + value + "']");
                     if (option != null) {
-                        window.location.href = value + "_profile.html";
+                        window.location.href = "/" + value + "_profile";
                     } else
                         alert("no results found");
                 }
