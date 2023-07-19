@@ -40,7 +40,6 @@ const database = {
             });
         });
     },
-
     /*
         inserts document `doc` to collection `collection`
     */
@@ -107,7 +106,6 @@ const database = {
             });
         });
     },
-
     /*
         deletes a single document in the collection `collection`
         based on the object `filter`

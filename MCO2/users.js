@@ -13,7 +13,12 @@ var post = {
     votes: "55"
 }
 
-db.insertOne(collection, posts);
+// var post = {
+//     username: 'dave',
+//     title: 'Anyone up for a roadtrip?'
+// }
+
+db.insertOne(collection, post);
 
 var post = {
     filename: "/user4_icon.jpg",
@@ -24,4 +29,4 @@ var post = {
     votes: "3"
 }
 
-db.insertOne(collection, posts);
+db.insertOne(collection, post);
