@@ -243,6 +243,7 @@ body {
     border-radius: 5px;
     padding-right: 10px;
     padding-left: 10px;
+    margin-bottom: 20px;
 }
 
 .post-header {
@@ -408,7 +409,7 @@ body {
     display: flex;
     position: relative;
     bottom: 10px;
-    left: 20px;
+    left: 5px;
 }
 
 .create-post-btn:hover {
@@ -474,5 +475,4 @@ body {
     box-shadow: 0 0px 2px 1px rgba(255,210,1,255);
 
 }
-
 
