@@ -1,32 +1,42 @@
+/*
+    This script creates the database
+    and inserts 8 user details in the collection `profiles`
+*/
+
+// import module from `./models/db.js`
 const db = require('./models/db.js');
 
-const collection = 'posts';
+/*
+    name of the collection (table)
+    to perform CRUD (Create, Read, Update, Delete) operations
+*/
+const collection = 'profiles';
 
+/*
+    calls the function createDatabase()
+    defined in the `database` object in `./models/db.js`
+*/
 db.createDatabase();
 
-var post = {
-    filename: "/user5_icon.jpg", 
-    username: "dave", 
-    title: "Anyone up for a roadtrtip?",
-    content: "Excited to announce that I've just become the proud owner of a brand new Toyota Wigo! The perfect combination of style, efficiency, and reliability. Ready to hit the road and create unforgettable memories. 🚗💨 #NewCarFeels #ToyotaWigo",
-    comments: "3",
-    votes: "55"
-}
+/*
+    creates an object
+    containing first name, last name, username, and bio of a user
+*/
+var user = {
+    fName: 'Ned',
+    lName: 'Stark',
+    username: 'LordHandStark',
+    bio: `You think my life is some precious thing to me?
+    That I would trade my honour for a few more years of...of what?!
+    You grew up with actors; you learned their craft and you learnt it well.
+    But I grew up with soldiers. I learned how to die a long time ago.`
+};
 
-// var post = {
-//     username: 'dave',
-//     title: 'Anyone up for a roadtrip?'
-// }
+/*
+    calls the function insertOne()
+    defined in the `database` object in `./models/db.js`
+    stores the object `user` in the collection (table) `profiles`
+*/
+db.insertOne(collection, user);
 
-db.insertOne(collection, post);
 
-var post = {
-    filename: "/user4_icon.jpg",
-    username: "Busy_Beekeeper",
-    title: "The Bee Transfer Chronicles",
-    content: "Today, I stepped into the enchanting world of beekeeping by transferring a bee colony. With protective gear on and heart pounding, I witnessed the intricate choreography of bees, their fascinating communication, and the profound connection between beekeeper and colony. 🌺🐝 #BeekeepingAdventure",
-    comments: "1",
-    votes: "3"
-}
-
-db.insertOne(collection, post);

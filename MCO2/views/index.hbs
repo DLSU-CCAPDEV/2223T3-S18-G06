@@ -35,8 +35,7 @@
             </div>
         </div>
 
-        {{!-- Request all documents from collection 'posts' --}}
-        {{!-- {{#each posts}}
+    {{#each posts}} {{!-- DO NOT USE THIS IN OTHER PAGES. This does not let users comment or vote. Use the one in Registered_Homepage--}}
             <div class = "post">
                 <div class = "post-header">
                     <img  class = "user-icon" src="{{filename}}" alt="user_icon" width="32" height="32">
@@ -49,12 +48,12 @@
                 <br>
                 <div class = "post-footer">
                     <i class="fa-solid fa-comment" style="color: #ffd201;" title = "login to comment"></i>
-                    <span class = "comment-count"> {{comments}} </span>
+                    <span class = "comment-count"> {{commentcount}} </span>
                     <i class="fa-solid fa-angle-up" style="color: #ffd201;" title = "login to upvote"></i>
                     <span class = "vote-count"> {{votes}} </span>
                     <i class="fa-solid fa-angle-down" style="color: #ffd201; margin-right: 50px" title = "login to downvote"></i>
                 </div>
             </div>
-        {{/each}} --}}
+    {{/each}}
     </body>
 </html>
