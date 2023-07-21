@@ -22,7 +22,12 @@ var PostSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    votes: {
+    upvote: {
+        type: Number,
+        required: true
+    },
+
+    downvote:{
         type: Number,
         required: true
     },
@@ -34,4 +39,4 @@ var PostSchema = new mongoose.Schema({
     This model executes CRUD operations
     to collection `users` -> plural of the argument `User`
 */
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('Posts', PostSchema);
