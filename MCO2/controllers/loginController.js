@@ -17,13 +17,11 @@ const loginController = {
                 username: username
             });
 
-            if(!user || user.pw === pw){
+            if(!user || user.pw !== pw){
                 res.render('login', {
                     err_message: 'Invalid username or password',
                     username: username
                 });
-
-                console.log('hello!');
             } else {
                 res.redirect('/Registered_Homepage/' + user.email);
             }
