@@ -30,6 +30,11 @@ var UserSchema = new mongoose.Schema({
     pw: {
         type: String,
         required: true
+    },
+
+    dp: {
+        type: String,
+        default: '/default_icon.jpg'
     }
 });
 

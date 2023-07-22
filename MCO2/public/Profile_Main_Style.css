@@ -291,6 +291,7 @@ body {
 .post-content {
     position: relative;
     padding-top: 28px;
+    padding-bottom: 10px;
     font-size: 20px;
     color: white;
 }

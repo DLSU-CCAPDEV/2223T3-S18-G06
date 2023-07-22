@@ -17,9 +17,12 @@ app.get('/login', loginController.getLogin);
 app.post('/login', loginController.postLogin);
 
 app.post('/checkAcct', controller.checkAcct);
-app.get('/Registered_Homepage/:email', controller.getHomepage);
-app.get('/profile/:email', controller.getHomepage);
-app.get('/profile')
+app.get('/Registered_Homepage/:username', controller.getHomepage); 
+app.get('/profile/:username', controller.getProfile); 
 app.get('/logout', controller.getRoot);
+
+//voting
+app.get('/upVote', controller.upVote);
+app.get('/downVote', controller.downVote);
 
 module.exports = app;

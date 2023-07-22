@@ -13,8 +13,7 @@ async function insertOneDocument() {
     title: 'Anyone up for a roadtrip?',
     content: 'Excited to announce that I\'ve just become the proud owner of a brand new Toyota Wigo! The perfect combination of style, efficiency, and reliability. Ready to hit the road and create unforgettable memories. 🚗💨 #NewCarFeels #ToyotaWigo',
     commentcount: 3,
-    upvote: 35,
-    downvote: 0,
+    votes: 35
   };
 
   try {

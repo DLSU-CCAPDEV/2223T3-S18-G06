@@ -6,7 +6,10 @@ function addPost() {
     const create_content = document.getElementById('create-content');
     const createContentValue = create_content.value;
 
-    const brElement = document.createElement('br');
+    if(createTitleValue === '' || createContentValue === '') {
+        alert('Please Fill Up All Text Areas');
+    }
+    else {
     const bodyElement = document.body;
 
     const post = document.createElement("div");
@@ -47,8 +50,10 @@ function addPost() {
 
     // const for href
 
-    const faSolidComment = document.createElement("i");
+    const faSolidComment = document.createElement("a");
+    const hrefCommentValue = "";
     faSolidComment.className ="fa-solid fa-comment";
+    faSolidComment.setAttribute('href', hrefCommentValue);
     faSolidComment.style.color = "#ffd201;"
 
     const commentCount = document.createElement("span");
@@ -87,10 +92,48 @@ function addPost() {
 
     post.appendChild(postHeader);
     post.appendChild(postContent);
-    post.appendChild(brElement);
     post.appendChild(postFooter);
     bodyElement.appendChild(post);
     
+    $(document).ready(function() {
+        $('.fa-angle-up').click(function() {
+            var title = $(this).parent().siblings('.post-header').children('.post-title').text();
+            var count = parseInt($(this).siblings('.vote-count').text());
+    
+            if ($(this).siblings('.fa-angle-down').css('color') == 'rgb(255, 210, 1)') {
+                if ($(this).css('color') == 'rgb(255, 210, 1)') {
+                    $(this).siblings('.vote-count').text(count + 1); 
+                    $(this).css('color', 'green');
+                    $.get('/upVote', {title:title}, function() {});
+                }
+                else {
+                    $(this).siblings('.vote-count').text(count - 1); 
+                    $(this).css('color', '#ffd201');
+                    $.get('/downVote', {title:title}, function() {});
+                }
+            }
+        });
+    
+        $('.fa-angle-down').click(function() {
+            var title = $(this).parent().siblings('.post-header').children('.post-title').text();
+            var count = parseInt($(this).siblings('.vote-count').text());
+    
+            if ($(this).siblings('.fa-angle-up').css('color') == 'rgb(255, 210, 1)') {
+                if ($(this).css('color') == 'rgb(255, 210, 1)') {
+                    $(this).siblings('.vote-count').text(count - 1); 
+                    $(this).css('color', 'red');
+                    $.get('/downVote', {title:title}, function() {});
+                }
+                else {
+                    $(this).siblings('.vote-count').text(count + 1); 
+                    $(this).css('color', '#ffd201');
+                    $.get('/upVote', {title:title}, function() {});
+                }
+            }
+        });
+    });
+    clearText();
+}
 }
 
 
@@ -167,19 +210,3 @@ function hideEdit() {
     edit_post[0].style.display = "none";
 }
 
-function showPosted() {
-    var post = document.getElementsByClassName('post');
-
-    post[0].style.display = "block";
-}
-
-const postBtn = document.querySelector("create-post-btn");
-
-postBtn.addEventListener("click", function(e) {
-    e.preventDefault();
-
-    var title = document.getElementById("title").value;
-
-    console.log(title);
-
-});

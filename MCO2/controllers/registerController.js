@@ -15,6 +15,8 @@ const registerController = {
         var lname = req.body.lname;
         var email = req.body.email;
         var pw = req.body.pw;
+
+        var dp = '/default_icon.jpg';
         
         // const find_user = await db.findOne(User, {$or: [{email: email}, {username: username}]});
 
@@ -28,7 +30,8 @@ const registerController = {
             fname: fname,
             lname: lname,
             email: email,
-            pw: pw
+            pw: pw,
+            dp: dp
         };
 
         try{

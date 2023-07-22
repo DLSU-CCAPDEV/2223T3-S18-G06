@@ -1,5 +1,6 @@
 const db = require('../models/db.js');
 const Post = require('../models/PostModel.js');
+const User = require('../models/UserModel.js');
 
 const controller = {
 
@@ -21,25 +22,43 @@ const controller = {
         res.redirect('/main_user1/' + email);
     },
 
-    getHomepage: function(req, res) {
-        var email = req.params.email;
+    getHomepage: async function(req, res) {
+        var username = req.params.username;
 
-        res.render('Registered_Homepage', {email: email});
+        var query = {username: username};
+
+        res.render('Registered_Homepage', {
+            username: username,
+            posts: await db.findMany(Post, {}),
+            users: await db.findOne(User, query)
+        });
     },
 
     getProfile: function(req, res) {
-        var email = req.params.email;
+        var username = req.params.username;
 
-        res.render('main_user1', {email: email});
+        res.render('profile', {username: username});
     },
 
-    postVote: async function(req, res) { //ty
-        var votes = req.query.votes;
+    upVote: async function(req, res) { 
+        var query = req.query.title.slice(1);
+        var title = query.slice(0, -1); 
+        
+        var post = await db.findOne(Post, {title: title});
+        var result = post.votes + 1;
 
-        var value = await db.findOne(Post, {votes: votes}, )
-
-        updateOne(Post, )
+        db.updateOne(Post, {title: title}, {votes: result});
     },
+
+    downVote: async function(req, res) { 
+        var query = req.query.title.slice(1);
+        var title = query.slice(0, -1); 
+        
+        var post = await db.findOne(Post, {title: title});
+        var result = post.votes - 1;
+
+        db.updateOne(Post, {title: title}, {votes: result});
+    }
 }
 
 

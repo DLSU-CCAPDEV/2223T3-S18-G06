@@ -23,7 +23,7 @@ const loginController = {
                     username: username
                 });
             } else {
-                res.redirect('/Registered_Homepage/' + user.email);
+                res.redirect('/Registered_Homepage/' + user.username);
             }
         } catch(error){
             console.error('Error Login: ', error);
