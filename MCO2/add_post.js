@@ -10,7 +10,7 @@ async function insertOneDocument() {
   const document = {
     filename: 'user5_icon.jpg',
     username: 'dave',
-    title: 'Anyone up for a raodtrip?',
+    title: 'Anyone up for a roadtrip?',
     content: 'Excited to announce that I\'ve just become the proud owner of a brand new Toyota Wigo! The perfect combination of style, efficiency, and reliability. Ready to hit the road and create unforgettable memories. 🚗💨 #NewCarFeels #ToyotaWigo',
     commentcount: 3,
     upvote: 35,
@@ -25,7 +25,4 @@ async function insertOneDocument() {
   }
 }
 
-// // Assuming you have set up your MongoDB connection and the db object contains the insertOne function
-
-// // Call the function to insert one document into the "posts" collection
 insertOneDocument();

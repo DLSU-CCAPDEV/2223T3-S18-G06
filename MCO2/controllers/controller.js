@@ -13,14 +13,6 @@ const controller = {
         });
     },
 
-    getRegister: function(req, res) {
-        res.render('register');
-    },
-
-    getLogin: function(req, res) {
-        res.render('login');
-    },
-
     checkAcct: function(req, res) {
         var email = req.body.email;
         var password = req.body.pw;
@@ -39,6 +31,14 @@ const controller = {
         var email = req.params.email;
 
         res.render('main_user1', {email: email});
+    },
+
+    postVote: async function(req, res) { //ty
+        var votes = req.query.votes;
+
+        var value = await db.findOne(Post, {votes: votes}, )
+
+        updateOne(Post, )
     },
 }
 

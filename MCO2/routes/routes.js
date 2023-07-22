@@ -19,6 +19,7 @@ app.post('/login', loginController.postLogin);
 app.post('/checkAcct', controller.checkAcct);
 app.get('/Registered_Homepage/:email', controller.getHomepage);
 app.get('/profile/:email', controller.getHomepage);
+app.get('/profile')
 app.get('/logout', controller.getRoot);
 
 module.exports = app;

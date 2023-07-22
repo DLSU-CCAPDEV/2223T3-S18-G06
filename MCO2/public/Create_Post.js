@@ -17,7 +17,7 @@ function addPost() {
 
     const userIcon = document.createElement("img");
     userIcon.className = "user-icon";
-    userIcon.src = "/user5_icon.jpg";
+    userIcon.src = "/default_icon.jpg";
     userIcon.alt = "user_icon";
     userIcon.width = 32;
     userIcon.height = 32;
@@ -40,7 +40,7 @@ function addPost() {
     const postContent = document.createElement("p");
     postContent.className = "post-content";
     postContent.id = "post-content";
-    postContent.textContent = "INSERT CONTENT";
+    postContent.textContent = createContentValue;
 
     const postFooter = document.createElement("div");
     postFooter.className = "post-footer";

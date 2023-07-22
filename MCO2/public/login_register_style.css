@@ -9,9 +9,10 @@ body {
     margin: auto;
     margin-top: 60px;
     width: 360px;
-    height: 550px;
+    height: auto;
     background-color: white;
     border-radius: 3px;
+    padding-bottom: 20px;
 }
 
 h1{
@@ -96,7 +97,7 @@ p{
     margin: auto;
     margin-top: 60px;
     width: 360px;
-    height: 380px;
+    height: auto;
     border-radius: 3px;
     background-color: white;
 }

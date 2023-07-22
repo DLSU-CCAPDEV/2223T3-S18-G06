@@ -35,18 +35,8 @@
             </datalist>
             <div id = "nav-links">
                 <a class = "nav-link" href = "/Registered_Homepage"> • Home </a> 
-                <a class = "nav-link" onclick="viewProfile()"> Profile </a> 
-                <a class = "nav-link" href = "/index"> Logout </a> 
-
-                <script>
-                    function viewProfile(){
-                        if(localStorage.getItem("username")=="drinkwater"){
-                            window.location.href="/main_user1";
-                        } else{
-                            window.location.href="/ProfileMain";
-                        }
-                    }
-                </script>
+                <a class = "nav-link" href="/Profile"> Profile </a> 
+                <a class = "nav-link" href = "/logout"> Logout </a> 
             </div>
         </div>
 
@@ -56,9 +46,7 @@
                 <div class = "create-header">
                     <img  class = "user-icon" src="default_icon.jpg" alt="user_icon" width="32" height="32">
                     <p class = "create-username"> 
-                        <script> 
-                            document.write(localStorage.getItem("username"));
-                        </script>
+                        {{username}}
                     </p>
                     <p class = "dot"> • </p>
                     <div class = "create-title"> <input type="text" id="create-title" name="create-title" placeholder="Title"  style="width: 270px; font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white;" required><br><br> 
@@ -92,14 +80,14 @@
                     <a href = "/dave_post" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
                     <span class = "comment-count"> {{commentcount}} </span>
                     <i class="fa-solid fa-angle-up" title = "upvote" style="color: #ffd201; cursor: pointer;"></i>
-                    <span class = "vote-count"> {{votes}} </span>
+                    <span class = "vote-count" name = "votes"> {{votes}} </span>
                     <i class="fa-solid fa-angle-down" title = "downvote" style="color: #ffd201; margin-right: 50px; cursor: pointer;"></i>
-                </div>
+                </div> 
             </div>
         {{/each}}
 
     </body>
-    <script src="/login_register.js"></script>
+    <script src="/login_register.js"></>
     <script src="/voting.js"></script>
     <script src="/Create_Post.js"></script>
 </html>

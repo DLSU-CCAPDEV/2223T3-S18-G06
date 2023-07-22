@@ -10,6 +10,9 @@ $(document).ready(function() {
                 $(this).siblings('.vote-count').text(count - 1); 
                 $(this).css('color', '#ffd201');
             }
+
+            var title = $(this).parent().siblings('.post-header').children('.post-title').text();
+            $get('/postVote', {votes: votes}, function() {});
         }
     });
 
@@ -24,6 +27,9 @@ $(document).ready(function() {
                 $(this).siblings('.vote-count').text(count + 1); 
                 $(this).css('color', '#ffd201');
             }
+
+            var title = $(this).parent().siblings('.post-header').children('.post-title').text();
+            $get('/postVote', {votes: votes}, function() {});
         }
     });
 });
