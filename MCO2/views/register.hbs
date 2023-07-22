@@ -19,23 +19,27 @@
         <h1> Sign Up </h1>
         <img id = "hive-icon" src="Hive_Icon.png" alt="Hive_Icon">
         <span id = "hive"> HIVE </span>
-        <form action="#">
+        <form method="post">
             <label> Username </label>
-            <input type="text" id="username" name="username" placeholder="Enter Username" >
+            <input type="text" id="username" name="username" placeholder="Enter Username" required>
+            <label> First Name </label>
+            <input type="text" id="fname" name="fname" placeholder="Enter First Name" required>
+            <label> Last Name </label>
+            <input type="text" id="lname" name="lname" placeholder="Enter Last Name" required>
             <label> Email </label>
-            <input type="email" id="email" name="email" placeholder="Enter Email">
+            <input type="email" id="email" name="email" placeholder="Enter Email" required>
             <label> Password</label>
-            <input type="password" id="pass" name="pass" placeholder="Enter Password">
-            <label> Confirm Password </label>
-            <input type="password" id="con_pass" name="con_pass" placeholder="Confirm Password">
-            <button type="button" onclick="register()"> Submit </button>
+            <input type="password" id="pw" name="pw" placeholder="Enter Password" required>
+            {{!-- <label> Confirm Password </label>
+            <input type="password" id="con_pass" name="con_pass" placeholder="Confirm Password" required> --}}
+            <button type="submit" value="submit"> Submit </button>
         </form>
     </div>
 
-    <p class="para-2"> Already have an account? <a href="login.html"> Login Here</a></p>
+    <p class="para-2"> Already have an account? <a href="/index"> Login Here</a></p>
     
 </body>
 
-<script src="login_register.js"></script>
+{{!-- <script src="login_register.js"></script> --}}
 
 </html>

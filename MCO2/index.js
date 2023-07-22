@@ -18,7 +18,7 @@ app.set('view engine', 'hbs');
 hbs.registerPartials(__dirname + '/views/partials');
 
 app.use(express.static('public'));
-app.use(bodyParser.urlencoded( {extended: false} ));
+app.use(bodyParser.urlencoded( {extended: true} ));
 
 // app.use(session({
 //     'secret': 'palatable-session',

@@ -1,5 +1,10 @@
+const mongoose = require('mongoose');
+
 const db = require('./models/db.js'); // Require your Mongoose database configuration file
 const Post = require('./models/PostModel.js'); // Require the Post model
+const url = 'mongodb://127.0.0.1:27017/ccapdev-mongoose';
+
+mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true});
 
 async function insertOneDocument() {
   const document = {
@@ -20,7 +25,7 @@ async function insertOneDocument() {
   }
 }
 
-// Assuming you have set up your MongoDB connection and the db object contains the insertOne function
+// // Assuming you have set up your MongoDB connection and the db object contains the insertOne function
 
-// Call the function to insert one document into the "posts" collection
+// // Call the function to insert one document into the "posts" collection
 insertOneDocument();

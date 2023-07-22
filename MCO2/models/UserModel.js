@@ -1,21 +1,31 @@
 
 // import module `mongoose`
 var mongoose = require('mongoose');
+// const validator = require('validator');
 
 // defines the schema for collection `users`
 var UserSchema = new mongoose.Schema({
-    fName: {
+    username: {
         type: String,
         required: true
     },
-    lName: {
+
+    fname: {
         type: String,
         required: true
     },
-    idNum: {
-        type: Number,
+    lname: {
+        type: String,
         required: true
     },
+
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+        trim: true,
+    },
+    
     pw: {
         type: String,
         required: true

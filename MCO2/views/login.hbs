@@ -17,20 +17,22 @@
         <span id = "hive"> HIVE </span>
         <h1>Login</h1>
         <!-- inside form: method="post" name="form" onsubmit="return isValid() -->
-        <form action="#" name="form">
-            <div id="error_login">Invalid username or password</div>
+        <form method="post">
+            {{#if err_message}}
+                <div id="error_login">{{err_message}}</div>
+            {{/if}}
             <label for="username">Username</label>
-            <input type="text" id="username" name="username" placeholder="Enter Username">
+            <input type="text" id="username" name="username" value="{{username}}" placeholder="Enter Username">
             <label for="pass">Password</label>
             <input type="password" id="pass" name="pass" placeholder="Enter Password">
-            <button type="button" onclick="login()">Login </button>
+            <button type="submit" value="submit">Login </button>
             <label>
                 <input type="checkbox" checked="checked" name="remember">Remember me
             </label>
             
         </form>
     </div>
-    <p class="para-2">Don't have an account? <a href="register.html"> Sign Up Here</a></p>
+    <p class="para-2">Don't have an account? <a href="/register"> Sign Up Here</a></p>
     
 </body>
 

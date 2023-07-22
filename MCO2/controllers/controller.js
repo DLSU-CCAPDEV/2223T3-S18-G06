@@ -32,13 +32,13 @@ const controller = {
     getHomepage: function(req, res) {
         var email = req.params.email;
 
-        res.redirect('homepage', {email: email});
+        res.render('Registered_Homepage', {email: email});
     },
 
     getProfile: function(req, res) {
         var email = req.params.email;
 
-        res.redirect('main_user1', {email: email});
+        res.render('main_user1', {email: email});
     },
 }
 
