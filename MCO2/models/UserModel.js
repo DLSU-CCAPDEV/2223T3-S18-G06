@@ -36,6 +36,35 @@ var UserSchema = new mongoose.Schema({
         type: String,
         default: '/default_icon.jpg'
     }
+
+    /* 
+    cover: {
+        type: String
+        default: 
+    },
+
+    bio: {
+        type: String
+        required: true
+    },
+
+    followers: {
+        type: Number
+        required: true
+    },
+
+    postcount: {
+        type: Number
+        required: true
+    },
+
+    commentcount: {
+        type: Number
+        required: true
+    },
+    }
+    
+    */
 });
 
 /*

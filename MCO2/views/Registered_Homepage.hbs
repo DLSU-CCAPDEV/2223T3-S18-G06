@@ -21,35 +21,31 @@
                     var value = document.getElementById("search-bar").value;
                     var option = document.querySelector("#list option[value='" + value + "']");
                     if (option != null) {
-                        window.location.href = "/" + value + "_profile";
+                        window.location.href = "/View_Profile/" + value;
                     } else
                         alert("no results found");
                 }
             </script>
-            <input type="text" id = "search-bar" list = "list" name="search" placeholder = "search" size = "100">
+            <input type="text" id = "search-bar" list = "list" name="search" size = "100" placeholder="search profile">
             <datalist id="list">
-                <option value="drinkwater">
-                <option value="PawsomePal">
-                <option value="TheCAGE">
-                <option value="Busy_Beekeeper">
-                <option value="dave">
+                {{#each users}}
+                    <option value="{{username}}"></option>
+                {{/each}}
             </datalist>
             <div id = "nav-links">
                 <a class = "nav-link" href = "/Registered_Homepage"> • Home </a> 
-                <a class = "nav-link" href="/profile/{{username}}"> Profile </a> 
+                <a class = "nav-link" href="/profile/{{user.username}}"> Profile </a> 
                 <a class = "nav-link" href = "/logout"> Logout </a> 
             </div>
         </div>
         
         <div class = "create-post">
-            <form action="/post" method="post">
+            <form method="post">
                 <div class ="create-first"> CREATE POST 
                 </div>
                 <div class = "create-header">
-                    <img  class = "user-icon" name="userIcon" src="{{users.dp}}" alt="user_icon" width="32" height="32">
-                    <p class = "create-username" name="createUsername"> 
-                        {{username}}
-                    </p>
+                    <img  class = "user-icon" name="userIcon" src="{{user.dp}}" alt="user_icon" width="32" height="32">
+                    <p class = "create-username" name="createUsername">{{user.username}}</p>
                     <p class = "dot"> • </p>
                     <div class = "create-title"> <input type="text" id="create-title" name="createTitle" placeholder="Title"  style="width: 270px; font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white;" required><br><br> 
                     </div>
@@ -71,16 +67,16 @@
         {{#each posts}} 
             <div class = "post">
                 <div class = "post-header">
-                    <img  class = "user-icon" src="{{users.dp}}" alt="user_icon" width="32" height="32">
-                    <a class = "post-username" href = "/dave_profile" title = "view profile"> {{username}} </a>
+                    <img  class = "user-icon" src="{{filename}}" alt="user_icon" width="32" height="32">
+                    <a class = "post-username" href = "/View_Profile/{{username}}" title = "view profile"> {{username}} </a>
                     <p class = "dot"> • </p>
-                    <a class = "post-title" href = "/dave_post" title = "view post"> {{title}} </a>
+                    <a class = "post-title" href = "/View_Post/{{title}}" title = "view post"> {{title}} </a>
                 </div>
                 <br> 
                 <p class = "post-content"> {{content}} </p>
                 <br>
                 <div class = "post-footer">
-                    <a href = "/dave_post" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
+                    <a href = "/View_Post/{{title}}" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
                     <span class = "comment-count"> {{commentcount}} </span>
                     {{#if upvoted}}
                         <i class="fa-solid fa-angle-up" title = "upvote" style="color: green; cursor: pointer;"></i>

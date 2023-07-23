@@ -10,7 +10,8 @@ const controller = {
 
     getRoot: async function(req, res) {
         res.render("index", {
-            posts: await db.findMany(Post, {})
+            posts: await db.findMany(Post, {}),
+            users: await db.findMany(User, {})
         });
     },
 
@@ -28,9 +29,9 @@ const controller = {
         var query = {username: username};
 
         res.render('Registered_Homepage', {
-            username: username,
             posts: await db.findMany(Post, {}),
-            users: await db.findOne(User, query)
+            user: await db.findOne(User, query),
+            users: await db.findMany(User, {})
         });
     },
 
@@ -39,39 +40,35 @@ const controller = {
 
         var query = {username: username}
 
+        const dp_images = [
+            "/dp_1.jpg",
+            "/dp_2.jpg",
+            "/dp_3.jpg",
+            "/dp_4.jpg",
+            "/dp_5.jpg",
+            "/dp_6.jpg",
+            "/dp_7.jpg",
+            "/dp_8.jpg",
+            "/dp_9.jpg",
+            "/dp_10.jpg",
+            "/dp_11.jpg",
+            "/dp_12.jpg",
+            "/dp_13.jpg",
+            "/dp_14.jpg",
+            "/dp_15.jpg",
+            "/dp_16.jpg",
+            "/dp_17.jpg",
+            "/dp_18.jpg",
+            "/dp_19.jpg",
+            "/dp_20.jpg"
+        ];
+
         res.render('profile', {
             username: username,
-            user: await db.findOne(User, query)
+            user: await db.findOne(User, query),
+            dp_images: dp_images
         });
     },
-
-    upVote: async function(req, res) { 
-        var query = req.query.title.slice(1);
-        var title = query.slice(0, -1); 
-        
-        var post = await db.findOne(Post, {title: title});
-        var result = post.votes + 1;
-        var checker = post.downvoted;
-
-        if (checker == false)
-            db.updateOne(Post, {title: title}, {upvoted: true});
-
-        db.updateOne(Post, {title: title}, {votes: result});
-    },
-
-    downVote: async function(req, res) { 
-        var query = req.query.title.slice(1);
-        var title = query.slice(0, -1); 
-        
-        var post = await db.findOne(Post, {title: title});
-        var result = post.votes - 1;
-        var checker = post.upvoted;
-
-        if (checker == false)
-            db.updateOne(Post, {title: title}, {downvoted: true});
-
-        db.updateOne(Post, {title: title}, {votes: result});
-    }
 }
 
 

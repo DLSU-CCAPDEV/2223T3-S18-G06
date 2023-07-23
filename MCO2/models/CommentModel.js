@@ -1,18 +1,15 @@
 // import module `mongoose`
+
 var mongoose = require('mongoose');
 
-var PostSchema = new mongoose.Schema({
+
+var CommentSchema = new mongoose.Schema({
     filename: {
         type: String,
         required: true
     },
 
     username: {
-        type: String,
-        required: true
-    },
-
-    title: {
         type: String,
         required: true
     },
@@ -49,4 +46,5 @@ var PostSchema = new mongoose.Schema({
     This model executes CRUD operations
     to collection `users` -> plural of the argument `User`
 */
-module.exports = mongoose.model('Posts', PostSchema);
+
+module.exports = mongoose.model('Comments', CommentSchema);

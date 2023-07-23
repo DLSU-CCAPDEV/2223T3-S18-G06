@@ -116,13 +116,13 @@
         <div class = "edit-post">
             <div class ="edit-first">
                 <p class="edit-ftitle"> EDIT PROFILE </p>
-                <br>
-            </div>
+                
+            </div><br><br>
             <div class = "edit-header">
-                <form method="post">
+                <form action="/editProfile" method="post">
                     <p> Profile Picture •</p>
                     <div class = "edit-profile"> 
-                        <input type="radio" id="edit-profile" name="edit-profile" value="default_icon.jpg" placeholder="Enter file name"  style="width: 270px; font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white;"><br> 
+                        <button type="button" onclick="chooseProfilePic()" id="edit-profile" name="edit-profile" style="width: 270px; font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white;">Choose Profile Picture</button><br> 
                     </div>
                     <p> Username •</p>
                     <div class = "edit-profile"> <input type="text" id="edit-username" name="edit-username" placeholder="Type here"  style="width: 270px; font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white;"><br>
@@ -132,20 +132,49 @@
 
                     <br>
                     <div class = "edit-header">
-                    <input class = "edit-footer" href="ProfileMain.html" class="edit-post-btn" type="submit" value="Save Profile" style="width: 150px; height: 30px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white;" onclick="editProfile(), changePhoto(), clearText(), hideEdit()">
+                    <input class = "edit-footer" href="/profile/{{username}}" class="edit-post-btn" type="submit" value="Save Profile" style="width: 150px; height: 30px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white;">
                     </div>
                     <br>
                 </form>
             </div>                     
         </div>
 
-        <div id="profile-nav">
+        <div id="dp-container">
+            <div class="dp-content">
 
+                <img class = "user-icon" id="user-img" src="/user5_icon.jpg" onclick="setDp('user5_icon.jpg')" alt="user_icon" width="32" height="32">
+                {{#each dp_images}}
+                    <img class = "user-icon" id="user-img" src="{{this}}" onclick="setDp('{{this}}')" alt="user_icon" width="32" height="32">
+                {{/each}}
+
+                <input class="edit-footer" value="Cancel" onclick="hideDp()" class="edit-post-btn" style="width: 150px; height: 30px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white; text-align: center; margin-bottom: 15px; margin-left: 35px; cursor: pointer;">
+            </div>
+        </div>
+
+        <script>
+            function chooseProfilePic(){
+                var dp_container = document.getElementById('dp-container');
+                dp_container.style.display = 'block';
+            }
+
+            function hideDp(){
+                var dp_container = document.getElementById('dp-container');
+                dp_container.style.display = 'none';
+            }
+
+            function setDp(img_path){
+                var edit_profile = document.getElementById('edit-profile');
+                edit_profile.value = img_path
+                hideDp();
+            }
+        </script>
+
+
+        <div id="profile-nav">
             <div id="profile-navlinks">
                 <span class="prof-link" id="Posts">Posts</span>
                 <span class="prof-link" id="Comments">Comments</span>
             </div>
-
         </div>
 
         <script src="/Create_Post.js"></script>

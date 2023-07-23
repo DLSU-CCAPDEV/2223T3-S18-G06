@@ -1,7 +1,7 @@
 <html>
     <head>
         
-        <title> Busy_Beekeeper - Hive </title>
+        <title> {{user.username}} - Hive </title>
         <link rel="stylesheet" type="text/css" href="/Profile_Style.css">
         <script src="https://kit.fontawesome.com/4c2cf73d4b.js" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.7.0.min.js" type="text/javascript"></script>
@@ -22,7 +22,7 @@
     <body>
 
         <div id = "navbar">
-            <img id = "hive-icon" src="Hive_Icon.png" alt="Hive_Icon">
+            <img id = "hive-icon" src="/Hive_Icon.png" alt="Hive_Icon">
             <span id = "hive"> HIVE </span>
             <i class = "fa-solid fa-magnifying-glass" onclick = "search()"></i>
             <script>
@@ -30,33 +30,31 @@
                     var value = document.getElementById("search-bar").value;
                     var option = document.querySelector("#list option[value='" + value + "']");
                     if (option != null) {
-                        window.location.href = value + "_profile.html";
+                        window.location.href = "/View_Profile/" + value;
                     } else
                         alert("no results found");
                 }
             </script>
-            <input type="text" id = "search-bar" list = "list" name="search" placeholder = "search" size = "100">
+            <input type="text" id = "search-bar" list = "list" name="search" placeholder = "search profile" size = "100">
             <datalist id="list">
-                <option value="drinkwater">
-                <option value="PawsomePal">
-                <option value="TheCAGE">
-                <option value="Busy_Beekeeper">
-                <option value="dave">
+                {{#each users}}
+                    <option value="{{username}}">
+                {{/each}}
             </datalist>
             <div id = "nav-links">
-                <a class = "nav-link" href="Registered_Homepage.html"> Home </a> 
-                <a class = "nav-link" href = "ProfileMain.html"> • Profile </a> 
-                <a class = "nav-link" href = "RegisterLogin.html"> Logout </a>  
+                <a class = "nav-link" href = "/Registered_Homepage"> Home </a> 
+                <a class = "nav-link" href="/profile/{{user.username}}"> • Profile </a> 
+                <a class = "nav-link" href = "/logout"> Logout </a> 
             </div>
         </div>
 
         <div class="profilecard">
 
             <img  class = "cover-icon" src="user4_cover.png" alt="cover_icon" width="100" height="100">
-            <img  class = "profile-icon" src="user4_icon.jpg" alt="profile_icon" width="100" height="100">
+            <img  class = "profile-icon" src="{{user.dp}}" alt="profile_icon" width="100" height="100">
             
 
-            <h1 class="profile-username"> u/Busy_Beekeeper </h1>
+            <h1 class="profile-username"> {{user.username}} </h1>
             <p class="bio-content">Just Buzzing~</p>
 
             <div class="row">
@@ -89,6 +87,35 @@
             </div>
 
         </div>
+
+        {{!-- {{#each posts}} 
+            <div class = "post">
+                <div class = "post-header">
+                    <img  class = "user-icon" src="{{this.filename}}" alt="user_icon" width="32" height="32">
+                    <a class = "post-username" href = "/View_Profile/{{username}}" title = "view profile"> {{username}} </a>
+                    <p class = "dot"> • </p>
+                    <a class = "post-title" href = "/dave_post" title = "view post"> {{title}} </a>
+                </div>
+                <br> 
+                <p class = "post-content"> {{content}} </p>
+                <br>
+                <div class = "post-footer">
+                    <a href = "/dave_post" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
+                    <span class = "comment-count"> {{commentcount}} </span>
+                    {{#if upvoted}}
+                        <i class="fa-solid fa-angle-up" title = "upvote" style="color: green; cursor: pointer;"></i>
+                    {{else}}
+                        <i class="fa-solid fa-angle-up" title = "upvote" style="color: #ffd201; cursor: pointer;"></i>
+                    {{/if}}
+                    <span class = "vote-count" name = "votes"> {{votes}} </span>
+                    {{#if downvoted}}
+                        <i class="fa-solid fa-angle-down" title = "downvote" style="color: red; margin-right: 50px; cursor: pointer;"></i>
+                    {{else}}
+                        <i class="fa-solid fa-angle-down" title = "downvote" style="color: #ffd201; margin-right: 50px; cursor: pointer;"></i>
+                    {{/if}}
+                </div> 
+            </div>
+        {{/each}} --}}
 
         <div class = "post">
             <div class = "post-header">

@@ -6,6 +6,8 @@ const User = require('./UserModel.js');
 
 const Post = require('./PostModel.js');
 
+const Comment = require('./CommentModel.js');
+
 // ccapdev-mongoose is the name of the database
 const url = 'mongodb://127.0.0.1:27017/ccapdev-mongoose';
 

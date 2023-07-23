@@ -10,24 +10,19 @@
         <div id = "navbar">
             <img id = "hive-icon" src="/Hive_Icon.png" alt="Hive_Icon">
             <span id = "hive"> HIVE </span>
-            <i class = "fa-solid fa-magnifying-glass" onclick = "search()"></i>
+            <i class = "fa-solid fa-magnifying-glass"></i>
             <script>
                 function search() {
                     var value = document.getElementById("search-bar").value;
                     var option = document.querySelector("#list option[value='" + value + "']");
                     if (option != null) {
-                        window.location.href = "/" + value + "_profile";
+                        window.location.href = "/View_Profile/" + value;
                     } else
                         alert("no results found");
                 }
             </script>
-            <input type="text" id = "search-bar" list = "list" name="search" placeholder = "search" size = "100">
+            <input type="text" id = "search-bar" list = "list" name="search" placeholder = "login to search" size = "100">
             <datalist id="list">
-                <option value="drinkwater">
-                <option value="PawsomePal">
-                <option value="TheCAGE">
-                <option value="Busy_Beekeeper">
-                <option value="dave">
             </datalist>
             <div id = "nav-links">
                 <a class = "nav-link" href="/index"> • Home </a> 
