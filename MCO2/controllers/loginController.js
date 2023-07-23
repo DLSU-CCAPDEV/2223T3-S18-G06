@@ -6,12 +6,6 @@ const loginController = {
 
     getLogin: async function(req, res) {
         res.render('login');
-
-        const users = await db.findMany(User, {});
-
-        users.forEach((user) => {
-            console.log(user);
-        });
     },
 
     postLogin: async function(req, res){
