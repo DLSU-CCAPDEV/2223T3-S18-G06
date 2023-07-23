@@ -26,9 +26,19 @@ var PostSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+
+    upvoted: {
+        type: Boolean,
+        required: true
+    },
     
     votes: {
         type: Number,
+        required: true
+    },
+
+    downvoted: {
+        type: Boolean,
         required: true
     }
 });

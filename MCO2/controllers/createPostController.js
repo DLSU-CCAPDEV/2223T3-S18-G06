@@ -7,8 +7,8 @@ const createPostController = {
     post: async function (req, res) {
         var filename = '/default_icon.jpg';
         var username = 'username';
-        var title = req.body.create-title;
-        var content = req.body.create-content;
+        var title = req.body.createTitle;
+        var content = req.body.createContent;
         var commentCount = 0;
         var votes = 0;
         

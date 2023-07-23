@@ -51,6 +51,10 @@ const controller = {
         
         var post = await db.findOne(Post, {title: title});
         var result = post.votes + 1;
+        var checker = post.downvoted;
+
+        if (checker == false)
+            db.updateOne(Post, {title: title}, {upvoted: true});
 
         db.updateOne(Post, {title: title}, {votes: result});
     },
@@ -61,6 +65,10 @@ const controller = {
         
         var post = await db.findOne(Post, {title: title});
         var result = post.votes - 1;
+        var checker = post.upvoted;
+
+        if (checker == false)
+            db.updateOne(Post, {title: title}, {downvoted: true});
 
         db.updateOne(Post, {title: title}, {votes: result});
     }
