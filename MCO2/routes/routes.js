@@ -6,6 +6,8 @@ const registerController = require('../controllers/registerController.js');
 
 const loginController = require('../controllers/loginController.js');
 
+const createPostController = require('../controllers/createPostController.js');
+
 const app = express();
 
 app.get('/favicon.ico', controller.getFavicon);
@@ -25,4 +27,8 @@ app.get('/logout', controller.getRoot);
 app.get('/upVote', controller.upVote);
 app.get('/downVote', controller.downVote);
 
+//create post
+app.post('/post', createPostController.post);
 module.exports = app;
+
+//
