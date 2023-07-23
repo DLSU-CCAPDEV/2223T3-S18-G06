@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const db = require('./models/db.js'); // Require your Mongoose database configuration file
 const Post = require('./models/PostModel.js'); // Require the Post model
 const User = require('./models/UserModel.js');
+const Comment = require('./models/CommentModel.js');
 const url = 'mongodb://127.0.0.1:27017/ccapdev-mongoose';
 
 mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true});
@@ -57,7 +58,7 @@ async function insertPosts() {
       {
         filename: '/user5_icon.jpg',
         username: 'dave', 
-        title: 'Anyone up for a roadtrtip?',
+        title: 'Anyone up for a roadtrip?',
         content: 'Excited to announce that I\'ve just become the proud owner of a brand new Toyota Wigo! The perfect combination of style, efficiency, and reliability. Ready to hit the road and create unforgettable memories. 🚗💨 #NewCarFeels #ToyotaWigo',
         commentcount: 1,
         upvoted: 0,
@@ -123,6 +124,91 @@ async function insertUsers() {
   } catch (error) {
     console.error('Error inserting users:', error);
   }
+}
+
+async function insertComment(){
+
+  try {
+    const insertedComments = await db.insertMany(Comment, [
+
+      /*
+        filename: '/user1_icon.jpg',
+        username: 'drinkwater',
+
+        filename: '/user2_icon.jpg',
+        username: 'PawsomePal',
+
+        filename: '/user3_icon.jpg',
+        username: 'TheCAGE',
+
+        filename: '/user4_icon.jpg',
+        username: 'Busy_Beekeper',
+
+        filename: '/user5_icon.jpg',
+        username: 'dave',
+
+      */
+
+      {
+        filename: '/user2_icon.jpg',
+        username: 'PawsomePal', 
+        title: 'A daily reminder to drink water',
+        content: 'I agree!',
+        commentcount: 0,
+        upvoted: 0,
+        votes: 1234,
+        downvoted: 0
+      },
+
+      {
+        filename: '/user3_icon.jpg',
+        username: 'TheCAGE',
+        title: 'Just dog things',
+        content: 'Dogs are the best',
+        commentcount: 0,
+        upvoted: 0,
+        votes: 500,
+        downvoted: 0
+      },
+
+      {
+        filename: '/user1_icon.jpg',
+        username: 'drinkwater',
+        title: 'Long live Nicolas Cage!',
+        content: 'Loved his performance in Ghost Rider',
+        commentcount: 0,
+        upvoted: 0,
+        votes: 21,
+        downvoted: 0
+      },
+
+      {
+        filename: '/user5_icon.jpg',
+        username: 'dave',
+        title: 'The Bee Transfer Chronicles',
+        content: 'Congrats!',
+        commentcount: 0,
+        upvoted: 0,
+        votes: 15,
+        downvoted: 0
+      },
+
+      {
+        filename: '/user4_icon.jpg',
+        username: 'Busy_Beekeper',
+        title: 'Anyone up for a roadtrip?',
+        content: 'A bee sticker would make a nice accessory! Want one?',
+        commentcount: 0,
+        upvoted: 0,
+        votes: 3,
+        downvoted: 0
+      },
+    ]);
+    console.log('Comments inserted:', insertedComments);
+  } catch (error) {
+    console.error('Error inserting Comments:', error);
+  }
+
 }
 
 insertPosts();

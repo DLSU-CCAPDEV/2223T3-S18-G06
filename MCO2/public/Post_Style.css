@@ -79,12 +79,15 @@ body {
     width: 50%;
     height: 10px;
     padding: 0 auto;
+
+    font-weight: 300px;
+    font-size: 20px;
 }
 
 #profile-navlinks{
 
     flex-direction: left;
-    position: absolute;
+    position: left;
     font-weight: 300px;
     font-size: 20px;
     display: inline-block;
@@ -118,7 +121,7 @@ body {
 
 #Comments{
     text-decoration: overline;
-    margin-left: 0%;
+    
 }
 
 .profilecard{
@@ -235,7 +238,7 @@ body {
 .comment {
     width: 100%;
     min-height: 10%;
-    position: relative;
+    position: absolute;
     top: 20px;
     left: 0;
     right: 25%;
@@ -254,11 +257,11 @@ body {
 .create-comment {
     background-color: rgba(32,32,32,255);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    width: 45%;
+    width: 22.3%;
     position: relative;
-    top: 50px;
-    left: 10%;
-    right: 25%;
+    /* top: 200px;
+    left: flex;
+    right: 25%; */
     float: left;
     display: flex;
     flex-direction: column;

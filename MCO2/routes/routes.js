@@ -45,4 +45,4 @@ app.get('/View_Post/:title', viewPostController.viewPost);
 app.get('/View_Profile/:username', viewProfileController.viewProfile);
 
 //edit profile
-app.post('/editProfile', editProfileController.postEdit);
+app.post('/editProfile/:username', editProfileController.postEdit);

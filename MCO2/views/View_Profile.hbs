@@ -35,14 +35,14 @@
                         alert("no results found");
                 }
             </script>
-            <input type="text" id = "search-bar" list = "list" name="search" placeholder = "search profile" size = "100">
+            <input type="text" id = "search-bar" list = "list" name="search" size = "100" placeholder="search profile">
             <datalist id="list">
                 {{#each users}}
-                    <option value="{{username}}">
+                    <option value="{{username}}"></option>
                 {{/each}}
             </datalist>
             <div id = "nav-links">
-                <a class = "nav-link" href = "/Registered_Homepage"> Home </a> 
+                <a class = "nav-link" href = "/Registered_Homepage/"+ {{user.username}}>  Home </a> 
                 <a class = "nav-link" href="/profile/{{user.username}}"> • Profile </a> 
                 <a class = "nav-link" href = "/logout"> Logout </a> 
             </div>
@@ -117,7 +117,7 @@
             </div>
         {{/each}} --}}
 
-        <div class = "post">
+        {{!-- <div class = "post">
             <div class = "post-header">
                 <img  class = "user-icon" src="user4_icon.jpg" alt="user_icon" width="32" height="32">
                 <a class = "post-username" href = "Busy_Beekeeper_profile.html"> Busy_Beekeeper </a>
@@ -135,7 +135,7 @@
                 <span class = "vote-count"> 3 </span>
                 <i class="fa-solid fa-angle-down" title = "downvote" style="color: #ffd201; margin-right: 50px; cursor: pointer;"></i>
             </div>
-        </div>
+        </div> --}}
         
 
     </body>

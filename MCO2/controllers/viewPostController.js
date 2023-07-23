@@ -4,8 +4,9 @@ const User = require('../models/UserModel.js');
 
 const viewPostController = {
 
+
     viewPost: async function (req, res) {
-        res.render('View_Profile', {
+        res.render('View_Post', {
             posts: await db.findMany(Post, {}),
             users: await db.findMany(User, {})
         });

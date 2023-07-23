@@ -11,44 +11,37 @@ const createPostController = {
         
         var filename = user.dp;
         var title = req.body.createTitle;
-
-        try{
-            const post = await db.findOne(Post, {
-                title: title
-            });
-
-            if(!post) {
-                var content = req.body.createContent;
-                var commentCount = 0;
-                var upvoted = 0;
-                var votes = 0;
-                var downvoted = 0;
-                
-                //it should not be the same var name i think?
-                // var post = {
-                //     filename: filename,
-                //     username: username,
-                //     title: title,
-                //     content: content,
-                //     commentcount: commentCount,
-                //     upvoted: upvoted,
-                //     votes: votes,
-                //     downvoted: downvoted,
-                // };
-
-                try{
-                    await db.insertOne(Post, post);
-                } catch(error){
-                    console.error('Error inserting document: ', error);
-                }
-
-                res.redirect('/Registered_Homepage/' + username);
-            }
-        } catch(error){
-            console.error('Error inserting document: ', error);
-        }
-
+        var content = req.body.createContent;
+        var commentCount = 0;
+        var upvoted = 0;
+        var votes = 0;
+        var downvoted = 0;
         
+        var check = await db.findOne(Post, {title: title});
+
+        if(check.title === '') {
+
+            var post = {
+                filename: filename,
+                username: username,
+                title: title,
+                content: content,
+                commentcount: commentCount,
+                upvoted: upvoted,
+                votes: votes,
+                downvoted: downvoted,
+            };
+
+            try{
+                await db.insertOne(Post, post);
+            } catch(error){
+                console.error('Error inserting document: ', error);
+            }
+
+            res.redirect('/Registered_Homepage/' + username);  
+        } else {
+            res.redirect('/Registered_Homepage/' + username);
+        }
     },
 
     upVote: async function(req, res) { 

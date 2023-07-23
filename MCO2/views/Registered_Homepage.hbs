@@ -33,7 +33,7 @@
                 {{/each}}
             </datalist>
             <div id = "nav-links">
-                <a class = "nav-link" href = "/Registered_Homepage"> • Home </a> 
+                <a class = "nav-link" href = "/Registered_Homepage/" + {{user.username}} > • Home </a> 
                 <a class = "nav-link" href="/profile/{{user.username}}"> Profile </a> 
                 <a class = "nav-link" href = "/logout"> Logout </a> 
             </div>

@@ -20,6 +20,7 @@ const createCommentController = {
             filename: filename,
             username: username,
             content: content,
+            title: title,
             commentcount: commentCount,
             upvoted: upvoted,
             votes: votes,
@@ -41,32 +42,32 @@ const createCommentController = {
         var query = req.query.title.slice(1);
         var title = query.slice(0, -1); 
         
-        var post = await db.findOne(Post, {title: title});
-        var result = post.votes + 1;
-        var checker = post.downvoted;
+        var comment = await db.findOne(Comment, {title: title});
+        var result = comment.votes + 1;
+        var checker = comment.downvoted;
 
         if (checker == 0)
-            db.updateOne(Post, {title: title}, {upvoted: 1});
+            db.updateOne(Comment, {title: title}, {upvoted: 1});
         if (checker == 1)
-            db.updateOne(Post, {title: title}, {downvoted: 0});
+            db.updateOne(Comment, {title: title}, {downvoted: 0});
 
-        db.updateOne(Post, {title: title}, {votes: result});
+        db.updateOne(Comment, {title: title}, {votes: result});
     },
 
     downVote: async function(req, res) { 
         var query = req.query.title.slice(1);
         var title = query.slice(0, -1); 
         
-        var post = await db.findOne(Post, {title: title});
-        var result = post.votes - 1;
-        var checker = post.upvoted;
+        var comment = await db.findOne(Comment, {title: title});
+        var result = comment.votes - 1;
+        var checker = comment.upvoted;
 
         if (checker == 0)
-            db.updateOne(Post, {title: title}, {downvoted: 1});
+            db.updateOne(Comment, {title: title}, {downvoted: 1});
         if (checker == 1)
-            db.updateOne(Post, {title: title}, {upvoted: 0});
+            db.updateOne(Comment, {title: title}, {upvoted: 0});
 
-        db.updateOne(Post, {title: title}, {votes: result});
+        db.updateOne(Comment, {title: title}, {votes: result});
     }
 
 }
