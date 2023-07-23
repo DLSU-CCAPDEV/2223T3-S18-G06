@@ -4,8 +4,14 @@ const User = require('../models/UserModel.js');
 
 const loginController = {
 
-    getLogin: function(req, res) {
+    getLogin: async function(req, res) {
         res.render('login');
+
+        const users = await db.findMany(User, {});
+
+        users.forEach((user) => {
+            console.log(user);
+        });
     },
 
     postLogin: async function(req, res){
