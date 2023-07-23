@@ -14,6 +14,7 @@ var UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    
     lname: {
         type: String,
         required: true
@@ -29,6 +30,11 @@ var UserSchema = new mongoose.Schema({
     pw: {
         type: String,
         required: true
+    },
+
+    dp: {
+        type: String,
+        default: '/default_icon.jpg'
     }
 });
 

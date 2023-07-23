@@ -6,31 +6,31 @@ var PostSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+
     username: {
         type: String,
         required: true
     },
+
     title: {
         type: String,
         required: true
     },
+
     content: {
         type: String,
         required: true
     },
+
     commentcount: {
         type: Number,
         required: true
     },
-    upvote: {
+    
+    votes: {
         type: Number,
         required: true
-    },
-
-    downvote:{
-        type: Number,
-        required: true
-    },
+    }
 });
 
 /*
