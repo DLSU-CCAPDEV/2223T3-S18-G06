@@ -34,10 +34,15 @@ const controller = {
         });
     },
 
-    getProfile: function(req, res) {
+    getProfile: async function(req, res) {
         var username = req.params.username;
 
-        res.render('profile', {username: username});
+        var query = {username: username}
+
+        res.render('profile', {
+            username: username,
+            user: await db.findOne(User, query)
+        });
     },
 
     upVote: async function(req, res) { 

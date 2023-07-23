@@ -40,8 +40,9 @@
                 <a class = "nav-link" href = "/logout"> Logout </a> 
             </div>
         </div>
-
+        
         <div class = "create-post">
+            <form action="/post" method="post">
                 <div class ="create-first"> CREATE POST 
                 </div>
                 <div class = "create-header">
@@ -61,9 +62,10 @@
                 </div>
 
                 <div class = "create-footer">
-                    <input class="create-post-btn" type="submit" value="Post" style="width: 150px; height: 30px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white;" onclick="addPost()">
+                    <input class="create-post-btn" type="submit" value="Post" style="width: 150px; height: 30px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white;">
                 </div>
                 <br>
+            </form>
         </div>
 
         {{#each posts}} 

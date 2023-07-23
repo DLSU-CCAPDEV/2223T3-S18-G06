@@ -182,11 +182,17 @@ function clearText() {
 }
 
 function showPost() {
-    var create_post = document.getElementsByClassName('create-post');
-    var edit_post = document.getElementsByClassName('edit-post');
+    var create_post = document.getElementsByClassName('create-post')[0];
+    var edit_post = document.getElementsByClassName('edit-post')[0];
 
-    edit_post[0].style.display = "none";
-    create_post[0].style.display = "block";
+    var isDisplayed = window.getComputedStyle(create_post).display;
+
+    if(isDisplayed === 'none'){
+        create_post.style.display = 'block';
+        edit_post.style.display = 'none';
+    } else{
+        create_post.style.display = 'none';
+    }
 
 }
 
