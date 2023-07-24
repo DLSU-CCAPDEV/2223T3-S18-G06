@@ -4,6 +4,8 @@ Instructions for Running the Web App:
 
 git clone https://github.com/DLSU-CCAPDEV/2223T3-S18-G06.git
 
+2. Run 'npm init' and 'npm install' in the terminal to install dependencies.
+
 2. Go to the MCO2 folder and cmd to that path
 3. To initially populate the database, run the command 'node populate_db.js'
 4. Click CTRL C to terminate the currently running js file
