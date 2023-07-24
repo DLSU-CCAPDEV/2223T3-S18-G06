@@ -18,13 +18,6 @@ const registerController = {
 
         var dp = '/default_icon.jpg';
         
-        // const find_user = await db.findOne(User, {$or: [{email: email}, {username: username}]});
-
-
-        // if(find_user){
-        //     res.redirect('/register');
-
-        // } else{
         var user = {
             username: username,
             fname: fname,
@@ -41,7 +34,6 @@ const registerController = {
         }
 
         res.redirect('/login');
-        // }
     }
 }
 

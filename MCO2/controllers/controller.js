@@ -13,6 +13,30 @@ const controller = {
             posts: await db.findMany(Post, {}),
             users: await db.findMany(User, {})
         });
+
+        //for testing purposes only
+        // try {
+        //     const posts = await db.findMany(Post, {});
+        //     const users = await db.findMany(User, {});
+
+        //     console.log('All Users:', users);
+        //     console.log('All Posts:', posts);
+        // } catch (err){
+        //     console.error('Error: ', err);
+        //     res.status(500).send('An error occured.');
+        // }
+
+        // try {
+        //     const posts = await db.deleteMany(Post, {});
+        //     const users = await db.deleteMany(User, {});
+
+        //     console.log('All Users:', users);
+        //     console.log('All Posts:', posts);
+        // } catch (err){
+        //     console.error('Error: ', err);
+        //     res.status(500).send('An error occured.');
+        // }
+
     },
 
     checkAcct: function(req, res) {
@@ -28,10 +52,16 @@ const controller = {
 
         var query = {username: username};
 
+        var user = await db.findOne(User, query);
+
+        var posts = await db.findMany(Post, {});
+
+        var users = await db.findMany(User, {});
+
         res.render('Registered_Homepage', {
-            posts: await db.findMany(Post, {}),
-            user: await db.findOne(User, query),
-            users: await db.findMany(User, {})
+            posts: posts,
+            user: user,
+            users: users,
         });
     },
 
@@ -69,6 +99,38 @@ const controller = {
             dp_images: dp_images
         });
     },
+
+    upVote: async function(req, res) { 
+        var query = req.query.title.slice(1);
+        var title = query.slice(0, -1); 
+        
+        var post = await db.findOne(Post, {title: title});
+        var result = post.votes + 1;
+        var checker = post.downvoted;
+
+        if (checker == 0)
+            db.updateOne(Post, {title: title}, {upvoted: 1});
+        if (checker == 1)
+            db.updateOne(Post, {title: title}, {downvoted: 0});
+
+        db.updateOne(Post, {title: title}, {votes: result});
+    },
+
+    downVote: async function(req, res) { 
+        var query = req.query.title.slice(1);
+        var title = query.slice(0, -1); 
+        
+        var post = await db.findOne(Post, {title: title});
+        var result = post.votes - 1;
+        var checker = post.upvoted;
+
+        if (checker == 0)
+            db.updateOne(Post, {title: title}, {downvoted: 1});
+        if (checker == 1)
+            db.updateOne(Post, {title: title}, {upvoted: 0});
+
+        db.updateOne(Post, {title: title}, {votes: result});
+    }
 }
 
 

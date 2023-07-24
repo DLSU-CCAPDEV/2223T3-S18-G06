@@ -1,0 +1,43 @@
+.options {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: flex;
+  }
+  
+  .three-dots {
+    cursor: pointer;
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 50%;
+    background-color: #f1f1f1;
+  }
+  
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 5px;
+  }
+  
+  .dropdown-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .dropdown-menu li {
+    padding: 5px;
+  }
+  
+  .dropdown-menu li a {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .dropdown-menu li a:hover {
+    background-color: #ddd;
+  }

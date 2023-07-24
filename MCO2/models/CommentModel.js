@@ -14,30 +14,22 @@ var CommentSchema = new mongoose.Schema({
         required: true
     },
 
-    content: {
+    title: {
         type: String,
         required: true
     },
 
+    content: {
+        type: String,
+        required: true
+    }
+
+    /*
     commentcount: {
         type: Number,
         required: true
     },
-
-    upvoted: {
-        type: Number,
-        required: true
-    },
-    
-    votes: {
-        type: Number,
-        required: true
-    },
-
-    downvoted: {
-        type: Number,
-        required: true
-    }
+    */
 });
 
 /*

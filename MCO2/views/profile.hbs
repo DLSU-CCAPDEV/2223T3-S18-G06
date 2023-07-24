@@ -64,7 +64,7 @@
             
 
             <h1 class="profile-username" id="profile-username">{{username}}</h1>
-            <p class="bio-content" id="bio-content">Welcome to My Profile!</p>
+            <p class="bio-content" id="bio-content">{{user.bio}}</p>
 
             <a href="#" class="editprofile-btn" onclick="showEdit()">Edit Profile</a>
 
@@ -123,7 +123,7 @@
                     <p> Profile Picture •</p>
                     <div class = "edit-profile"> 
                         {{!-- <input type="button" onclick="chooseProfilePic()" id="edit-profile" name="edit-profile" style="width: 270px; font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white;"><br>  --}}
-                        <input type="text" onclick="chooseProfilePic()" id="editProfile" name="editProfile" placeholder="Enter Source File" required>
+                        <input type="text" onclick="chooseProfilePic()" id="editProfile" name="editProfile" placeholder="Choose Profile Picture">
                     </div>
                     <p> Username •</p>
                     <div class = "edit-profile"> <input type="text" id="editUsername" name="editUsername" placeholder="Type here"  style="width: 270px; font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white;"><br>
@@ -154,7 +154,6 @@
         <div id="profile-nav">
             <div id="profile-navlinks">
                 <span class="prof-link" id="Posts">Posts</span>
-                <span class="prof-link" id="Comments">Comments</span>
             </div>
         </div>
 

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         
@@ -23,7 +24,7 @@
     </head>
 
     <body>
-
+        <!-- NAVBAR -->
         <div id = "navbar">
             <img id = "hive-icon" src="/Hive_Icon.png" alt="Hive_Icon">
             <span id = "hive"> HIVE </span>
@@ -45,13 +46,11 @@
                 {{/each}}
             </datalist>
             <div id = "nav-links">
-                <a class = "nav-link" href = "/Registered_Homepage/" + {{user.username}}> • Home </a> 
-                <a class = "nav-link" href="/profile/{{user.username}}"> Profile </a> 
+                <a class = "nav-link" href = "/Registered_Homepage/{{username}}" > • Home </a> 
+                <a class = "nav-link" href="/profile/{{username}}"> Profile </a> 
                 <a class = "nav-link" href = "/logout"> Logout </a> 
             </div>
         </div>
-
-        <!-- POST -->
 
         <div id="profile-nav">
 
@@ -62,32 +61,33 @@
         </div>
 
         <!--- POST --->
-            <div class = "post">
-                <div class = "post-header">
-                    <img  class = "user-icon" src="{{this.filename}}" alt="user_icon" width="32" height="32">
-                    <a class = "post-username" href = "/View_Profile/{{username}}" title = "view profile"> {{username}} </a>
-                    <p class = "dot"> • </p>
-                    <a class = "post-title" href = "/View_Post/{{title}}" title = "view post"> {{title}} </a>
-                </div>
-                <br> 
-                <p class = "post-content"> {{content}} </p>
-                <br>
-                <div class = "post-footer">
-                    <a href = "/View_Post/{{title}}" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
-                    <span class = "comment-count"> {{commentcount}} </span>
-                    {{#if upvoted}}
-                        <i class="fa-solid fa-angle-up" title = "upvote" style="color: green; cursor: pointer;"></i>
-                    {{else}}
-                        <i class="fa-solid fa-angle-up" title = "upvote" style="color: #ffd201; cursor: pointer;"></i>
-                    {{/if}}
-                    <span class = "vote-count" name = "votes"> {{votes}} </span>
-                    {{#if downvoted}}
-                        <i class="fa-solid fa-angle-down" title = "downvote" style="color: red; margin-right: 50px; cursor: pointer;"></i>
-                    {{else}}
-                        <i class="fa-solid fa-angle-down" title = "downvote" style="color: #ffd201; margin-right: 50px; cursor: pointer;"></i>
-                    {{/if}}
-                </div> 
+        <div class = "post">
+            <div class = "post-header">
+                <img  class = "user-icon" src="{{post.filename}}" alt="user_icon" width="32" height="32">
+                <a class = "post-username" href = "/View_Profile/{{post.username}}" title = "view profile"> {{post.username}} </a>
+                <p class = "dot"> • </p>
+                <a class = "post-title" href = "/View_Post/{{post.username}}/{{post.title}}" title = "view post"> {{post.title}} </a>
             </div>
+            <br> 
+            <br>
+            <p class = "post-content"> {{post.content}}</p>
+            <br>
+            <div class = "post-footer">
+                <a href = "/View_Post/{{post.username}}/{{post.title}}" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
+                <span class = "comment-count"> {{post.commentcount}} </span>
+                {{#if post.upvoted}}
+                    <i class="fa-solid fa-angle-up" title = "upvote" style="color: green; cursor: pointer;"></i>
+                {{else}}
+                    <i class="fa-solid fa-angle-up" title = "upvote" style="color: #ffd201; cursor: pointer;"></i>
+                {{/if}}
+                <span class = "vote-count" name = "votes"> {{post.votes}} </span>
+                {{#if post.downvoted}}
+                    <i class="fa-solid fa-angle-down" title = "downvote" style="color: red; margin-right: 50px; cursor: pointer;"></i>
+                {{else}}
+                    <i class="fa-solid fa-angle-down" title = "downvote" style="color: #ffd201; margin-right: 50px; cursor: pointer;"></i>
+                {{/if}}
+            </div> 
+        </div>
 
 
         <!--- COMMENT --->
@@ -97,73 +97,53 @@
             <!-- SUBMIT COMMENT -->
             
             <div class="create-content">
-
                 <div class = "post-header">
                     <p class="comment-title"> Create Comment </p>
                     <p class = "dot"> • </p>
-                    <a class = "post-title"> {{title}} </a>
+                    <a class = "post-title"> {{post.title}} </a>
                 </div>
                 <br> <br> <br>
                 
-                Name: <input type="text" id="name" style="font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white; border-radius: 5px;" required><br/>
 
-                <textarea class="comment-content" rows="5" cols="50" id="bodyText" placeholder="Write a comment" style="font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white; border-radius: 5px;" required>
-                </textarea>
-                <input class="create-comment-btn" id="addComment" type="button" value="Add Comment" />
+                <textarea class="comment-content" id="create-comment" rows="5" cols="50" id="bodyText" placeholder="Write a comment" style="font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white; border-radius: 5px;" required></textarea>
+                <input class="create-comment-btn" id="addComment" type="submit" value="Comment" />
                 <div class = "create-footer">
                     
                 </div>
                 <br>
             
             </div>
-                
-
             </form>
-         </div>
+        </div>
         <br>
 
         <!-- COMMENTS LIST -->
-        <div id="profile-nav">
-                        <span class="prof-link" id="Comments">Comments</span>
-        </div>
+        
 
         <div id="comment-list">
-           
+        <div id="profile-nav">
+                        <span class="prof-link" id="Comments">Comments</span>
+        </div>   
 
-            {{#each comment}} 
+        {{#each comments}}
             <div class = "comment">
-                <div class = "comment-post">
-                    <img  class = "user-icon" src="{{this.filename}}" alt="user_icon" width="32" height="32">
-                    <a class = "post-username" href = "/View_Profile/{{username}}" title = "view profile"> {{username}} </a>
-                    <p class = "dot"> • </p>
-                    <a class = "post-title" href = "/View_Profile/{{username}}" title = "view post"> {{title}} </a>
-                </div>
-                <br> 
-                <p class = "post-content"> {{content}} </p>
-                <br>
-                <div class = "post-footer">
-                    <a href = "/View_Profile/{{username}}" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
-                    <span class = "comment-count"> {{commentcount}} </span>
-                    {{#if upvoted}}
-                        <i class="fa-solid fa-angle-up" title = "upvote" style="color: green; cursor: pointer;"></i>
-                    {{else}}
-                        <i class="fa-solid fa-angle-up" title = "upvote" style="color: #ffd201; cursor: pointer;"></i>
-                    {{/if}}
-                    <span class = "vote-count" name = "votes"> {{votes}} </span>
-                    {{#if downvoted}}
-                        <i class="fa-solid fa-angle-down" title = "downvote" style="color: red; margin-right: 50px; cursor: pointer;"></i>
-                    {{else}}
-                        <i class="fa-solid fa-angle-down" title = "downvote" style="color: #ffd201; margin-right: 50px; cursor: pointer;"></i>
-                    {{/if}}
-                </div> 
+            <div class = "post-header">
+                <img  class = "user-icon" src="{{filename}}" alt="user_icon" width="32" height="32">
+                <a class = "post-username" href = "/View_Profile/{{username}}" title = "view profile"> {{username}} </a>
+            </div>
+            <br> 
+            <br>
+            <p class = "post-content"> {{content}} </p>
+            <br>
             </div>
         {{/each}}
 
-            <!-- PLACEHOLDER FOR CREATE COMMENT -->
+            <!-- CREATE COMMENT CONTAINER -->
             <div class="comment-container">
                 <div class="comment" id="container">
-                    <!-- COMMENTS BY THE USER WILL BE APPENDED HERE -->
+                    <!-- COMMENTS BY THE USER WILL BE APPENDED HERE supposedly -->
 
+                    
 
                 </div>
             </div>
@@ -171,7 +151,8 @@
         </div>
         <br>
 
-        <script src="Create-Comment.js"></script>
+        <script src="/login_register.js"></script>
+        <script src="/Create-Comment.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 
     </body>

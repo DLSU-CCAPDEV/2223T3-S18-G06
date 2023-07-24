@@ -9,6 +9,7 @@ const deletePostController = {
         var title = query.slice(0, -1);
 
         db.deleteOne(Post, {title: title});
+        res.redirect('/Registered_Homepage/' + username);
     }
 }
 

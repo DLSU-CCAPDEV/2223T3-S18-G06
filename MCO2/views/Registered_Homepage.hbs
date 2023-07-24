@@ -33,7 +33,7 @@
                 {{/each}}
             </datalist>
             <div id = "nav-links">
-                <a class = "nav-link" href = "/Registered_Homepage/" + {{user.username}} > • Home </a> 
+                <a class = "nav-link" href = "/Registered_Homepage/{{user.username}}" > • Home </a> 
                 <a class = "nav-link" href="/profile/{{user.username}}"> Profile </a> 
                 <a class = "nav-link" href = "/logout"> Logout </a> 
             </div>
@@ -63,35 +63,39 @@
                 <br>
             </form>
         </div>
-
-        {{#each posts}} 
-            <div class = "post">
-                <div class = "post-header">
-                    <img  class = "user-icon" src="{{filename}}" alt="user_icon" width="32" height="32">
-                    <a class = "post-username" href = "/View_Profile/{{username}}" title = "view profile"> {{username}} </a>
-                    <p class = "dot"> • </p>
-                    <a class = "post-title" href = "/View_Post/{{title}}" title = "view post"> {{title}} </a>
+        {{!-- {{#with user}} --}}
+            {{#each posts}} 
+                <div class = "post">
+                    <div class = "post-header">
+                        <img  class = "user-icon" src="{{filename}}" alt="user_icon" width="32" height="32">
+                        <a class = "post-username" href = "/View_Profile/{{username}}" title = "view profile"> {{username}} </a>
+                        <p class = "dot"> • </p>
+                        <a class = "post-title" href = "/View_Post/{{username}}/{{title}}" title = "view post"> {{title}} </a>
+                    </div>
+                    <br> 
+                    <p class = "post-content"> {{content}} </p>
+                    <br>
+                    <div class = "post-footer">
+                        <a href = "/View_Post/{{username}}/{{title}}" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
+                        <span class = "comment-count"> {{commentcount}} </span>
+                        {{#if upvoted}}
+                            <i class="fa-solid fa-angle-up" title = "upvote" style="color: green; cursor: pointer;"></i>
+                        {{else}}
+                            <i class="fa-solid fa-angle-up" title = "upvote" style="color: #ffd201; cursor: pointer;"></i>
+                        {{/if}}
+                        <span class = "vote-count" name = "votes"> {{votes}} </span>
+                        {{#if downvoted}}
+                            <i class="fa-solid fa-angle-down" title = "downvote" style="color: red; margin-right: 50px; cursor: pointer;"></i>
+                        {{else}}
+                            <i class="fa-solid fa-angle-down" title = "downvote" style="color: #ffd201; margin-right: 50px; cursor: pointer;"></i>
+                        {{/if}}
+                        {{!-- <div class = "delete-button">
+                        <input class = "delete-post-btn" type="submit" value="Delete" style="width: 150px; height: 30px; background-color: rgba(32,32,32,255); color: white;">
+                        </div> --}}
+                    </div> 
                 </div>
-                <br> 
-                <p class = "post-content"> {{content}} </p>
-                <br>
-                <div class = "post-footer">
-                    <a href = "/View_Post/{{title}}" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
-                    <span class = "comment-count"> {{commentcount}} </span>
-                    {{#if upvoted}}
-                        <i class="fa-solid fa-angle-up" title = "upvote" style="color: green; cursor: pointer;"></i>
-                    {{else}}
-                        <i class="fa-solid fa-angle-up" title = "upvote" style="color: #ffd201; cursor: pointer;"></i>
-                    {{/if}}
-                    <span class = "vote-count" name = "votes"> {{votes}} </span>
-                    {{#if downvoted}}
-                        <i class="fa-solid fa-angle-down" title = "downvote" style="color: red; margin-right: 50px; cursor: pointer;"></i>
-                    {{else}}
-                        <i class="fa-solid fa-angle-down" title = "downvote" style="color: #ffd201; margin-right: 50px; cursor: pointer;"></i>
-                    {{/if}}
-                </div> 
-            </div>
-        {{/each}}
+            {{/each}}
+        {{!-- {{/with}} --}}
 
     </body>
     <script src="/login_register.js"></>

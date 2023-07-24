@@ -8,8 +8,6 @@ const loginController = {
         res.render('login');
 
         var user = await db.findOne(User, {username: 'ckpg'});
-
-        console.log('Logged User: ', user);
     },
 
     postLogin: async function(req, res){

@@ -35,17 +35,17 @@ var UserSchema = new mongoose.Schema({
     dp: {
         type: String,
         default: '/default_icon.jpg'
-    }
+    },
+
+    bio: {
+        type: String,
+        default: 'Welcome to My Profile!'
+    },
 
     /* 
     cover: {
         type: String
         default: 
-    },
-
-    bio: {
-        type: String
-        required: true
     },
 
     followers: {

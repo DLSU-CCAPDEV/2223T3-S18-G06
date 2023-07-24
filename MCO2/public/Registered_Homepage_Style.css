@@ -170,6 +170,18 @@ body {
 
 }
 
+.delete-button {
+    display: flex;
+    position: relative;
+    left: 300px;
+}
+
+.delete-post-btn:hover {
+
+    box-shadow: 0 0px 2px 1px rgba(255,210,1,255);
+
+}
+
 .input-txt {
     font-family: Impact, sans-serif;
 }

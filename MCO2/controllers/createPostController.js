@@ -19,7 +19,7 @@ const createPostController = {
         
         var check = await db.findOne(Post, {title: title});
 
-        if(check.title === '') {
+        // if(check.title === '') {
 
             var post = {
                 filename: filename,
@@ -39,44 +39,10 @@ const createPostController = {
             }
 
             res.redirect('/Registered_Homepage/' + username);  
-        } else {
-            res.redirect('/Registered_Homepage/' + username);
-        }
+        // } else {
+        //     res.redirect('/Registered_Homepage/' + username);
+        // }
     },
-
-    upVote: async function(req, res) { 
-        var query = req.query.title.slice(1);
-        var title = query.slice(0, -1); 
-        
-        var post = await db.findOne(Post, {title: title});
-        var result = post.votes + 1;
-        var checker = post.downvoted;
-
-        if (checker == 0)
-            db.updateOne(Post, {title: title}, {upvoted: 1});
-        if (checker == 1)
-            db.updateOne(Post, {title: title}, {downvoted: 0});
-
-        db.updateOne(Post, {title: title}, {votes: result});
-    },
-
-    downVote: async function(req, res) { 
-        var query = req.query.title.slice(1);
-        var title = query.slice(0, -1); 
-        
-        var post = await db.findOne(Post, {title: title});
-        var result = post.votes - 1;
-        var checker = post.upvoted;
-
-        if (checker == 0)
-            db.updateOne(Post, {title: title}, {downvoted: 1});
-        if (checker == 1)
-            db.updateOne(Post, {title: title}, {upvoted: 0});
-
-        db.updateOne(Post, {title: title}, {votes: result});
-    }
-
-
 }
 
 module.exports = createPostController;

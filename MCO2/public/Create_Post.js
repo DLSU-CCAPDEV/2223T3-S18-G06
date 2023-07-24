@@ -216,3 +216,9 @@ function hideEdit() {
     edit_post[0].style.display = "none";
 }
 
+$(document).ready(function() {
+    $('.delete-post-btn').click(function() {
+        var title = $(this).parent().siblings('.post-header').children('.post-title').text();
+        $.get('/delete', {title:title}, function() {});
+    });
+});
