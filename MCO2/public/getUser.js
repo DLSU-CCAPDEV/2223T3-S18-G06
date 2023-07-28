@@ -9,10 +9,7 @@ $(document).ready(function() {
         console.log('Username: ', username);
 
         $.get('/View_Profile/' + username, { currUser: currUser }, function(result) {
-            console.log('Viewing Profile');
-
-            // After the $.get request is successful, navigate to the new URL with query parameters
-            // window.location.href = '/View_Profile/' + username + '?currUser=' + currUser;
+            window.location.href = '/View_Profile/' + username + '?currUser=' + currUser;
         });
     });
 
