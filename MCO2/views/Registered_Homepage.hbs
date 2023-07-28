@@ -9,6 +9,8 @@
             integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" 
             crossorigin="anonymous"></script>
         <script src="/voting.js"></script>
+        <script src="/getUser.js" type="text/javascript"></script>
+
     </head>
 
     <body>
@@ -45,7 +47,7 @@
                 </div>
                 <div class = "create-header">
                     <img  class = "user-icon" name="userIcon" src="{{user.dp}}" alt="user_icon" width="32" height="32">
-                    <p class = "create-username" name="createUsername">{{user.username}}</p>
+                    <p class = "create-username" name="createUsername" id="currentUser">{{user.username}}</p>
                     <p class = "dot"> • </p>
                     <div class = "create-title"> <input type="text" id="create-title" name="createTitle" placeholder="Title"  style="width: 270px; font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white;" required><br><br> 
                     </div>
@@ -68,9 +70,9 @@
                 <div class = "post">
                     <div class = "post-header">
                         <img  class = "user-icon" src="{{filename}}" alt="user_icon" width="32" height="32">
-                        <a class = "post-username" href = "/View_Profile/{{username}}" title = "view profile"> {{username}} </a>
+                        <a class = "post-username" data-username="{{username}}" title = "view profile"> {{username}} </a>
                         <p class = "dot"> • </p>
-                        <a class = "post-title" href = "/View_Post/{{username}}/{{title}}" title = "view post"> {{title}} </a>
+                        <a class = "post-title" data-title="{{title}}" data-username="{{username}}" title = "view post"> {{title}} </a>
                     </div>
                     <br> 
                     <p class = "post-content"> {{content}} </p>

@@ -34,7 +34,7 @@
                     var value = document.getElementById("search-bar").value;
                     var option = document.querySelector("#list option[value='" + value + "']");
                     if (option != null) {
-                        window.location.href = "/View_Profile/" + value;
+                        window.location.href = "/View_Profile/" + value + '/';
                     } else
                         alert("no results found");
                 }
@@ -46,8 +46,8 @@
                 {{/each}}
             </datalist>
             <div id = "nav-links">
-                <a class = "nav-link" href = "/Registered_Homepage/{{username}}" > • Home </a> 
-                <a class = "nav-link" href="/profile/{{username}}"> Profile </a> 
+                <a class = "nav-link" href = "/Registered_Homepage/{{current.username}}" > • Home </a> 
+                <a class = "nav-link" href="/profile/{{current.username}}"> Profile </a> 
                 <a class = "nav-link" href = "/logout"> Logout </a> 
             </div>
         </div>

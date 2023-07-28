@@ -130,6 +130,16 @@ const controller = {
             db.updateOne(Post, {title: title}, {upvoted: 0});
 
         db.updateOne(Post, {title: title}, {votes: result});
+    },
+
+    getUser: async function(req, res) {
+        var username = req.query.currUser;
+
+        query = {username: username};
+
+        var user = await db.findOne(User, query);
+
+        res.json(user);
     }
 }
 

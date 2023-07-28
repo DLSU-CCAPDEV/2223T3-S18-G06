@@ -17,6 +17,7 @@ const editProfileController = require('../controllers/editProfileController.js')
 const createCommentController = require('../controllers/createCommentController.js');
 
 const deletePostController = require('../controllers/deletePostController.js');
+const { db } = require('../models/UserModel.js');
 
 const app = express();
 

@@ -9,14 +9,16 @@ const viewPostController = {
         var username = req.params.username;
         var title = req.params.title;
 
+        var currUser = req.query.currUser;
+
         var query = {title: title};    
 
         res.render('View_Post', {
             username: username,
             post: await db.findOne(Post, query),
-            //user: await db.findOne(User, query),
             users: await db.findMany(User, {}),
-            comments: await db.findMany(Comment, {title: title})
+            comments: await db.findMany(Comment, {title: title}),
+            current: await db.findOne(User, {username: currUser})
         });
     }
 }

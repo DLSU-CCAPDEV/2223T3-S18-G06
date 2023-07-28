@@ -6,13 +6,18 @@ const viewProfileController = {
 
     viewProfile: async function (req, res) {
         var username = req.params.username;
+        var currUser = req.query.currUser;
 
         var query = {username: username};
 
+        var user = await db.findOne(User, {username: currUser});
+
+
         res.render('View_Profile', {
             posts: await db.findMany(Post, {username: username}),
-            user: await db.findOne(User, query),
-            users: await db.findMany(User, {})
+            user: user,
+            users: await db.findMany(User, {}),
+            visitUser: await db.findOne(User, query)
         });
     }
 }
