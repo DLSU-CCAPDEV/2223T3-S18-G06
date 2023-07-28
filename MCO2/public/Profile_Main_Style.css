@@ -226,6 +226,14 @@ body {
     float: top;
 }
 
+.post-container{
+    height: auto;
+    border: solid black 1px;
+    width: 1000px;
+    position: relative;
+    left: 6%;
+}
+
 .post {
     background-color: rgba(32,32,32,255);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);

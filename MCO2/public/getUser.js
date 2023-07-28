@@ -6,7 +6,7 @@ $(document).ready(function() {
         var username = $(this).data('username');
 
         console.log('Current User here: ', currUser);
-        console.log('Username: ', username);
+        console.log('  : ', username);
 
         $.get('/View_Profile/' + username, { currUser: currUser }, function(result) {
             window.location.href = '/View_Profile/' + username + '?currUser=' + currUser;

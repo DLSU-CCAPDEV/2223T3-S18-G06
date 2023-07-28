@@ -96,7 +96,8 @@ const controller = {
         res.render('profile', {
             username: username,
             user: await db.findOne(User, query),
-            dp_images: dp_images
+            dp_images: dp_images,
+            posts: await db.findMany(Post, {username: username})
         });
     },
 
