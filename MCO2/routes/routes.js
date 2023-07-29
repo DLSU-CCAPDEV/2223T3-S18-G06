@@ -59,3 +59,6 @@ app.post('/editProfile/:username', editProfileController.postEdit);
 //delete post
 app.get('/delete', deletePostController.delete);
 
+//edit post
+// app.get('/edit', updatePostController.edit);
+

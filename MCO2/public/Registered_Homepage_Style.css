@@ -170,6 +170,10 @@ body {
 
 }
 
+.edit-delete-post:hover{
+    box-shadow: 0 0px 2px 1px rgba(255,210,1,255);
+}
+
 .delete-button {
     display: flex;
     position: relative;

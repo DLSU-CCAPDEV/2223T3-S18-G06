@@ -10,6 +10,7 @@
             crossorigin="anonymous"></script>
         <script src="/voting.js"></script>
         <script src="/getUser.js" type="text/javascript"></script>
+        <script src="/editDeletePost.js" type="text/javascript"></script>
 
     </head>
 
@@ -96,9 +97,9 @@
 
                         {{#if (eq ../user.username username) }}
 
-                            <input class="create-post-btn" type="button" value="Delete" style="width: 75px; height: 20px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white; cursor: pointer; margin-left: 0;">
+                            <input class="edit-delete-post" data-action="delete" data-title="{{title}}" data-username="{{../user.username}}" type="button" value="Delete" style="width: 75px; height: 20px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white; cursor: pointer; margin-left: 0;">
 
-                            <input class="create-post-btn" type="button" value="Edit Post" style="width: 75px; height: 20px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white; cursor: pointer; margin-left: auto;">
+                            <input class="edit-delete-post" type="button" data-action="edit" value="Edit Post" style="width: 75px; height: 20px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white; cursor: pointer; margin-left: auto;">
                         {{/if}}
                     </div> 
                 </div>

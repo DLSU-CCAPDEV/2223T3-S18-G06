@@ -5,10 +5,11 @@ const User = require('../models/UserModel.js');
 const deletePostController = {
 
     delete: async function (req, res) {
-        var query = req.query.title.slice(1);
-        var title = query.slice(0, -1);
+        var query = req.query.title;
+        var username = req.query.username;
 
-        db.deleteOne(Post, {title: title});
+        db.deleteOne(Post, {title: query});
+
         res.redirect('/Registered_Homepage/' + username);
     }
 }
