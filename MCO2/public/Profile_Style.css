@@ -207,10 +207,21 @@ body {
     float: top;
 }
 
+.post-container{
+    height: auto;
+    width: 850px;
+    position: relative;
+    top: 0;
+    left: 70;
+    display: flex;
+    flex-direction: column; 
+    padding-bottom: 50px;   
+}
+
 .post {
     background-color: rgba(32,32,32,255);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    width: 45%;
+    width: 700px;
     position: relative;
     top: 50px;
     left: 10%;
@@ -224,6 +235,7 @@ body {
     border-radius: 5px;
     padding-right: 10px;
     padding-left: 10px;
+    overflow-wrap: break-word;
 }
 
 .post-header {
