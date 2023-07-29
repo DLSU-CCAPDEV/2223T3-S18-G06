@@ -78,22 +78,28 @@
                     <p class = "post-content"> {{content}} </p>
                     <br>
                     <div class = "post-footer">
-                        <a href = "/View_Post/{{username}}/{{title}}" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
-                        <span class = "comment-count"> {{commentcount}} </span>
-                        {{#if upvoted}}
-                            <i class="fa-solid fa-angle-up" title = "upvote" style="color: green; cursor: pointer;"></i>
-                        {{else}}
-                            <i class="fa-solid fa-angle-up" title = "upvote" style="color: #ffd201; cursor: pointer;"></i>
+                        <div style="padding-top:5px; width: 500px;">
+                            <a href = "/View_Post/{{username}}/{{title}}" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
+                            <span class = "comment-count" style="max-width: 4px;"> {{commentcount}} </span>
+                            {{#if upvoted}}
+                                <i class="fa-solid fa-angle-up" title = "upvote" style="color: green; cursor: pointer;"></i>
+                            {{else}}
+                                <i class="fa-solid fa-angle-up" title = "upvote" style="color: #ffd201; cursor: pointer;"></i>
+                            {{/if}}
+                            <span class = "vote-count" name = "votes"> {{votes}} </span>
+                            {{#if downvoted}}
+                                <i class="fa-solid fa-angle-down" title = "downvote" style="color: red; margin-right: 50px; cursor: pointer;"></i>
+                            {{else}}
+                                <i class="fa-solid fa-angle-down" title = "downvote" style="color: #ffd201; margin-right: 50px; cursor: pointer;"></i>
+                            {{/if}}
+                        </div> 
+
+                        {{#if (eq ../user.username username) }}
+
+                            <input class="create-post-btn" type="button" value="Delete" style="width: 75px; height: 20px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white; cursor: pointer; margin-left: 0;">
+
+                            <input class="create-post-btn" type="button" value="Edit Post" style="width: 75px; height: 20px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white; cursor: pointer; margin-left: auto;">
                         {{/if}}
-                        <span class = "vote-count" name = "votes"> {{votes}} </span>
-                        {{#if downvoted}}
-                            <i class="fa-solid fa-angle-down" title = "downvote" style="color: red; margin-right: 50px; cursor: pointer;"></i>
-                        {{else}}
-                            <i class="fa-solid fa-angle-down" title = "downvote" style="color: #ffd201; margin-right: 50px; cursor: pointer;"></i>
-                        {{/if}}
-                        {{!-- <div class = "delete-button">
-                        <input class = "delete-post-btn" type="submit" value="Delete" style="width: 150px; height: 30px; background-color: rgba(32,32,32,255); color: white;">
-                        </div> --}}
                     </div> 
                 </div>
             {{/each}}

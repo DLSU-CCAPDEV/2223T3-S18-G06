@@ -10,12 +10,16 @@ const db = require('./models/db.js');
 
 const app = express();
 
+hbs.registerHelper('eq', function(arg1, arg2) {
+    return (arg1 == arg2);
+});
+
 dotenv.config();
 port = process.env.PORT;
 hostname = process.env.HOSTNAME;
 
 app.set('view engine', 'hbs');
-hbs.registerPartials(__dirname + './views/partials')
+hbs.registerPartials(__dirname + './views/partials');
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded( {extended: true} ));

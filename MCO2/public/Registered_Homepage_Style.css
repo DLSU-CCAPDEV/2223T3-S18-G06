@@ -249,17 +249,23 @@ body {
 
 .post-content {
     position: relative;
-    padding-top: 28px;
-    padding-bottom: 10px;
+    /* margin-top: 10px; */
+    padding-top: 45px;
+    /* padding-bottom: 10px; */
+    padding-left: 9px;
     font-size: 20px;
     color: white;
+    margin: 0;
 }
 
 .post-footer {
     display: flex;
-	position: absolute;
-    bottom: 5px;
-    left: 20px;
+	position: relative;
+    top: 0px;
+    left: 10px;
+    /* padding-bottom: 8px; */
+    padding-right: 10px;
+    margin-bottom: 5px;
 }
 
 .comment-count {
