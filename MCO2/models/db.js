@@ -8,8 +8,8 @@ const Post = require('./PostModel.js');
 
 const Comment = require('./CommentModel.js');
 
-// ccapdev-mongoose is the name of the database
-const url = 'mongodb://127.0.0.1:27017/ccapdev-mongoose';
+// hive is the name of the database
+const url = 'mongodb+srv://noahhbernardo:12174890@cluster0.b0vvoud.mongodb.net/hive';
 
 // additional connection options
 const options = {

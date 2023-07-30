@@ -24,6 +24,7 @@ const createCommentController = {
         };
 
         try{
+            console.log('Comment Inserted');
             await db.insertOne(Comment, comment);
             await db.updateOne(Post, {title: title}, {commentcount: add});
         } catch(error){

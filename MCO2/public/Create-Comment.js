@@ -64,11 +64,28 @@ function addComment() {
     postContent.id = "post-content";
     postContent.textContent = createCommentValue;
 
+    const postFooter = document.createElement("div");
+    postFooter.className = "post-footer";
+
+    const faSolidComment = document.createElement("a");
+    const hrefCommentValue = "";
+    faSolidComment.className ="fa-solid fa-comment";
+    faSolidComment.setAttribute('href', hrefCommentValue);
+    faSolidComment.style.color = "#ffd201;"
+
+    const commentCount = document.createElement("span");
+    commentCount.className = "comment-count";
+    commentCount.textContent = "0";
+
     postHeader.appendChild(userIcon); 
     postHeader.appendChild(postUserName);    
 
+    postFooter.appendChild(faSolidComment);
+    postFooter.appendChild(commentCount);
+
     comment.appendChild(commentHeader);
     comment.appendChild(postContent);
+    comment.appendChild(postFooter);
 
     bodyElement.appendChild(comment);
 
@@ -77,8 +94,6 @@ function addComment() {
 }
 
 function createComment(){
-    const create_title = document.getElementById('create-title');
-
     const create_content = document.getElementById('create-comment');
     const post_content = document.getElementById('post-content');
 
@@ -102,7 +117,7 @@ function clearText() {
 }
 
 function showComment() {
-    var create_comment = document.getElementsByClassName('create-comment')[0];
+    var create_comment = document.getElementsByClassName('create-content')[0];
     var edit_post = document.getElementsByClassName('edit-post')[0];
 
     var isDisplayed = window.getComputedStyle(create_comment).display;
@@ -115,40 +130,10 @@ function showComment() {
     }
 }
 
-// =============================================ATTEMPT 3============================================================
+function hidePost() {
+    var create_post = document.getElementsByClassName('create-content');
 
-// function addComment() {
-//     const create_comment = document.getElementById('create-comment');
-//     const createCommentValue = create_comment.value;
-
-//     if (createCommentValue === '') {
-//         alert('Please Fill Up All Text Areas');
-//     } else {
-//         // const name = 
-//         // const title = /* title */;
-//         const url = `/View_Post/${{username}}/${{title}}`;
-
-//         const formData = new FormData();
-//         formData.append('createContent', createCommentValue);
-
-//         // AJAX request
-//         fetch(url, {
-//             method: 'POST',
-//             body: formData
-//         })
-//         .then(response => response.json())
-//         .then(data => {
-//             // Handle the success response (data) here, e.g., update the UI with the new comment.
-//             console.log('Comment added successfully:', data);
-//             // Clear the form
-//             document.getElementById('comment-content').reset();
-//             // You may also update the UI to show the newly added comment
-//         })
-//         .catch(error => {
-//             // Handle the error here
-//             console.error('Error adding comment:', error);
-//         });
-//     }
-// }
+    create_post[0].style.display = "none";
+}
 
 
