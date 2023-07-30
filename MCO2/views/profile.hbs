@@ -10,7 +10,7 @@
             integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" 
             crossorigin="anonymous"></script>
 
-        <script src="voting.js"></script>
+        <script src="/voting.js"></script>
 
         <style>
 
@@ -92,19 +92,19 @@
         </div>
 
         <div class = "create-post">
-                <div class ="create-first"> CREATE POST 
-                </div>
+                <div class ="create-first"> CREATE POST </div>
                 <div class = "create-header">
-                    <img  class = "user-icon" src="default_icon.jpg" alt="user_icon" width="32" height="32">
-                    <p class = "create-username">{{username}}</p>
-                    <p class = "dot"> • </p>
-                    <div class = "create-title"> <input type="text" id="create-title" name="create-title" placeholder="Title"  style="width: 270px; font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white;" required><br><br> 
+                    <img  class = "user-icon" src="{{user.dp}}" alt="user_icon" width="32" height="32">
+                    <div class = "create-title"> 
+                        <p class = "create-username">{{username}}</p>
+                        <p class = "dot"> • </p>
+                        <input type="text" id="create-title" name="create-title" placeholder="Title"  style="flex: 1; height: 20px; font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white; position: relative; top: 7px;" required><br><br> 
                     </div>
                 </div>
-                <br><br><br><br>
+                {{!-- <br><br><br><br> --}}
 
                 <div class = "create-content">
-                    <textarea id="create-content" name="create-content" rows="5" cols="51" placeholder="Write a post" style="font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white; max-width: 700px" required></textarea> 
+                    <textarea id="create-content" name="create-content" rows="5" cols="51" placeholder="Write a post" style="font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white; width: 100%; resize: none;" required></textarea> 
                 </div>
 
                 <div class = "create-footer">
@@ -160,7 +160,7 @@
         <div class="post-container">
             
             {{#each posts}} 
-                <div class = "post" style="">
+                <div class = "post">
                     <div class = "post-header">
                         <img  class = "user-icon" src="{{filename}}" alt="user_icon" width="32" height="32">
                         <a class = "post-username" data-username="{{username}}" title = "view profile"> {{username}} </a>
@@ -196,7 +196,7 @@
         
 
         <script src="/Create_Post.js"></script>
-        <script src="login_register.js"></script>
+        {{!-- <script src="login_register.js"></script> --}}
         <script src="/Edit_Profile.js"></script>
     </body>
 

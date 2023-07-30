@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
     $('.fa-angle-up').click(function() {
         var title = $(this).parent().siblings('.post-header').children('.post-title').text();

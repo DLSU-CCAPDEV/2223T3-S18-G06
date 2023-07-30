@@ -267,8 +267,10 @@ body {
 
 .user-icon {
     border-radius: 50%;
+    /* margin-right: 10px;
+    margin-top: 7px; */
+    margin: 0;
     margin-right: 10px;
-    margin-top: 7px;
 }
 
 .post-username {
@@ -285,8 +287,11 @@ body {
 
 .dot {
     font-weight: 700;
-	margin-left: 10px;
-	margin-right: 10px;
+	/* margin-left: 10px;
+	margin-right: 10px; */
+    margin: 0;
+    position: relative;
+    top: 8px;
 }
 
 .post-title {
@@ -364,7 +369,7 @@ body {
 
 .create-post {
     background-color: rgba(32,32,32,255);
-    width: 28.5%;
+    height: auto;
     position: absolute;
     margin-top: 550px;
     margin-left: 80px;
@@ -372,9 +377,12 @@ body {
     font-family: Roboto, sans-serif;
     color: rgba(255,210,1,255);
     border-radius: 5px;
-    padding-right: 10px;
-    padding-left: 10px;
-    display: none;
+    padding-right: 20px;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 430px;
+    z-index: 100;
 }
 
 .create-first {
@@ -394,28 +402,40 @@ body {
     display: flex;
     position: relative;
     top: 70px;
-    left: 15px;
+    /* left: 15px; */
+    /* justify-content: center;
+    align-items: center; */
+
 }
 
 .create-username {
     font-weight: 1000;
     color: white;
+    flex-shrink: 0;
+    margin: 0;
+    position: relative;
+    top: 5px;
 }
 
 .create-title {
-    padding-top: 13px;
+    display: flex;
+    /* padding-top: 13px; */
     width: 200px; 
+    height: auto;
     font-family: Roboto, sans-serif; 
     font-size: 15px;
 }
 
+/* #create-title{
+    width: 100%;
+} */
+
 .create-content {
-    padding-left: 14px;
     padding-bottom: 20px;
     position: relative;
     font-size: 20px;
     color: white;
-    top: 10px;
+    top: 90px;
 }
 
 .create-footer {
@@ -423,6 +443,7 @@ body {
     position: relative;
     bottom: 10px;
     left: 5px;
+    margin-top: 80px;
 }
 
 .create-post-btn:hover {

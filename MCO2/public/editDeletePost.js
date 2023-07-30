@@ -7,6 +7,7 @@ $(document).ready(function() {
         const username = $(this).data('username');
 
         console.log('Title: ', title);
+        console.log('Username: ', username);
 
         if(action === 'delete'){
             $.get('/delete', {title: title, username: username})

@@ -15,6 +15,4 @@ const editPostController = {
         res.redirect('/Registered_Homepage/' + username);
     }
 }
-
-
 module.exports = editPostController;

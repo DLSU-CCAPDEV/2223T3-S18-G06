@@ -104,11 +104,9 @@
                         <p class = "dot"> • </p>
                         <a class = "post-title" data-title="{{title}}" data-username="{{username}}" title = "view post"> {{title}} </a>
                     </div>
-                    <br> 
                     <p class = "post-content"> {{content}} </p>
-                    <br>
                     <div class = "post-footer">
-                        <div style="padding-top:5px; width: 500px;">
+                        {{!-- <div style="padding-top:5px; width: 500px;"> --}}
                             <a href = "/View_Post/{{username}}/{{title}}" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
                             <span class = "comment-count" style="max-width: 4px;"> {{commentcount}} </span>
                             {{#if upvoted}}
@@ -122,13 +120,13 @@
                             {{else}}
                                 <i class="fa-solid fa-angle-down" title = "downvote" style="color: #ffd201; margin-right: 50px; cursor: pointer;"></i>
                             {{/if}}
-                        </div> 
+                        {{!-- </div>  --}}
 
                         {{#if (eq ../user.username username) }}
 
-                            <input class="edit-delete-post" type="submit" value="Delete" style="width: 75px; height: 20px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white; cursor: pointer; margin-left: 0;">
+                            <input class="edit-delete-post" type="submit" data-action="delete" data-title="{{title}}" data-username="{{../user.username}}" value="Delete" style="width: 75px; height: 20px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white; cursor: pointer; margin-left: auto;">
 
-                            <input class="edit-delete-post" type="button" data-action="edit" data-title="{{title}}" value="Edit Post" style="width: 75px; height: 20px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white; cursor: pointer; margin-left: auto;">
+                            <input class="edit-delete-post" type="button" data-action="edit" data-title="{{title}}" value="Edit Post" style="width: 75px; height: 20px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white; cursor: pointer; margin-left: 10px;">
                         {{/if}}
                     </div> 
                 </div>
