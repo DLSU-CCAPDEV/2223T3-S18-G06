@@ -5,15 +5,10 @@ const User = require('../models/UserModel.js');
 const editPostController = {
 
     edit: async function (req, res) {
-        var query = req.query.currTitle;
-        var title = req.query.title;
-        var content = req.query.createContent;
-        var username = req.query.createUsername;
-
-        console.log('Query: ', query);
-        console.log('Title: ', title);
-        console.log('Content: ', content);
-        console.log('Username: ', username);
+        var query = req.body.currTitle;
+        var title = req.body.title;
+        var content = req.body.content;
+        var username = req.body.username;
 
         db.updateOne(Post, {title: query}, {title: title, content: content});
 

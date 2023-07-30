@@ -38,12 +38,11 @@ $(document).ready(function() {
         var currTitle = $(this).data('title');
         var title = $('#edit-title').val();
         var content = $('#edit-content').val();
-        var username = $('#currUser').val();
+        var username = $('#edit-currentUser').text();
 
-        $.get('/edit', {currTitle: currTitle, title: title, content: content, username: username}, function(result) {
+        $.post('/edit', {currTitle: currTitle, title: title, content: content, username: username}, function(result) {
+            console.log('Edit Success!');
             location.reload();
         });
-
-
     })
 })
