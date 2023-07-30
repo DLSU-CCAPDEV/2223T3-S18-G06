@@ -42,8 +42,8 @@
             </div>
         </div>
         
-        <div class = "create-post">
-            <form method="post">
+        <div class = "create-post" style="top: 500;">
+            <form method="post" action="/Registered_Homepage/{{user.username}}">
                 <div class ="create-first"> CREATE POST 
                 </div>
                 <div class = "create-header">
@@ -66,6 +66,35 @@
                 <br>
             </form>
         </div>
+
+        <div class = "create-post" id="edit-post" style="top: 400px;" hidden>
+            <form>
+                <p id="titleVal" name="titleVal" hidden></p>
+                <div class ="create-first"> EDIT POST
+                </div>
+                <div class = "create-header">
+                    <img  class = "user-icon" name="userIcon" src="{{user.dp}}" alt="user_icon" width="32" height="32">
+                    <p class = "create-username" name="createUsername" id="edit-currentUser">{{user.username}}</p>
+                    <p class = "dot"> • </p>
+                    <div class = "create-title"> <input type="text" id="edit-title" name="title" style="width: 270px; font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white;"><br><br> 
+                    </div>
+                </div>
+
+                <br><br><br><br>
+
+                <div class = "create-content">
+                    <textarea id="edit-content" name="createContent" rows="5" cols="51" placeholder="Write a post" style="font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white;"></textarea> 
+                </div>
+
+                <div class = "create-footer" style="left: 70px;">
+                    <input class="edit-delete-post" id="cancel-btn" type="button" value="Cancel" style="width: 150px; height: 30px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white;">
+
+                    <input id="edit-post-btn" data-title="" type="button" value="Edit" style="width: 150px; height: 30px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white;">
+                </div>
+                <br>
+            </form>
+        </div>
+
         {{!-- {{#with user}} --}}
             {{#each posts}} 
                 <div class = "post">
@@ -97,9 +126,9 @@
 
                         {{#if (eq ../user.username username) }}
 
-                            <input class="edit-delete-post" data-action="delete" data-title="{{title}}" data-username="{{../user.username}}" type="button" value="Delete" style="width: 75px; height: 20px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white; cursor: pointer; margin-left: 0;">
+                            <input class="edit-delete-post" type="submit" value="Delete" style="width: 75px; height: 20px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white; cursor: pointer; margin-left: 0;">
 
-                            <input class="edit-delete-post" type="button" data-action="edit" value="Edit Post" style="width: 75px; height: 20px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white; cursor: pointer; margin-left: auto;">
+                            <input class="edit-delete-post" type="button" data-action="edit" data-title="{{title}}" value="Edit Post" style="width: 75px; height: 20px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white; cursor: pointer; margin-left: auto;">
                         {{/if}}
                     </div> 
                 </div>

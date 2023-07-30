@@ -17,6 +17,7 @@ const editProfileController = require('../controllers/editProfileController.js')
 const createCommentController = require('../controllers/createCommentController.js');
 
 const deletePostController = require('../controllers/deletePostController.js');
+const editPostController = require('../controllers/editPostController.js');
 const { db } = require('../models/UserModel.js');
 
 const app = express();
@@ -59,6 +60,6 @@ app.post('/editProfile/:username', editProfileController.postEdit);
 //delete post
 app.get('/delete', deletePostController.delete);
 
-//edit post
-// app.get('/edit', updatePostController.edit);
+// edit post
+app.get('/edit', editPostController.edit);
 
