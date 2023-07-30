@@ -37,9 +37,17 @@ app.use(`/`, routes);
 
 db.connect();
 
-app.listen(port, /*hostname,*/function() {
-    //console.log('Server running at: ');
-    //console.log('http://' + hostname + ':' + port);
+//Use this for online database (submission)
+app.listen(port, function() {
     console.log('Server running at port: ' + port);
+    console.log('Access website through: https://hive-f2w2.onrender.com' 
 });
-    
+
+
+//Use this for local database (Testing and debugging)
+/*
+app.listen(port, hostname, function() {
+    console.log('Server running at: ');
+    console.log('http://' + hostname + ':' + port);
+});   
+*/
