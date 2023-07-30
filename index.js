@@ -40,7 +40,7 @@ db.connect();
 //Use this for online database (submission)
 app.listen(port, function() {
     console.log('Server running at port: ' + port);
-    console.log('Access website through: https://hive-f2w2.onrender.com' 
+    console.log('Access website through: https://hive-f2w2.onrender.com'); 
 });
 
 
