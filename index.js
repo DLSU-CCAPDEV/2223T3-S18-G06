@@ -37,8 +37,9 @@ app.use(`/`, routes);
 
 db.connect();
 
-app.listen(port, hostname, function() {
-    console.log('Server running at: ');
-    console.log('http://' + hostname + ':' + port);
+app.listen(port, /*hostname,*/function() {
+    //console.log('Server running at: ');
+    //console.log('http://' + hostname + ':' + port);
+    console.log('Server running at port: ' + port);
 });
     
