@@ -43,7 +43,7 @@ app.get('/downVote', controller.downVote);
 
 //create post
 app.post('/Registered_Homepage/:username', createPostController.post);
-module.exports = app;
+app.post('/profile/:username', createPostController.postMain);
 
 //post page
 app.get('/View_Post/:username/:title', viewPostController.viewPost);
@@ -63,3 +63,4 @@ app.get('/delete', deletePostController.delete);
 // edit post
 app.post('/edit', editPostController.edit);
 
+module.exports = app;

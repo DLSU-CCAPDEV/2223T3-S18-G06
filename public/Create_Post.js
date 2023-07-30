@@ -207,7 +207,7 @@ function showEdit() {
     var create_post = document.getElementsByClassName('create-post');
 
     create_post[0].style.display = "none";
-    edit_post[0].style.display = "block";
+    edit_post[0].style.display = "flex";
 }
 
 function hideEdit() {

@@ -2,6 +2,9 @@ const db = require('../models/db.js');
 
 const User = require('../models/UserModel.js');
 
+// import module `bcrypt`
+const bcrypt = require('bcrypt');
+
 const loginController = {
 
     getLogin: async function(req, res) {
@@ -19,14 +22,18 @@ const loginController = {
                 username: username
             });
 
-            if(!user || user.pw !== pw){
-                res.render('login', {
-                    err_message: 'Invalid username or password!',
-                    username: username
-                });
-            } else {
-                res.redirect('/Registered_Homepage/' + user.username);
-            }
+            bcrypt.compare(pw, user.pw, function(err, equal) {
+                if(!user || !equal)
+                    res.render('login', {
+                        err_message: 'Invalid username or password!',
+                        username: username
+                    });
+
+                else {
+                    res.redirect('/Registered_Homepage/' + user.username);
+                }
+            });
+
         } catch(error){
             console.error('Error Login: ', error);
             res.render('login', {

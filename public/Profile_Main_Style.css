@@ -260,17 +260,16 @@ body {
 
 .post-header {
     display: flex;
-	position: absolute;
+	position: relative;
     top: 5px;
-    left: 20px;
+    left: 10px;
+    margin-bottom: 10px;
 }
 
 .user-icon {
     border-radius: 50%;
-    /* margin-right: 10px;
-    margin-top: 7px; */
-    margin: 0;
     margin-right: 10px;
+    margin-top: 7px;
 }
 
 .post-username {
@@ -279,6 +278,7 @@ body {
     color: white;
     padding-top: 12px;
     height: 15px;
+    cursor: pointer;
 }
 
 .post-username:hover {
@@ -287,18 +287,16 @@ body {
 
 .dot {
     font-weight: 700;
-	/* margin-left: 10px;
-	margin-right: 10px; */
-    margin: 0;
-    position: relative;
-    top: 8px;
+	margin-left: 10px;
+	margin-right: 10px;
 }
 
 .post-title {
     text-decoration: none;
-    color: white; 
+    color: white;
     padding-top: 15px;
     height: 15px;
+    cursor: pointer;
 }
 
 .post-title:hover {
@@ -307,17 +305,20 @@ body {
 
 .post-content {
     position: relative;
-    padding-top: 28px;
-    padding-bottom: 10px;
+    margin-bottom: 10px;
+    margin-top: 0px;
+    padding-left: 9px;
     font-size: 20px;
     color: white;
 }
 
 .post-footer {
     display: flex;
-	position: absolute;
-    bottom: 5px;
-    left: 20px;
+	position: relative;
+    top: 0px;
+    left: 10px;
+    padding-right: 10px;
+    margin-bottom: 5px;
 }
 
 .comment-count {
@@ -379,9 +380,9 @@ body {
     border-radius: 5px;
     padding-right: 20px;
     padding-left: 20px;
-    display: flex;
+    display: none;
     flex-direction: column;
-    width: 430px;
+    width: 410px;
     z-index: 100;
 }
 
@@ -394,7 +395,7 @@ body {
     position: absolute;
     padding-top: 30px;
     padding-left: 150px;
-    top: 5px;
+    top: 3px;
     left: 20px;
 }
 
@@ -411,16 +412,17 @@ body {
 .create-username {
     font-weight: 1000;
     color: white;
-    flex-shrink: 0;
     margin: 0;
     position: relative;
     top: 5px;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .create-title {
     display: flex;
     /* padding-top: 13px; */
-    width: 200px; 
+    width: 100%; 
     height: auto;
     font-family: Roboto, sans-serif; 
     font-size: 15px;
@@ -454,7 +456,7 @@ body {
 
 .edit-post {
     background-color: rgba(32,32,32,255);
-    width: 28.5%;
+    width: 410px;
     position: absolute;
     margin-top: 550px;
     margin-left: 80px;
@@ -462,46 +464,51 @@ body {
     font-family: Roboto, sans-serif;
     color: rgba(255,210,1,255);
     border-radius: 5px;
-    padding-right: 10px;
-    padding-left: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
     display: none;
+    flex-direction: column;
 }
 
 .edit-first {
     color: white;
     display: flex;
-    position: absolute;
-    left: 20px;
+    position: relative;
 }
 
 .edit-ftitle {
     font-family: cursive;
     font-weight: 1000;
     color: rgba(255,210,1,255);
-    margin-left: 130px;
+    margin-left: 150px;
 }
 
 .edit-header {
-    margin: auto;
-    padding-left: 14px;
-    padding-bottom: 25px;
+    margin: 0;
+    /* padding-left: 14px;
+    padding-bottom: 25px; */
     position: relative;
-    top: 10px;
-    left: 20px;
+    /* top: 10px;
+    left: 20px; */
 }
 
 .edit-profile {
+    position: relative;
+    left: 95px;
     padding-top: 1px;
     width: 200px; 
     font-family: Roboto, sans-serif; 
     font-size: 15px;
+    margin: 0;
 }
 
 .edit-footer {
     position: relative;
     top: 5px;
-    left: 50px;
+    left: 125px;
     bottom: 5px;
+    margin-top: 20px;
+    margin-bottom: 25px;
 }
 
 .edit-post-btn:hover {

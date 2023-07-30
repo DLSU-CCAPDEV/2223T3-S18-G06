@@ -10,7 +10,7 @@ function hideDp(){
 
 function setDp(img_path){
     console.log('setDp');
-    var edit_profile = document.getElementById('editProfile');
+    var edit_profile = document.getElementById('setProfilePic');
     edit_profile.value = img_path;
 
     console.log('Path: ', edit_profile.value);

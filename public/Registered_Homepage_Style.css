@@ -118,7 +118,7 @@ body {
 
 .create-post {
     background-color: rgba(32,32,32,255);
-    width: 29%;
+    width: 465px;
     position: absolute;
     top: 87px;
     left: 57%;
@@ -264,9 +264,6 @@ body {
 
 .post-content {
     position: relative;
-    /* margin-top: 10px; */
-    /* padding-top: 45px; */
-    /* padding-bottom: 10px;   */
     margin-bottom: 10px;
     margin-top: 0px;
     padding-left: 9px;
@@ -279,7 +276,6 @@ body {
 	position: relative;
     top: 0px;
     left: 10px;
-    /* padding-bottom: 8px; */
     padding-right: 10px;
     margin-bottom: 5px;
 }

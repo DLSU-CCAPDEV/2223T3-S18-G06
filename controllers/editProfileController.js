@@ -6,9 +6,11 @@ const Post = require('../models/PostModel.js');
 
 const editProfileController = {
     postEdit: async function(req, res){
-        var editProfileVal = req.body.editProfile;
+        var editProfileVal = req.body.setProfilePic;
         var username = req.body.editUsername;
         var bio = req.body.editContent;
+
+        console.log('dp path: ', editProfileVal);
 
         var currUsername = req.params.username;
 

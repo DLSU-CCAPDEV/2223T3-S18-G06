@@ -24,4 +24,16 @@ $(document).ready(function() {
             window.location.href = '/View_Post/' + username + '/' + title + '?currUser=' + currUser;
         });
     });
+
+    $('.comment-sctn').click(function(event) {
+        event.preventDefault();
+
+        var username = $(this).data('username');
+        var title = $(this).data('title');  
+        var currUser = $('#currentUser').text();
+
+        $.get('/View_Post/' + username + '/' + title, {currUser: currUser}, function(){
+            window.location.href = '/View_Post/' + username + '/' + title + '?currUser=' + currUser;
+        });
+    });
 });

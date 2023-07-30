@@ -171,6 +171,6 @@ async function insertComments(){
 }
 
 insertPosts();
-insertUsers();
+//insertUsers();
 insertComments();
 

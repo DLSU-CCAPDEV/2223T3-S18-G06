@@ -58,8 +58,10 @@ const controller = {
 
         var users = await db.findMany(User, {});
 
+        var postsReverse = posts.reverse();
+
         res.render('Registered_Homepage', {
-            posts: posts,
+            posts: postsReverse,
             user: user,
             users: users,
         });
@@ -93,11 +95,15 @@ const controller = {
             "/dp_20.jpg"
         ];
 
+        var posts = await db.findMany(Post, {username: username});
+
+        var postsReverse = posts.reverse();
+
         res.render('profile', {
             username: username,
             user: await db.findOne(User, query),
             dp_images: dp_images,
-            posts: await db.findMany(Post, {username: username})
+            posts: postsReverse
         });
     },
 

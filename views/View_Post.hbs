@@ -73,7 +73,7 @@
             <p class = "post-content"> {{post.content}}</p>
             <br>
             <div class = "post-footer">
-                <a href = "/View_Post/{{post.username}}/{{post.title}}" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
+                <a href = "" onclick="refreshPage()" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
                 <span class = "comment-count"> {{post.commentcount}} </span>
                 {{#if post.upvoted}}
                     <i class="fa-solid fa-angle-up" title = "upvote" style="color: green; cursor: pointer;"></i>
@@ -88,6 +88,12 @@
                 {{/if}}
             </div> 
         </div>
+
+        <script>
+            function refreshPage(){
+                location.reload();
+            }
+        </script>
 
 
         <!--- COMMENT --->
