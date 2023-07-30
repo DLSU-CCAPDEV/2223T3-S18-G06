@@ -4,7 +4,7 @@ const db = require('./models/db.js'); // Require your Mongoose database configur
 const Post = require('./models/PostModel.js'); // Require the Post model
 const User = require('./models/UserModel.js');
 const Comment = require('./models/CommentModel.js');
-const url = 'mongodb://127.0.0.1:27017/ccapdev-mongoose';
+const url = 'mongodb+srv://noahhbernardo:12174890@cluster0.b0vvoud.mongodb.net/hive';
 
 mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true});
 
