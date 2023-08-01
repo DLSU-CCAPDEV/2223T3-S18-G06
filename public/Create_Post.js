@@ -133,6 +133,7 @@ function addPost() {
         });
     });
     clearText();
+    
 }
 }
 

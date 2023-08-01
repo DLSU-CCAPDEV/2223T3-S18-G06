@@ -14,7 +14,7 @@ const createCommentController = {
         var add = post.commentcount + 1;
 
         var filename = user.dp;
-        var content = req.body.createContent;
+        var content = req.body.createComment;
         
         var comment = {
             filename: filename,
@@ -24,10 +24,12 @@ const createCommentController = {
         };
 
         try{
-            console.log('A comment exist yay');
+            
 
             await db.insertOne(Comment, comment);
             await db.updateOne(Post, {title: title}, {commentcount: add});
+            console.log('A comment exist yay');
+
         } catch(error){
             console.error('Error inserting document: ', error);
         }

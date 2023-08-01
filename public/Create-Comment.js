@@ -32,11 +32,11 @@
 
 function addComment() {
 
-    const create_comment = document.getElementById('create-comment');
+    const create_comment = document.getElementById('create-content');
     const createCommentValue = create_comment.value;
 
     if(createCommentValue === '') {
-        alert('Please Fill Up All Text Areas');
+        alert('Please Fill Up The Text Area');
     }
     else {
     const bodyElement = document.body;
@@ -90,6 +90,7 @@ function addComment() {
     bodyElement.appendChild(comment);
 
     clearText();
+    
 }
 }
 
@@ -98,6 +99,7 @@ function createComment(){
     const post_content = document.getElementById('post-content');
 
     post_content.innerText = create_content.value;
+    
 }
 
 function clearText() {
@@ -110,7 +112,7 @@ function clearText() {
       });
 
       // Get the textarea element
-      var textarea = document.getElementById('create-comment');
+      var textarea = document.getElementById('create-content');
 
       // Clear the value of the textarea
       textarea.value = '';
@@ -118,16 +120,18 @@ function clearText() {
 
 function showComment() {
     var create_comment = document.getElementsByClassName('create-content')[0];
-    var edit_post = document.getElementsByClassName('edit-post')[0];
+    var edit_comment = document.getElementsByClassName('edit-post')[0];
 
     var isDisplayed = window.getComputedStyle(create_comment).display;
 
     if(isDisplayed === 'none'){
-        create_post.style.display = 'block';
-        edit_post.style.display = 'none';
+        create_comment.style.display = 'block';
+        edit_comment.style.display = 'none';
     } else{
-        create_post.style.display = 'none';
+        create_comment.style.display = 'none';
     }
+
+    
 }
 
 function hidePost() {
