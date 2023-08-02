@@ -73,7 +73,7 @@
             </div>
             <br> 
             <br>
-            <p class = "post-content"> {{content}} </p>
+            <p class = "post-content" >{{content}}</p>
             <br>
             </div>
 
@@ -129,6 +129,10 @@
             <br>
             <p class = "post-content"> {{content}} </p>
             <br>
+            <div class = "post-footer">
+            <a class="comment-sctn" style="cursor: pointer;" data-title="{{title}}" data-username="{{username}}" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
+            <span class = "comment-count" style="max-width: 4px;"> {{commentcount}} </span>
+            </div> 
             </div>
         {{/each}}
 

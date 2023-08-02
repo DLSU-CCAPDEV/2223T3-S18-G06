@@ -70,7 +70,7 @@
             </div>
             <br> 
             <br>
-            <p class = "post-content"> {{post.content}}</p>
+            <p class = "post-content" > {{post.content}}</p>
             <br>
             <div class = "post-footer">
                 <a href = "" onclick="refreshPage()" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
@@ -111,9 +111,6 @@
                 </div>
                 <br> <br> <br>
                 
-
-                {{!-- <textarea name="createComment" class="comment-content" id="create-comment" rows="5" cols="50" id="bodyText" placeholder="Write a comment" style="font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white; border-radius: 5px;" required></textarea>
-                <input class="create-comment-btn" id="addComment" type="submit" value="Comment" /> --}}
                 <div class = "create-content">
                     <textarea id="create-content" name="createComment" rows="5" cols="50" placeholder="Write a comment" data-user-icon="{{current.dp}}" data-username="{{current.username}}" style="font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white;" required></textarea>
                 </div>
@@ -143,7 +140,7 @@
                 <a class = "post-username" href = "/View_Profile/{{username}}" title = "view profile"> {{username}} </a>
             </div> 
             <br>
-            <p class = "post-content"> {{content}} </p>
+            <p class = "post-content" style="margin-left: -10px"> {{content}} </p>
             <div class = "post-footer">
                 <a href = "" onclick="refreshPage()" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
                 <span class = "comment-count"> {{comment.commentcount}} </span>
