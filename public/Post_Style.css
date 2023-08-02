@@ -254,11 +254,11 @@ body {
     justify-content: left; */
     background-color: rgba(32,32,32,255);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    width: 90%;
+    width: 86%;
     position: relative;
     top: 50px;
     left: 10%;
-    right: 25%;
+    right: 20%;
     float: left;
     display: flex;
     flex-direction: column;
@@ -266,9 +266,10 @@ body {
     font-family: Roboto, sans-serif;
     color: rgba(255,210,1,255);
     border-radius: 5px;
-    padding-right: 10px;
-    padding-left: 10px;
+    padding-right: 8px;
     margin-bottom: 20px;
+    
+    padding: 30px; /* Add some padding for better spacing within each comment */
 }
 
 .create-comment {

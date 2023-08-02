@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-{{!-- Currently View_Post Format Will change in a bit --}}
+{{!-- Currently View_Post Format. Will change in a bit --}}
 
 
 <html>
@@ -64,34 +64,18 @@
 
         </div>
 
-        <!--- POST --->
-        <div class = "post">
+        <!--- COMMENT --->
+        
+            <div class = "comment">
             <div class = "post-header">
-                <img  class = "user-icon" src="{{post.filename}}" alt="user_icon" width="32" height="32">
-                <a class = "post-username" href = "/View_Profile/{{post.username}}" title = "view profile"> {{post.username}} </a>
-                <p class = "dot"> • </p>
-                <a class = "post-title" href = "/View_Post/{{post.username}}/{{post.title}}" title = "view post"> {{post.title}} </a>
+                <img  class = "user-icon" src="{{filename}}" alt="user_icon" width="32" height="32">
+                <a class = "post-username" href = "/View_Profile/{{username}}" title = "view profile"> {{username}} </a>
             </div>
             <br> 
             <br>
-            <p class = "post-content"> {{post.content}}</p>
+            <p class = "post-content"> {{content}} </p>
             <br>
-            <div class = "post-footer">
-                <a href = "" onclick="refreshPage()" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
-                <span class = "comment-count"> {{post.commentcount}} </span>
-                {{#if post.upvoted}}
-                    <i class="fa-solid fa-angle-up" title = "upvote" style="color: green; cursor: pointer;"></i>
-                {{else}}
-                    <i class="fa-solid fa-angle-up" title = "upvote" style="color: #ffd201; cursor: pointer;"></i>
-                {{/if}}
-                <span class = "vote-count" name = "votes"> {{post.votes}} </span>
-                {{#if post.downvoted}}
-                    <i class="fa-solid fa-angle-down" title = "downvote" style="color: red; margin-right: 50px; cursor: pointer;"></i>
-                {{else}}
-                    <i class="fa-solid fa-angle-down" title = "downvote" style="color: #ffd201; margin-right: 50px; cursor: pointer;"></i>
-                {{/if}}
-            </div> 
-        </div>
+            </div>
 
         <script>
             function refreshPage(){
@@ -100,23 +84,18 @@
         </script>
 
 
-        <!--- COMMENT --->
+        <!--- REPLY --->
         <div class="create-comment">
             <form>
 
-            <!-- SUBMIT COMMENT -->
+            <!-- SUBMIT REPLY -->
             
             <div class="create-content">
                 <div class = "post-header">
-                    <p class="comment-title"> Create Comment </p>
-                    <p class = "dot"> • </p>
-                    <a class = "post-title"> {{post.title}} </a>
+                    <p class="comment-title"> Replying to Comment </p>
                 </div>
-                <br> <br> <br>
-                
+                <br> <br> <br>                
 
-                {{!-- <textarea name="createComment" class="comment-content" id="create-comment" rows="5" cols="50" id="bodyText" placeholder="Write a comment" style="font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white; border-radius: 5px;" required></textarea>
-                <input class="create-comment-btn" id="addComment" type="submit" value="Comment" /> --}}
                 <div class = "create-content">
                     <textarea id="create-content" name="createComment" rows="5" cols="50" placeholder="Write a comment" style="font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white;" required></textarea> 
                 </div>
@@ -125,9 +104,6 @@
                     <input class="create-comment-btn" type="submit" value="Comment" style="width: 150px; height: 30px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white;">
                 </div>
 
-                <div class = "create-footer">
-                    
-                </div>
                 <br>
             
             </div>

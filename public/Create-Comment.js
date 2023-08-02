@@ -31,16 +31,17 @@
  
 
 function addComment() {
+    const create_content = document.getElementById('create-content');
+    const createCommentValue = create_content.value;
 
-    const create_comment = document.getElementById('create-content');
-    const createCommentValue = create_comment.value;
+    const userIconSrc = create_content.getAttribute('data-user-icon');
+    const currentUsername = create_content.getAttribute('data-username');
 
-    if(createCommentValue === '') {
+    if (createCommentValue === '') {
         alert('Please Fill Up The Text Area');
-    }
+    } 
     else {
-    const bodyElement = document.body;
-
+    const container = document.getElementById('container');
     const comment = document.createElement("div");
     comment.className = "comment";
 
@@ -48,21 +49,24 @@ function addComment() {
     commentHeader.className = "post-header";
 
     const userIcon = document.createElement("img");
-    userIcon.className = "user-icon";
-    userIcon.src = "/default_icon.jpg";
-    userIcon.alt = "user_icon";
-    userIcon.width = 32;
-    userIcon.height = 32;
+        userIcon.className = "user-icon";
+        userIcon.src = userIconSrc; // Set user icon source from data attribute
+        userIcon.alt = "user_icon";
+        userIcon.width = 32;
+        userIcon.height = 32;
 
-    const postUserName = document.createElement("a");
-    postUserName.className = "post-username";
-    postUserName.title = "view profile";
-    postUserName.textContent = "New";
+        const postUserName = document.createElement("a");
+        postUserName.className = "post-username";
+        postUserName.title = "view profile";
+        postUserName.textContent = currentUsername; // Set username from data attribute
+      
 
     const postContent = document.createElement("p");
     postContent.className = "post-content";
     postContent.id = "post-content";
     postContent.textContent = createCommentValue;
+
+    // COMMENTS BUTTON FOR FOOTER
 
     const postFooter = document.createElement("div");
     postFooter.className = "post-footer";
@@ -77,8 +81,10 @@ function addComment() {
     commentCount.className = "comment-count";
     commentCount.textContent = "0";
 
-    postHeader.appendChild(userIcon); 
-    postHeader.appendChild(postUserName);    
+    // APPEND INTO COMMMENT
+
+    commentHeader.appendChild(userIcon);
+    commentHeader.appendChild(postUserName);
 
     postFooter.appendChild(faSolidComment);
     postFooter.appendChild(commentCount);
@@ -87,7 +93,7 @@ function addComment() {
     comment.appendChild(postContent);
     comment.appendChild(postFooter);
 
-    bodyElement.appendChild(comment);
+    container.appendChild(comment);
 
     clearText();
     
@@ -102,20 +108,37 @@ function createComment(){
     
 }
 
+// function editProfile(){
+//     const edit_username = document.getElementById('edit-username');
+//     const profile_username = document.getElementById('profile-username');
+
+//     const edit_content = document.getElementById('edit-content');
+//     const bio_content = document.getElementById('bio-content');
+
+//     profile_username.innerText = edit_username.value;
+//     bio_content.innerText = edit_content.value;
+// }
+
+// function changePhoto() {
+//     var image = document.getElementById("profilePicture");
+//     var image2 = document.getElementById("edit-profile").value;
+//     image.src =  image2;
+// }
+
 function clearText() {
-      // Get all input elements with type "text"
-      var inputs = document.querySelectorAll('input[type="text"]');
+    // Get all input elements with type "text"
+    var inputs = document.querySelectorAll('input[type="text"]');
 
-      // Loop through each input element and clear the value
-      inputs.forEach(function(input) {
+    // Loop through each input element and clear the value
+    inputs.forEach(function(input) {
         input.value = '';
-      });
+    });
 
-      // Get the textarea element
-      var textarea = document.getElementById('create-content');
+    // Get the textarea element
+    const create_content = document.getElementById('create-content');
 
-      // Clear the value of the textarea
-      textarea.value = '';
+    // Clear the value of the textarea
+    create_content.value = '';
 }
 
 function showComment() {
@@ -126,6 +149,7 @@ function showComment() {
 
     if(isDisplayed === 'none'){
         create_comment.style.display = 'block';
+
         edit_comment.style.display = 'none';
     } else{
         create_comment.style.display = 'none';
@@ -140,4 +164,4 @@ function hidePost() {
     create_post[0].style.display = "none";
 }
 
-
+document.getElementById('addComment').addEventListener('click', addComment);

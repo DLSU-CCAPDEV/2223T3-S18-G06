@@ -104,9 +104,10 @@
             
             <div class="create-content">
                 <div class = "post-header">
-                    <p class="comment-title"> Create Comment </p>
+                    <img  class = "user-icon" name="userIcon" src="{{current.dp}}" alt="user_icon" width="32" height="32">
+                    <p class = "create-username" name="createUsername" id="currentUser" style="color:white; font-weight:bold;">{{current.username}}</p>
                     <p class = "dot"> • </p>
-                    <a class = "post-title"> {{post.title}} </a>
+                    <p class="comment-title"> Create Comment </p>
                 </div>
                 <br> <br> <br>
                 
@@ -114,16 +115,13 @@
                 {{!-- <textarea name="createComment" class="comment-content" id="create-comment" rows="5" cols="50" id="bodyText" placeholder="Write a comment" style="font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white; border-radius: 5px;" required></textarea>
                 <input class="create-comment-btn" id="addComment" type="submit" value="Comment" /> --}}
                 <div class = "create-content">
-                    <textarea id="create-content" name="createComment" rows="5" cols="50" placeholder="Write a comment" style="font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white;" required></textarea> 
+                    <textarea id="create-content" name="createComment" rows="5" cols="50" placeholder="Write a comment" data-user-icon="{{current.dp}}" data-username="{{current.username}}" style="font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white;" required></textarea>
                 </div>
 
                 <div class = "create-footer">
-                    <input class="create-comment-btn" type="submit" value="Comment" style="width: 150px; height: 30px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white;">
+                    <input class="create-comment-btn" type="submit" id="addComment" value="Comment" style="width: 150px; height: 30px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white;">
                 </div>
 
-                <div class = "create-footer">
-                    
-                </div>
                 <br>
             
             </div>
@@ -132,11 +130,10 @@
         <br>
 
         <!-- COMMENTS LIST -->
-        
 
         <div id="comment-list">
         <div id="profile-nav">
-                        <span class="prof-link" id="Comments">Comments</span>
+        <span class="prof-link" id="Comments">Comments</span>
         </div>   
 
         {{#each comments}}
@@ -144,22 +141,22 @@
             <div class = "post-header">
                 <img  class = "user-icon" src="{{filename}}" alt="user_icon" width="32" height="32">
                 <a class = "post-username" href = "/View_Profile/{{username}}" title = "view profile"> {{username}} </a>
-            </div>
-            <br> 
+            </div> 
             <br>
             <p class = "post-content"> {{content}} </p>
-            <br>
+            <div class = "post-footer">
+                <a href = "" onclick="refreshPage()" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
+                <span class = "comment-count"> {{comment.commentcount}} </span>
+            </div> 
             </div>
         {{/each}}
 
             <!-- CREATE COMMENT CONTAINER -->
-            <div class="comment-container">
-                <div class="comment" id="container">
-                    <!-- COMMENTS BY THE USER WILL BE APPENDED HERE supposedly -->
+            <div class="comment-container" id="container">
+                <!-- COMMENTS BY THE USER WILL BE APPENDED HERE supposedly -->
 
                     
 
-                </div>
             </div>
 
         </div>

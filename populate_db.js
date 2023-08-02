@@ -133,35 +133,40 @@ async function insertComments(){
         filename: '/user2_icon.jpg',
         username: 'PawsomePal', 
         title: 'A daily reminder to drink water',
-        content: 'I agree!'
+        content: 'I agree!',
+        commentcount: 0
       },
 
       {
         filename: '/user3_icon.jpg',
         username: 'TheCAGE',
         title: 'Just dog things',
-        content: 'Dogs are the best'
+        content: 'Dogs are the best',
+        commentcount: 0
       },
 
       {
         filename: '/user1_icon.jpg',
         username: 'drinkwater',
         title: 'Long live Nicolas Cage!',
-        content: 'Loved his performance in Ghost Rider'
+        content: 'Loved his performance in Ghost Rider',
+        commentcount: 0
       },
 
       {
         filename: '/user5_icon.jpg',
         username: 'dave',
         title: 'The Bee Transfer Chronicles',
-        content: 'Congrats!'
+        content: 'Congrats!',
+        commentcount: 0
       },
 
       {
         filename: '/user4_icon.jpg',
         username: 'Busy_Beekeper',
         title: 'Anyone up for a roadtrip?',
-        content: 'A bee sticker would make a nice accessory! Want one?'
+        content: 'A bee sticker would make a nice accessory! Want one?',
+        commentcount: 0
       },
     ]);
     console.log('Comments inserted:', insertedComments);
