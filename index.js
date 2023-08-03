@@ -5,8 +5,8 @@ const routes = require('./routes/routes.js');
 const mongoose = require('mongoose'); 
 const hbs = require('hbs');
 const db = require('./models/db.js');   
-// const session = require('express-session'); 
-// const MongoStore = require('connect-mongo'); 
+const session = require('express-session'); 
+const MongoStore = require('connect-mongodb-session')(session); 
 
 const app = express();
 
@@ -24,6 +24,20 @@ hbs.registerPartials(__dirname + './views/partials');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded( {extended: false} ));
 app.use(bodyParser.json());
+
+const mongoStore = new MongoStore({
+    uri: 'mongodb+srv://noahhbernardo:12174890@cluster0.b0vvoud.mongodb.net/hive',
+    collectionName: 'sessions',
+});
+
+app.use(
+    session({
+        secret: 'secret_key',
+        resave: false,
+        saveUninitialized: true,
+        store: mongoStore,
+    })
+);
 
 // app.use(session({
 //     'secret': 'palatable-session',
