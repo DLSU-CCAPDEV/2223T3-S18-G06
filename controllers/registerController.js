@@ -6,8 +6,6 @@ const User = require('../models/UserModel.js');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
-const session = require('express-session');
-
 const registerController = {
     
     getRegister: function (req, res) {
