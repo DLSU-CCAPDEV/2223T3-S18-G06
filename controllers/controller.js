@@ -2,6 +2,7 @@ const db = require('../models/db.js');
 const Post = require('../models/PostModel.js');
 const User = require('../models/UserModel.js');
 
+const session = require('express-session');
 const controller = {
 
     getFavicon: function (req, res){
@@ -9,10 +10,17 @@ const controller = {
     },
 
     getRoot: async function(req, res) {
-        res.render("index", {
-            posts: await db.findMany(Post, {}),
-            users: await db.findMany(User, {})
-        });
+        
+        if(req.session.username) {
+            res.redirect('/Registered_Homepage/' + req.session.username);
+        }
+        else {
+            res.render("index", {
+                posts: await db.findMany(Post, {}),
+                users: await db.findMany(User, {})
+                
+            });
+        }
 
         //for testing purposes only
         // try {
@@ -37,6 +45,14 @@ const controller = {
         //     res.status(500).send('An error occured.');
         // }
 
+    },
+
+    getLogOut: async function(req, res) {
+        req.session.destroy(function(err) {
+            if(err) throw err;
+
+            res.redirect('/');
+        });
     },
 
     checkAcct: function(req, res) {
