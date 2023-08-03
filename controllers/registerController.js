@@ -6,10 +6,19 @@ const User = require('../models/UserModel.js');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
+const session = require('express-session');
+
 const registerController = {
     
     getRegister: function (req, res) {
-        res.render('register');
+        if(req.session.username) {
+
+            res.redirect('/Registered_Homepage/' + req.session.username);
+        }
+
+        else {
+            res.render('register');
+        }
     },
 
     postRegister: async function (req, res) {
