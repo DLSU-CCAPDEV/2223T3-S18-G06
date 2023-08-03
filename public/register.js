@@ -15,8 +15,7 @@ $(document).ready(function(){
         return !usernameEmpty && !fnameEmpty && !lnameEmpty && !emailEmpty && !pwEmpty;
     }
 
-    function isValidUser(field){
-        var validUser = false;
+    function isValidUser(field, callback){
 
         var username = validator.trim($('#username').val());
         var isValidLength = validator.isLength(username, {min: 2, max: 30});
@@ -32,12 +31,14 @@ $(document).ready(function(){
                         $('#usernameError').css('display', 'none');
                     }
 
-                    validUser = true;
+                    return callback(true);
                 } else{
                     if(field.is($('#username'))){
                         $('#usernameError').text('Username already exists!');
                         $('#usernameError').css('display', 'block');
                     }
+
+                    return callback(false);
                 }
             });
 
@@ -56,16 +57,63 @@ $(document).ready(function(){
                 } 
             }
                 
+            return callback(false);
         }
-
-        return validUser;
     }
 
     function isValidPassword(field){
-        var validPassword = false;
+        var validPass = false;
 
         var password = validator.trim($('#pw').val());
-        var isValidLength = validator.isLength(password, {min: 8});
+        var empty = validator.isEmpty(password);
+        var strongPass = validator.isStrongPassword(password, {
+            minLength: 8,
+            minLowercase: 1, 
+            minUppercase: 1, 
+            minNumbers: 1,
+            minSymbols: 0
+        });
+
+        console.log('IsStrong: ', strongPass);
+
+        if(strongPass){
+            if(field.is($('#pw'))){
+                $('#passError').text('');
+                $('#passError').css('display', 'none');
+            }
+
+            validPass = true;
+        } else{
+            if(field.is($('#pw')) && !empty){
+                $('#passError').text('Passwords should contain at least 8 characters, one lowercase, one uppercase, and one number.');
+                $('#passError').css('display', 'block');
+            }
+        }
+
+        return validPass;
+    }
+
+    function isValidEmail(field){
+        var validEmail = false;
+
+        var email = validator.trim($('#email').val());
+        var empty = validator.isEmpty(email);
+        var isValid = validator.isEmail(email);
+
+        if(isValid){
+            if(field.is($('#email'))){
+                $('#emailError').text('');
+            }
+
+            validEmail = true;
+        } else{
+            if(field.is($('#email')) && !empty){
+                $('#emailError').text(`Please use a valid email.`);
+                $('#emailError').css('display', 'block');
+            }
+        }
+
+        return validEmail;
     }
 
 
@@ -86,7 +134,17 @@ $(document).ready(function(){
 
         var filled = isFilled();
 
-        var validUser = isValidUser(field)
+        var validPassword = isValidPassword(field);
+
+        var validEmail = isValidEmail(field);
+
+        isValidUser(field, function(validUser){
+            if(filled && validUser && validEmail && validPassword){
+                $('#register-btn').prop('disabled', false);
+            } else{
+                $('#register-btn').prop('disabled', true);
+            }
+        });
     }
 
     $('#fname').keyup(function(){
@@ -95,5 +153,17 @@ $(document).ready(function(){
 
     $('#username').keyup(function(){
         validateField($('#username'), 'Username', $('#usernameError'));
+    });
+
+    $('#pw').keyup(function(){
+        validateField($('#pw'), 'Password', $('#passError'));
+    });
+
+    $('#lname').keyup(function(){
+        validateField($('#lname'), 'Last Name', $('#lNameError'));
+    });
+
+    $('#email').keyup(function(){
+        validateField($('#email'), 'Email', $('#emailError'));
     });
 });

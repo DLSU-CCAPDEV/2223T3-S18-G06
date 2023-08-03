@@ -18,6 +18,8 @@ const createCommentController = require('../controllers/createCommentController.
 
 const deletePostController = require('../controllers/deletePostController.js');
 const editPostController = require('../controllers/editPostController.js');
+
+const validation = require('../helpers/validation.js');
 const { db } = require('../models/UserModel.js');
 
 const app = express();
@@ -26,7 +28,7 @@ app.get('/favicon.ico', controller.getFavicon);
 
 app.get('/', controller.getRoot);
 app.get('/register', registerController.getRegister);
-app.post('/register', registerController.postRegister);
+app.post('/register', validation.registerValidation(), registerController.postRegister);
 app.get('/login', loginController.getLogin);
 app.post('/login', loginController.postLogin);
 
