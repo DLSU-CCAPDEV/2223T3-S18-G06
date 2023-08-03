@@ -33,7 +33,7 @@ app.post('/login', loginController.postLogin);
 app.post('/checkAcct', controller.checkAcct);
 app.get('/Registered_Homepage/:username', controller.getHomepage); 
 app.get('/profile/:username', controller.getProfile); 
-app.get('/logout', controller.getRoot);
+app.get('/logout', controller.getLogOut);
 
 
 
