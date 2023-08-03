@@ -5,12 +5,20 @@ const User = require('../models/UserModel.js');
 // import module `bcrypt`
 const bcrypt = require('bcrypt');
 
+const session = require('express-session');
+
 const loginController = {
 
     getLogin: async function(req, res) {
-        res.render('login');
+        if(req.session.username) {
 
-        var user = await db.findOne(User, {username: 'ckpg'});
+            res.redirect('/Registered_Homepage/' + req.session.username);
+        }
+        else {
+            res.render('login');
+
+            var user = await db.findOne(User, {username: 'ckpg'});
+        }
     },
 
     postLogin: async function(req, res){
@@ -30,6 +38,9 @@ const loginController = {
                     });
 
                 else {
+                    req.session.username = user.username;
+                    req.session.fname = user.fname;
+
                     res.redirect('/Registered_Homepage/' + user.username);
                 }
             });
