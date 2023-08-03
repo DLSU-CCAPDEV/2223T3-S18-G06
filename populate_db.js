@@ -17,9 +17,7 @@ async function insertPosts() {
         title: 'A daily reminder to drink water',
         content: 'Drinking water is a brilliant investment in your well-being, as it nourishes your body, fuels your mind, and replenishes your spirit, allowing you to flow through life with clarity, vitality, and utmost brilliance.',
         commentcount: 1,
-        upvoted: 0,
-        votes: 12456,
-        downvoted: 0
+        votes: 12456
       },
 
       {
@@ -28,9 +26,7 @@ async function insertPosts() {
         title: 'Just dog things',
         content: 'Does anyone else talk to their dog like they\'re a human? Asking for a friend... 🙈😂 #DogConversations',
         commentcount: 1,
-        upvoted: 0,
-        votes: 654,
-        downvoted: 0
+        votes: 654
       },
 
       {
@@ -39,9 +35,7 @@ async function insertPosts() {
         title: 'Long live Nicolas Cage!',
         content: 'Can we take a moment to appreciate Nicolas Cage\'s versatility as an actor? From intense dramas to hilarious comedies, he can do it all!',
         commentcount: 1,
-        upvoted: 0,
-        votes: 32,
-        downvoted: 0
+        votes: 32
       },
 
       {
@@ -50,9 +44,7 @@ async function insertPosts() {
         title: 'The Bee Transfer Chronicles',
         content: 'Today, I stepped into the enchanting world of beekeeping by transferring a bee colony. With protective gear on and heart pounding, I witnessed the intricate choreography of bees, their fascinating communication, and the profound connection between beekeeper and colony. 🌺🐝 #BeekeepingAdventure',
         commentcount: 1,
-        upvoted: 0,
-        votes: 3,
-        downvoted: 0
+        votes: 3
       },
 
       {
@@ -61,9 +53,7 @@ async function insertPosts() {
         title: 'Anyone up for a roadtrip?',
         content: 'Excited to announce that I\'ve just become the proud owner of a brand new Toyota Wigo! The perfect combination of style, efficiency, and reliability. Ready to hit the road and create unforgettable memories. 🚗💨 #NewCarFeels #ToyotaWigo',
         commentcount: 1,
-        upvoted: 0,
-        votes: 35,
-        downvoted: 0
+        votes: 35
       },
     ]);
     console.log('Posts inserted:', insertedPosts);
@@ -175,7 +165,7 @@ async function insertComments(){
   }
 }
 
-insertPosts();
+//insertPosts();
 //insertUsers();
-insertComments();
+//insertComments();
 

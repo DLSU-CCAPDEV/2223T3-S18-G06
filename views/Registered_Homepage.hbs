@@ -107,13 +107,13 @@
                 <div class = "post-footer">
                         <a class="comment-sctn" style="cursor: pointer;" data-title="{{title}}" data-username="{{username}}" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
                         <span class = "comment-count" style="max-width: 4px;"> {{commentcount}} </span>
-                        {{#if upvoted}}
+                        {{#if (inArray ../user.username upvotes) }}
                             <i class="fa-solid fa-angle-up" title = "upvote" style="color: green; cursor: pointer;"></i>
                         {{else}}
                             <i class="fa-solid fa-angle-up" title = "upvote" style="color: #ffd201; cursor: pointer;"></i>
                         {{/if}}
                         <span class = "vote-count" name = "votes"> {{votes}} </span>
-                        {{#if downvoted}}
+                        {{#if (inArray ../user.username downvotes) }}
                             <i class="fa-solid fa-angle-down" title = "downvote" style="color: red; margin-right: 50px; cursor: pointer;"></i>
                         {{else}}
                             <i class="fa-solid fa-angle-down" title = "downvote" style="color: #ffd201; margin-right: 50px; cursor: pointer;"></i>

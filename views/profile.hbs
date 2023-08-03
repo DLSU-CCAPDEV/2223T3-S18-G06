@@ -52,7 +52,7 @@
             <div id = "nav-links">
                 <a class = "nav-link" href="/Registered_Homepage/{{username}}"> Home </a> 
                 <a class = "nav-link" href="/profile/{{username}}"> • Profile </a>
-                <a class = "nav-link" href="/"> Logout </a> 
+                <a class = "nav-link" href="/logout"> Logout </a> 
             </div>
         </div>
 
@@ -74,11 +74,6 @@
                     <p>Posts</p>
                     <h2>{{posts.length}}</h2>
                 </div>
-                <div>
-                    <p>Comments</p>
-                    <h2>0</h2>
-                </div>
-
             </div>
 
             <a href="#" class="create-post-btn" onclick="showPost()"><h3>Create Post</h3></a>
@@ -161,13 +156,13 @@
                     <div class = "post-footer">
                             <a href = "/View_Post/{{username}}/{{title}}" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
                             <span class = "comment-count" style="max-width: 4px;"> {{commentcount}} </span>
-                            {{#if upvoted}}
+                            {{#if (inArray ../user.username upvotes) }}
                                 <i class="fa-solid fa-angle-up" title = "upvote" style="color: green; cursor: pointer;"></i>
                             {{else}}
                                 <i class="fa-solid fa-angle-up" title = "upvote" style="color: #ffd201; cursor: pointer;"></i>
                             {{/if}}
                             <span class = "vote-count" name = "votes"> {{votes}} </span>
-                            {{#if downvoted}}
+                            {{#if (inArray ../user.username downvotes) }}
                                 <i class="fa-solid fa-angle-down" title = "downvote" style="color: red; margin-right: 50px; cursor: pointer;"></i>
                             {{else}}
                                 <i class="fa-solid fa-angle-down" title = "downvote" style="color: #ffd201; margin-right: 50px; cursor: pointer;"></i>

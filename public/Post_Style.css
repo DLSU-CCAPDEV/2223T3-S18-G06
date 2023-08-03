@@ -124,6 +124,10 @@ body {
     
 }
 
+a{
+    text-decoration: none;
+}
+
 .profilecard{
 
         background-color: rgba(32,32,32,255);
@@ -278,7 +282,6 @@ body {
 
 
 
-
 .create-comment-btn{
     display: inline-block;
     text-decoration: none;
@@ -317,6 +320,19 @@ body {
     float: left;
     display: flex;
     flex-direction: column;
+
+    /* Control the overflow and text wrapping */
+    overflow: hidden; /* Hide any overflowing content */
+    white-space: normal; /* Wrap the text */
+    word-wrap: break-word; /* Break long words into multiple lines */
+    
+    /* Existing properties */
+    position: relative;
+    font-size: 20px;
+    color: white;
+    margin-left: -10px;
+    margin-bottom: 0px;
+    margin-top: 23px;
 }
 
 .comment-post {

@@ -13,6 +13,12 @@ const app = express();
 hbs.registerHelper('eq', function(arg1, arg2) {
     return (arg1 == arg2);
 });
+hbs.registerHelper('inArray', function(element, array) {
+    if (array.includes(element))
+        return true;
+    else
+        return false;
+});
 
 dotenv.config();
 port = process.env.PORT;

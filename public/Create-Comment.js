@@ -62,8 +62,8 @@ function addComment() {
       
 
     const postContent = document.createElement("p");
-    postContent.className = "post-content";
-    postContent.id = "post-content";
+    postContent.className = "comment-content";
+    postContent.id = "comment-content";
     postContent.textContent = createCommentValue;
 
     // COMMENTS BUTTON FOR FOOTER
@@ -73,9 +73,10 @@ function addComment() {
 
     const faSolidComment = document.createElement("a");
     const hrefCommentValue = "";
+    const titleCommentValue = "comment";
     faSolidComment.className ="fa-solid fa-comment";
     faSolidComment.setAttribute('href', hrefCommentValue);
-    faSolidComment.style.color = "#ffd201;"
+    faSolidComment.style.color = "#ffd201";
 
     const commentCount = document.createElement("span");
     commentCount.className = "comment-count";

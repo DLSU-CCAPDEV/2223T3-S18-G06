@@ -27,20 +27,14 @@ var PostSchema = new mongoose.Schema({
         required: true
     },
 
-    upvoted: {
-        type: Number,
-        required: true
-    },
+    upvotes: [String],
     
     votes: {
         type: Number,
         required: true
     },
 
-    downvoted: {
-        type: Number,
-        required: true
-    }
+    downvotes: [String]
 });
 
 /*

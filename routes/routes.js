@@ -30,7 +30,7 @@ app.post('/register', registerController.postRegister);
 app.get('/login', loginController.getLogin);
 app.post('/login', loginController.postLogin);
 
-app.post('/checkAcct', controller.checkAcct);
+app.get('/getCheckUser', controller.getCheckUser);
 app.get('/Registered_Homepage/:username', controller.getHomepage); 
 app.get('/profile/:username', controller.getProfile); 
 app.get('/logout', controller.getLogOut);

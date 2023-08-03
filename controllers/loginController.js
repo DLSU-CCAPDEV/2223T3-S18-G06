@@ -16,8 +16,6 @@ const loginController = {
         }
         else {
             res.render('login');
-
-            var user = await db.findOne(User, {username: 'ckpg'});
         }
     },
 

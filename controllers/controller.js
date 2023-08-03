@@ -10,15 +10,18 @@ const controller = {
     },
 
     getRoot: async function(req, res) {
+
+        var posts = await db.findMany(Post, {});
+
+        var postsReverse = posts.reverse();
         
         if(req.session.username) {
             res.redirect('/Registered_Homepage/' + req.session.username);
         }
         else {
             res.render("index", {
-                posts: await db.findMany(Post, {}),
+                posts: postsReverse,
                 users: await db.findMany(User, {})
-                
             });
         }
 
@@ -55,12 +58,11 @@ const controller = {
         });
     },
 
-    checkAcct: function(req, res) {
-        var email = req.body.email;
-        var password = req.body.pw;
+    getCheckUser: async function(req, res) {
+        var username = req.query.username;
 
-        // res.render(`profile`, {email: email});
-        res.redirect('/main_user1/' + email);
+        var result = await db.findOne(User, {username: username}, 'username');
+        res.send(result);
     },
 
     getHomepage: async function(req, res) {
@@ -125,32 +127,42 @@ const controller = {
 
     upVote: async function(req, res) { 
         var query = req.query.title.slice(1);
+        var username = req.session.username;
         var title = query.slice(0, -1); 
-        
         var post = await db.findOne(Post, {title: title});
+        var upvote = post.upvotes;
+        var downvote = post.downvotes;
         var result = post.votes + 1;
-        var checker = post.downvoted;
 
-        if (checker == 0)
-            db.updateOne(Post, {title: title}, {upvoted: 1});
-        if (checker == 1)
-            db.updateOne(Post, {title: title}, {downvoted: 0});
+        if (!post.downvotes.includes(username)) {
+            upvote.push(username);
+            db.updateOne(Post, {title: title}, {upvotes: upvote});
+        }
+        if (post.downvotes.includes(username)) {
+            downvote.pop(username);
+            db.updateOne(Post, {title: title}, {downvotes: downvote});
+        }
 
         db.updateOne(Post, {title: title}, {votes: result});
     },
 
     downVote: async function(req, res) { 
         var query = req.query.title.slice(1);
+        var username = req.session.username;
         var title = query.slice(0, -1); 
-        
         var post = await db.findOne(Post, {title: title});
+        var upvote = post.upvotes;
+        var downvote = post.downvotes;
         var result = post.votes - 1;
-        var checker = post.upvoted;
 
-        if (checker == 0)
-            db.updateOne(Post, {title: title}, {downvoted: 1});
-        if (checker == 1)
-            db.updateOne(Post, {title: title}, {upvoted: 0});
+        if (!post.upvotes.includes(username)) {
+            downvote.push(username);
+            db.updateOne(Post, {title: title}, {downvotes: downvote});
+        }
+        if (post.upvotes.includes(username)) {
+            upvote.pop(username);
+            db.updateOne(Post, {title: title}, {upvotes: upvote});
+        }
 
         db.updateOne(Post, {title: title}, {votes: result});
     },
