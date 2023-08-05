@@ -264,7 +264,7 @@ a{
 .create-comment {
     background-color: rgba(32,32,32,255);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    width: 22.3%;
+    width: 400px;
     position: relative;
     left: 18%;
     float: left;
@@ -280,10 +280,15 @@ a{
     justify-content: left;
 }
 
+.create-footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 
 .create-comment-btn{
-    display: inline-block;
+    display: relative;
     text-decoration: none;
     font-weight: 700px;
     border: 2px solid rgba(255,210,1,255);
@@ -293,10 +298,10 @@ a{
     left: 5px;
     color: #fff;
     padding: 6px 35px;
-    margin: 1px auto;
-    margin-top: 15px;
-    margin-left: 250px;
-    margin-bottom: -15px;
+    margin: 0;
+    margin-top: 10px;
+    margin-left: 0px;
+    margin-bottom: 0px;
     text-align: center;
     cursor: pointer;
 }

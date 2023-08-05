@@ -7,6 +7,7 @@ const hbs = require('hbs');
 const db = require('./models/db.js');   
 const session = require('express-session'); 
 const MongoStore = require('connect-mongodb-session')(session); 
+const Comment = require('./models/CommentModel.js');
 
 const app = express();
 
@@ -18,6 +19,12 @@ hbs.registerHelper('inArray', function(element, array) {
         return true;
     else
         return false;
+});
+
+hbs.registerHelper('getNestedCommentCount', async function (parentid) {
+    var comments = await db.findMany(Comment, {parentid: parentid});
+
+    return 0;
 });
 
 dotenv.config();

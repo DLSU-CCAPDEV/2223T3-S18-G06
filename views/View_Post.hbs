@@ -79,7 +79,7 @@
             <br>
             <div class = "post-footer">
                 <a href = "" onclick="refreshPage()" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
-                <span class = "comment-count"> {{post.commentcount}} </span>
+                <span class = "comment-count"> {{comments.length}} </span>
                 {{#if (inArray current.username post.upvotes) }}
                     <i class="fa-solid fa-angle-up" title = "upvote" style="color: green; cursor: pointer;"></i>
                 {{else}}
@@ -104,11 +104,14 @@
         <!--- COMMENT --->
         <div class="create-comment">
             <form method="post" action="/createComment">
-                <p id="currentPostUsername" name="currentPostUsername" hidden>{{post.username}}
+                <input type="hidden" id="currentPostUsername" name="currentPostUsername" value="{{post.username}}">
+                <input type="hidden" id="currentPostTitle" name="currentPostTitle" value="{{post.title}}">
+                <input type="hidden" id="createUsername" name ="createUsername" value="{{current.username}}">
+
                 <div class="create-content">
                     <div class = "post-header">
                         <img  class = "user-icon" name="userIcon" src="{{current.dp}}" alt="user_icon" width="32" height="32">
-                        <p class = "create-username" name="createUsername" id="currentUser" style="color:white; font-weight:bold;">{{current.username}}</p>
+                        <p class = "create-username" id="currentUser" style="color:white; font-weight:bold;">{{current.username}}</p>
                         <p class = "dot"> • </p>
                         <p class="comment-title"> Create Comment </p>
                     </div>
@@ -145,8 +148,8 @@
             <br>
             <p class = "post-content" style="margin-left: -10px"> {{content}} </p> 
             <div class = "post-footer">
-                <a href = "" onclick="refreshPage()" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
-                <span class = "comment-count"> {{commentcount}} </span>
+                <a href = "/comments/{{_id}}" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
+                {{!-- <span class = "comment-count"> {{getNestedCommentCount _id}} </span> --}}
             </div> 
             </div>
         {{/each}}
@@ -163,7 +166,7 @@
         <br>
 
         <script src="/login_register.js"></script>
-        <script src="/Create-Comment.js"></script>
+        {{!-- <script src="/Create-Comment.js"></script> --}}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 
     </body>

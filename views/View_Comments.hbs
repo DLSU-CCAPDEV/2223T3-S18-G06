@@ -71,14 +71,14 @@
 
         <!--- COMMENT --->
         
-            <div class = "comment">
-            <div class = "post-header">
-                <img  class = "user-icon" src="{{filename}}" alt="user_icon" width="32" height="32">
-                <a class = "post-username" href = "/View_Profile/{{username}}" title = "view profile"> {{username}} </a>
-            </div>
+            <div class = "post">
+                <div class = "post-header">
+                    <img  class = "user-icon" src="{{mainComment.filename}}" alt="user_icon" width="32" height="32">
+                    <a class = "post-username" href = "#" title = "view profile"> {{mainComment.username}} </a>
+                </div>
             <br> 
             <br>
-            <p class = "post-content" >{{content}}</p>
+            <p class = "post-content" >{{mainComment.content}}</p>
             <br>
             </div>
 
@@ -91,30 +91,33 @@
 
         <!--- REPLY --->
         <div class="create-comment">
-            <form>
+            <form method="post" action="/createNestedComment">
 
             <!-- SUBMIT COMMENT -->
-            
-            <div class="create-content">
-                <div class = "post-header">
-                    <img  class = "user-icon" name="userIcon" src="{{current.dp}}" alt="user_icon" width="32" height="32">
-                    <p class = "create-username" name="createUsername" id="currentUser" style="color:white; font-weight:bold;">{{current.username}}</p>
-                    <p class = "dot"> • </p>
-                    <p class="comment-title"> Create Comment </p>
-                </div>
-                <br> <br> <br>
+
+                <input type="hidden" id="mainCommentId" name="mainCommentId" value="{{mainComment._id}}">
+                <input type="hidden" id="currentUsername" name="currentUsername" value="{{current.username}}">
                 
-                <div class = "create-content">
-                    <textarea id="create-content" name="createComment" rows="5" cols="50" placeholder="Write a comment" data-user-icon="{{current.dp}}" data-username="{{current.username}}" style="font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white;" required></textarea>
-                </div>
+                <div class="create-content">
+                    <div class = "post-header">
+                        <img  class = "user-icon" name="userIcon" src="{{current.dp}}" alt="user_icon" width="32" height="32">
+                        <p class = "create-username" id="currentUser" style="color:white; font-weight:bold;">{{current.username}}</p>
+                        <p class = "dot"> • </p>
+                        <p class="comment-title"> Create Comment </p>
+                    </div>
+                    <br> <br> <br>
+                    
+                    <div class = "create-content">
+                        <textarea id="create-content" name="createComment" rows="5" cols="50" placeholder="Write a comment" data-user-icon="{{current.dp}}" data-username="{{current.username}}" style="font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white; resize: none;" required></textarea>
+                    </div>
 
-                <div class = "create-footer">
-                    <input class="create-comment-btn" type="submit" id="addComment" value="Comment" style="width: 150px; height: 30px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white;">
-                </div>
+                    <div class = "create-footer">
+                        <input class="create-comment-btn" type="submit" id="addComment" value="Comment" style="width: 150px; height: 30px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white;">
+                    </div>
 
-                <br>
-            
-            </div>
+                    <br>
+                
+                </div>
             </form>
         </div>
         <br>
@@ -135,8 +138,8 @@
             <br>
             <p class = "post-content" style="margin-left: -10px"> {{content}} </p>
             <div class = "post-footer">
-                <a href = "" onclick="refreshPage()" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
-                <span class = "comment-count"> {{comment.commentcount}} </span>
+                <a href = "/comments/{{_id}}" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
+                <span class = "comment-count"> {{commentcommentcount}} </span>
             </div> 
             </div>
         {{/each}}
@@ -153,7 +156,7 @@
         <br>
 
         <script src="/login_register.js"></script>
-        <script src="/Create-Comment.js"></script>
+        {{!-- <script src="/Create-Comment.js"></script> --}}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 
     </body>

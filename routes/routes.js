@@ -18,6 +18,7 @@ const createCommentController = require('../controllers/createCommentController.
 
 const deletePostController = require('../controllers/deletePostController.js');
 const editPostController = require('../controllers/editPostController.js');
+const viewCommentsController = require('../controllers/viewCommentsController.js');
 
 const validation = require('../helpers/validation.js');
 const { db } = require('../models/UserModel.js');
@@ -54,6 +55,12 @@ app.get('/View_Post/:title', viewPostController.viewPost);
 
 //create comment
 app.post('/createComment', createCommentController.comment);
+
+//create nested comments
+app.post('/createNestedComment', createCommentController.nestedComment);
+
+//comment page
+app.get('/comments/:commentId', viewCommentsController.viewComments);
 
 //profile page
 app.get('/View_Profile/:username', viewProfileController.viewProfile);
