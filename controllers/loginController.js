@@ -5,7 +5,7 @@ const User = require('../models/UserModel.js');
 // import module `bcrypt`
 const bcrypt = require('bcrypt');
 
-const session = require('express-session');
+const jwt = require('jsonwebtoken');
 
 const loginController = {
 
@@ -38,6 +38,14 @@ const loginController = {
                 else {
                     req.session.username = user.username;
                     req.session.fname = user.fname;
+
+                    const token = jwt.sign({username : user.username}, 'secret_key');
+                    const maxAgeInMilliseconds = 60 * 60 * 1000; // 1 hour
+
+                    res.cookie('token', token, {
+                        maxAge: maxAgeInMilliseconds,
+                        httpOnly: true,
+                    });
 
                     res.redirect('/Registered_Homepage/' + user.username);
                 }

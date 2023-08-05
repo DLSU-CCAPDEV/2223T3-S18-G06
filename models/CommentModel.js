@@ -14,8 +14,8 @@ var CommentSchema = new mongoose.Schema({
         required: true
     },
 
-    title: {
-        type: String,
+    parentid: {
+        type: mongoose.Schema.ObjectId,
         required: true
     },
 
@@ -27,8 +27,7 @@ var CommentSchema = new mongoose.Schema({
     commentcount: {
         type: Number,
         required: true
-    },
-    
+    }
 });
 
 /*

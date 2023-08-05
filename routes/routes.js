@@ -51,7 +51,7 @@ app.post('/profile/:username', createPostController.postMain);
 app.get('/View_Post/:username/:title', viewPostController.viewPost);
 
 //create comment
-app.post('/View_Post/:username/:title', createCommentController.comment); // not working as intended
+app.post('/View_Post/:username/:title', createCommentController.comment); 
 
 //profile page
 app.get('/View_Profile/:username', viewProfileController.viewProfile);

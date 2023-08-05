@@ -2,7 +2,7 @@ const db = require('../models/db.js');
 const Post = require('../models/PostModel.js');
 const User = require('../models/UserModel.js');
 
-const session = require('express-session');
+
 const controller = {
 
     getFavicon: function (req, res){

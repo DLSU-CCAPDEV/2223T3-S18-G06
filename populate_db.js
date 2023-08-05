@@ -50,11 +50,11 @@ async function insertPosts() {
       {
         filename: '/user5_icon.jpg',
         username: 'dave', 
-        title: 'Anyone up for a roadtrip?',
+        title: 'Wigo Roadtrip!',
         content: 'Excited to announce that I\'ve just become the proud owner of a brand new Toyota Wigo! The perfect combination of style, efficiency, and reliability. Ready to hit the road and create unforgettable memories. 🚗💨 #NewCarFeels #ToyotaWigo',
         commentcount: 1,
         votes: 35
-      },
+      }
     ]);
     console.log('Posts inserted:', insertedPosts);
   } catch (error) {
@@ -122,7 +122,7 @@ async function insertComments(){
       {
         filename: '/user2_icon.jpg',
         username: 'PawsomePal', 
-        title: 'A daily reminder to drink water',
+        parentid: '64ce069b19c2dad7ba854f31',
         content: 'I agree!',
         commentcount: 0
       },
@@ -130,7 +130,7 @@ async function insertComments(){
       {
         filename: '/user3_icon.jpg',
         username: 'TheCAGE',
-        title: 'Just dog things',
+        parentid: '64ce069b19c2dad7ba854f32',
         content: 'Dogs are the best',
         commentcount: 0
       },
@@ -138,7 +138,7 @@ async function insertComments(){
       {
         filename: '/user1_icon.jpg',
         username: 'drinkwater',
-        title: 'Long live Nicolas Cage!',
+        parentid: '64ce069b19c2dad7ba854f33',
         content: 'Loved his performance in Ghost Rider',
         commentcount: 0
       },
@@ -146,7 +146,7 @@ async function insertComments(){
       {
         filename: '/user5_icon.jpg',
         username: 'dave',
-        title: 'The Bee Transfer Chronicles',
+        parentid: '64ce069b19c2dad7ba854f34',
         content: 'Congrats!',
         commentcount: 0
       },
@@ -154,7 +154,7 @@ async function insertComments(){
       {
         filename: '/user4_icon.jpg',
         username: 'Busy_Beekeper',
-        title: 'Anyone up for a roadtrip?',
+        parentid: '64ce069b19c2dad7ba854f35',
         content: 'A bee sticker would make a nice accessory! Want one?',
         commentcount: 0
       },
@@ -167,5 +167,5 @@ async function insertComments(){
 
 //insertPosts();
 //insertUsers();
-//insertComments();
+insertComments();
 
