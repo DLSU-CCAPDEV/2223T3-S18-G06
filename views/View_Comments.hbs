@@ -59,7 +59,7 @@
         <div id="profile-nav">
 
             <div id="profile-navlinks">
-                <span class="prof-link" id="Posts">Post</span>
+                <span class="prof-link" id="Posts">Comment</span>
             </div>
 
         </div>
@@ -88,20 +88,23 @@
         <div class="create-comment">
             <form>
 
-            <!-- SUBMIT REPLY -->
+            <!-- SUBMIT COMMENT -->
             
             <div class="create-content">
                 <div class = "post-header">
-                    <p class="comment-title"> Replying to Comment </p>
+                    <img  class = "user-icon" name="userIcon" src="{{current.dp}}" alt="user_icon" width="32" height="32">
+                    <p class = "create-username" name="createUsername" id="currentUser" style="color:white; font-weight:bold;">{{current.username}}</p>
+                    <p class = "dot"> • </p>
+                    <p class="comment-title"> Create Comment </p>
                 </div>
-                <br> <br> <br>                
-
+                <br> <br> <br>
+                
                 <div class = "create-content">
-                    <textarea id="create-content" name="createComment" rows="5" cols="50" placeholder="Write a comment" style="font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white;" required></textarea> 
+                    <textarea id="create-content" name="createComment" rows="5" cols="50" placeholder="Write a comment" data-user-icon="{{current.dp}}" data-username="{{current.username}}" style="font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white;" required></textarea>
                 </div>
 
                 <div class = "create-footer">
-                    <input class="create-comment-btn" type="submit" value="Comment" style="width: 150px; height: 30px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white;">
+                    <input class="create-comment-btn" type="submit" id="addComment" value="Comment" style="width: 150px; height: 30px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white;">
                 </div>
 
                 <br>
@@ -112,11 +115,10 @@
         <br>
 
         <!-- COMMENTS LIST -->
-        
 
         <div id="comment-list">
         <div id="profile-nav">
-                        <span class="prof-link" id="Comments">Comments</span>
+        <span class="prof-link" id="Comments">Comments</span>
         </div>   
 
         {{#each comments}}
@@ -124,26 +126,22 @@
             <div class = "post-header">
                 <img  class = "user-icon" src="{{filename}}" alt="user_icon" width="32" height="32">
                 <a class = "post-username" href = "/View_Profile/{{username}}" title = "view profile"> {{username}} </a>
-            </div>
-            <br> 
+            </div> 
             <br>
-            <p class = "post-content"> {{content}} </p>
-            <br>
+            <p class = "post-content" style="margin-left: -10px"> {{content}} </p>
             <div class = "post-footer">
-            <a class="comment-sctn" style="cursor: pointer;" data-title="{{title}}" data-username="{{username}}" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
-            <span class = "comment-count" style="max-width: 4px;"> {{commentcount}} </span>
+                <a href = "" onclick="refreshPage()" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
+                <span class = "comment-count"> {{comment.commentcount}} </span>
             </div> 
             </div>
         {{/each}}
 
             <!-- CREATE COMMENT CONTAINER -->
-            <div class="comment-container">
-                <div class="comment" id="container">
-                    <!-- COMMENTS BY THE USER WILL BE APPENDED HERE supposedly -->
+            <div class="comment-container" id="container">
+                <!-- COMMENTS BY THE USER WILL BE APPENDED HERE supposedly -->
 
                     
 
-                </div>
             </div>
 
         </div>

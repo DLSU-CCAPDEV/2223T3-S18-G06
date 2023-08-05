@@ -1,35 +1,3 @@
-// ===========================================ATTEMPT 1============================================================ 
-
-// function render(data) {
-//     var html = "<div class='comment'><div class='post-header'><img class='user-icon' src='{{filename}}' alt='user_icon' width='32' height='32'><a class='post-username' href='/View_Profile/{{post.username}}' title='view profile'> {{post.username}} </a></div> <br> <br><p class='post-content'>"+data.body+"</p><br></div>";
-//     $('#container').append(html);
-// }
-
-// $(document).ready(function(){
-
-//     var comment = [
-        
-//     ];
-
-//     for(var i=0; i<comment.length; i++){
-//         render(comment[i]);
-//     }
-
-//     $('#addComment').click(function(){
-//         var addObj = {
-//             "body": $('#bodyText').val()
-//         };
-//         console.log(addObj);
-//         comment.push(addObj);
-//         render(addObj);
-//         $('#bodyText').val('');
-//     });
-
-// });
-
-// =============================================ATTEMPT 2============================================================ 
- 
-
 function addComment() {
     const create_content = document.getElementById('create-content');
     const createCommentValue = create_content.value;
@@ -108,23 +76,6 @@ function createComment(){
     post_content.innerText = create_content.value;
     
 }
-
-// function editProfile(){
-//     const edit_username = document.getElementById('edit-username');
-//     const profile_username = document.getElementById('profile-username');
-
-//     const edit_content = document.getElementById('edit-content');
-//     const bio_content = document.getElementById('bio-content');
-
-//     profile_username.innerText = edit_username.value;
-//     bio_content.innerText = edit_content.value;
-// }
-
-// function changePhoto() {
-//     var image = document.getElementById("profilePicture");
-//     var image2 = document.getElementById("edit-profile").value;
-//     image.src =  image2;
-// }
 
 function clearText() {
     // Get all input elements with type "text"
