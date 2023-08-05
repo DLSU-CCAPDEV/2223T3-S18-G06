@@ -121,7 +121,8 @@ const controller = {
             username: username,
             user: await db.findOne(User, query),
             dp_images: dp_images,
-            posts: postsReverse
+            posts: postsReverse,
+            allposts: await db.findMany(Post, {})
         });
     },
 
@@ -175,6 +176,22 @@ const controller = {
         var user = await db.findOne(User, query);
 
         res.json(user);
+    },
+
+    search: async function(req, res) {
+        var value = req.query.value;
+        var username = req.session.username;
+        var post = await db.findOne(Post, {title: value});
+
+        if (post === null)
+            post = await db.findOne(Post, {content: value});
+        
+        var result = {
+            username,
+            post
+        };
+
+        res.json(result);
     }
 }
 

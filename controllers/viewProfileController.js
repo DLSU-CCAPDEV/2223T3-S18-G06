@@ -14,8 +14,9 @@ const viewProfileController = {
 
 
         res.render('View_Profile', {
+            allposts: await db.findMany(Post, {}),
             posts: await db.findMany(Post, {username: username}),
-            user: user,
+            user,
             users: await db.findMany(User, {}),
             visitUser: await db.findOne(User, query)
         });

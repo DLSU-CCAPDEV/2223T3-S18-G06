@@ -21,28 +21,23 @@ $(document).ready(function() {
     $('.post-title').click(function(event) {
         event.preventDefault();
 
-        var username = $(this).data('username');
-        var title = $(this).data('title');  
+        var title = $(this).data('title');
         var currUser = $('#currentUser').text();
 
-        if(currUser === username){
-            window.location.href = '/profile/' + currUser;
-        } else{
-            $.get('/View_Profile/' + username, { currUser: currUser }, function(result) {
-                window.location.href = '/View_Profile/' + username + '?currUser=' + currUser;
-            });
-        }
+        $.get('/View_Post/' + title, {currUser: currUser}, function(){
+            window.location.href = '/View_Post/' + title + '?currUser=' + currUser;
+        });
+    
     });
 
     $('.comment-sctn').click(function(event) {
         event.preventDefault();
 
-        var username = $(this).data('username');
-        var title = $(this).data('title');  
+        var title = $(this).data('title');
         var currUser = $('#currentUser').text();
 
-        $.get('/View_Post/' + username + '/' + title, {currUser: currUser}, function(){
-            window.location.href = '/View_Post/' + username + '/' + title + '?currUser=' + currUser;
+        $.get('/View_Post/' + title, {currUser: currUser}, function(){
+            window.location.href = '/View_Post/' + title + '?currUser=' + currUser;
         });
     });
 });

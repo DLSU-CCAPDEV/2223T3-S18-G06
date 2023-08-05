@@ -26,15 +26,9 @@ var CommentSchema = new mongoose.Schema({
 
     commentcount: {
         type: Number,
-        required: true
+        required: true,
+        default: 0
     }
 });
-
-/*
-    exports a mongoose.model object based on `UserSchema` (defined above)
-    when another script exports from this file
-    This model executes CRUD operations
-    to collection `users` -> plural of the argument `User`
-*/
 
 module.exports = mongoose.model('Comments', CommentSchema);

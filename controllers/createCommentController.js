@@ -7,40 +7,36 @@ const Post = require('../models/PostModel.js');
 const createCommentController = {
     comment: async function (req, res) {
 
-        console.log('Comment button clicked');
+        var username = req.body.createUsername;
+        var user = await db.findOne(User, {username: username});
 
-        // Get username, title, and content from the request
-        const { username, title } = req.params;
-        const content = req.body.createComment;
+        var postUsername = req.body.currentPostUsername
+        var post = await db.findOne(User, {username: postUsername});
 
-        try {
-            // Retrieve the current user's icon (filename)
-            const currentUser = await db.findOne(User, { username: username });
-            const userIcon = currentUser.dp;
+        var filename = user.dp;
+        var parentId = post._id;
+        var content = req.body.createComment;
 
-            console.log('Current User:', currentUser);
-            console.log('User Icon:', userIcon);
+        console.log('Parent Id of Commnet: ', parentId);
 
-            // Create a new comment document with user icon
-            const comment = new Comment({
-                filename: userIcon,
-                username: username,
-                title: title,
-                content: content
-            });
 
-            console.log('New Comment:', comment);
-
-            // Save the comment to the database
-            await comment.save();
-
-            console.log('Comment saved:', comment);
-
-            // Redirect to the post page
-            res.redirect(`/View_Post/` + username + '/' + title);
-        } catch (error) {
-            console.error('Error inserting comment:', error);
+        var comment = {
+            filename: filename,
+            username: username,
+            parentid: parentId,
+            content: content
         }
+
+
+        try{
+            await db.insertOne(Comment, comment);
+        } catch(error){
+            console.error('Error inserting document: ', error);
+        }
+
+        console.log('Comment saved:', comment);
+
+        res.redirect(`/View_Post/` + username + '/' + title + '?currUser=' + username);
     }
 };
 

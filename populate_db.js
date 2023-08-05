@@ -24,7 +24,7 @@ async function insertPosts() {
         filename: '/user2_icon.jpg',
         username: 'PawsomePal', 
         title: 'Just dog things',
-        content: 'Does anyone else talk to their dog like they\'re a human? Asking for a friend... 🙈😂 #DogConversations',
+        content: 'Does anyone else talk to their dog like they\'re a human? Asking for a friend... #DogConversations',
         commentcount: 1,
         votes: 654
       },
@@ -42,7 +42,7 @@ async function insertPosts() {
         filename: '/user4_icon.jpg',
         username: 'Busy_Beekeeper', 
         title: 'The Bee Transfer Chronicles',
-        content: 'Today, I stepped into the enchanting world of beekeeping by transferring a bee colony. With protective gear on and heart pounding, I witnessed the intricate choreography of bees, their fascinating communication, and the profound connection between beekeeper and colony. 🌺🐝 #BeekeepingAdventure',
+        content: 'Today, I stepped into the enchanting world of beekeeping by transferring a bee colony. With protective gear on and heart pounding, I witnessed the intricate choreography of bees, their fascinating communication, and the profound connection between beekeeper and colony. #BeekeepingAdventure',
         commentcount: 1,
         votes: 3
       },
@@ -51,7 +51,7 @@ async function insertPosts() {
         filename: '/user5_icon.jpg',
         username: 'dave', 
         title: 'Wigo Roadtrip!',
-        content: 'Excited to announce that I\'ve just become the proud owner of a brand new Toyota Wigo! The perfect combination of style, efficiency, and reliability. Ready to hit the road and create unforgettable memories. 🚗💨 #NewCarFeels #ToyotaWigo',
+        content: 'Excited to announce that I\'ve just become the proud owner of a brand new Toyota Wigo! The perfect combination of style, efficiency, and reliability. Ready to hit the road and create unforgettable memories. #NewCarFeels #ToyotaWigo',
         commentcount: 1,
         votes: 35
       }
@@ -167,5 +167,5 @@ async function insertComments(){
 
 //insertPosts();
 //insertUsers();
-insertComments();
+//insertComments();
 

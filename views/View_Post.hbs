@@ -33,16 +33,21 @@
                 function search() {
                     var value = document.getElementById("search-bar").value;
                     var option = document.querySelector("#list option[value='" + value + "']");
-                    if (option != null) {
-                        window.location.href = "/View_Profile/" + value + '/';
-                    } else
-                        alert("no results found");
+
+                    $.get('/search', {value: value}, function(result){
+                        if (option != null) {
+                            window.location.href = "/View_Post/" + result.post.title + "?currUser=" + result.username;
+                        } 
+                        else
+                            alert("no results found");
+                    });
                 }
             </script>
-            <input type="text" id = "search-bar" list = "list" name="search" size = "100" placeholder="search profile">
+            <input type="text" id = "search-bar" list = "list" name="search" size = "100" placeholder="search post">
             <datalist id="list">
-                {{#each users}}
-                    <option value="{{username}}"></option>
+                {{#each posts}}
+                    <option value="{{title}}"></option>
+                    <option value="{{content}}"></option>
                 {{/each}}
             </datalist>
             <div id = "nav-links">
@@ -66,7 +71,7 @@
                 <img  class = "user-icon" src="{{post.filename}}" alt="user_icon" width="32" height="32">
                 <a class = "post-username" href = "/View_Profile/{{post.username}}" title = "view profile"> {{post.username}} </a>
                 <p class = "dot"> • </p>
-                <a class = "post-title" href = "/View_Post/{{post.username}}/{{post.title}}" title = "view post"> {{post.title}} </a>
+                <a class = "post-title" href = "/View_Post/{{post.title}}" title = "view post"> {{post.title}} </a>
             </div>
             <br> 
             <br>
@@ -98,30 +103,28 @@
 
         <!--- COMMENT --->
         <div class="create-comment">
-            <form>
+            <form method="post" action="/createComment">
+                <p id="currentPostUsername" name="currentPostUsername" hidden>{{post.username}}
+                <div class="create-content">
+                    <div class = "post-header">
+                        <img  class = "user-icon" name="userIcon" src="{{current.dp}}" alt="user_icon" width="32" height="32">
+                        <p class = "create-username" name="createUsername" id="currentUser" style="color:white; font-weight:bold;">{{current.username}}</p>
+                        <p class = "dot"> • </p>
+                        <p class="comment-title"> Create Comment </p>
+                    </div>
+                    <br> <br> <br>
+                    
+                    <div class = "create-content">
+                        <textarea id="create-content" name="createComment" rows="5" cols="50" placeholder="Write a comment" data-user-icon="{{current.dp}}" data-username="{{current.username}}" style="font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white;" required></textarea>
+                    </div>
 
-            <!-- SUBMIT COMMENT -->
-            
-            <div class="create-content">
-                <div class = "post-header">
-                    <img  class = "user-icon" name="userIcon" src="{{current.dp}}" alt="user_icon" width="32" height="32">
-                    <p class = "create-username" name="createUsername" id="currentUser" style="color:white; font-weight:bold;">{{current.username}}</p>
-                    <p class = "dot"> • </p>
-                    <p class="comment-title"> Create Comment </p>
-                </div>
-                <br> <br> <br>
+                    <div class = "create-footer">
+                        <input class="create-comment-btn" type="submit" id="addComment" value="Comment" style="width: 150px; height: 30px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white;">
+                    </div>
+
+                    <br>
                 
-                <div class = "create-content">
-                    <textarea id="create-content" name="createComment" rows="5" cols="50" placeholder="Write a comment" data-user-icon="{{current.dp}}" data-username="{{current.username}}" style="font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white;" required></textarea>
                 </div>
-
-                <div class = "create-footer">
-                    <input class="create-comment-btn" type="submit" id="addComment" value="Comment" style="width: 150px; height: 30px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white;">
-                </div>
-
-                <br>
-            
-            </div>
             </form>
         </div>
         <br>
@@ -143,7 +146,7 @@
             <p class = "post-content" style="margin-left: -10px"> {{content}} </p> 
             <div class = "post-footer">
                 <a href = "" onclick="refreshPage()" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
-                <span class = "comment-count"> {{comment.commentcount}} </span>
+                <span class = "comment-count"> {{commentcount}} </span>
             </div> 
             </div>
         {{/each}}

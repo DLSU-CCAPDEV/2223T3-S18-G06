@@ -38,6 +38,8 @@ app.get('/profile/:username', controller.getProfile);
 app.get('/logout', controller.getLogOut);
 
 
+//search
+app.get('/search', controller.search);
 
 //voting
 app.get('/upVote', controller.upVote);
@@ -48,10 +50,10 @@ app.post('/Registered_Homepage/:username', createPostController.post);
 app.post('/profile/:username', createPostController.postMain);
 
 //post page
-app.get('/View_Post/:username/:title', viewPostController.viewPost);
+app.get('/View_Post/:title', viewPostController.viewPost);
 
 //create comment
-app.post('/View_Post/:username/:title', createCommentController.comment); 
+app.post('/createComment', createCommentController.comment);
 
 //profile page
 app.get('/View_Profile/:username', viewProfileController.viewProfile);

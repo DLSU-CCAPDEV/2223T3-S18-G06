@@ -35,19 +35,22 @@
                 function search() {
                     var value = document.getElementById("search-bar").value;
                     var option = document.querySelector("#list option[value='" + value + "']");
-                    if (option != null) {
-                        window.location.href = "/" + value + "_profile";
-                    } else
-                        alert("no results found");
+
+                    $.get('/search', {value: value}, function(result){
+                        if (option != null) {
+                            window.location.href = "/View_Post/" + result.post.title + "?currUser=" + result.username;
+                        } 
+                        else
+                            alert("no results found");
+                    });
                 }
             </script>
-            <input type="text" id = "search-bar" list = "list" name="search" placeholder = "search" size = "100">
+            <input type="text" id = "search-bar" list = "list" name="search" size = "100" placeholder="search post">
             <datalist id="list">
-                <option value="drinkwater">
-                <option value="PawsomePal">
-                <option value="TheCAGE">
-                <option value="Busy_Beekeeper">
-                <option value="dave">
+                {{#each allposts}}
+                    <option value="{{title}}"></option>
+                    <option value="{{content}}"></option>
+                {{/each}}
             </datalist>
             <div id = "nav-links">
                 <a class = "nav-link" href="/Registered_Homepage/{{username}}"> Home </a> 
@@ -148,13 +151,13 @@
                 <div class = "post">
                     <div class = "post-header">
                         <img  class = "user-icon" src="{{filename}}" alt="user_icon" width="32" height="32">
-                        <a class = "post-username" data-username="{{username}}" title = "view profile"> {{username}} </a>
+                        <a class = "post-username" href = "/Profile/{{username}}" title = "view profile"> {{username}} </a>
                         <p class = "dot"> • </p>
-                        <a class = "post-title" data-title="{{title}}" data-username="{{username}}" title = "view post"> {{title}} </a>
+                        <a class = "post-title" href = "/View_Post/{{title}}?currUser={{username}}" title = "view post"> {{title}} </a>
                     </div>
                     <p class = "post-content"> {{content}} </p>
                     <div class = "post-footer">
-                            <a href = "/View_Post/{{username}}/{{title}}" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
+                            <a href = "/View_Post/{{title}}?currUser={{username}}" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
                             <span class = "comment-count" style="max-width: 4px;"> {{commentcount}} </span>
                             {{#if (inArray ../user.username upvotes) }}
                                 <i class="fa-solid fa-angle-up" title = "upvote" style="color: green; cursor: pointer;"></i>

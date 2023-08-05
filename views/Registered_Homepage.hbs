@@ -23,16 +23,21 @@
                 function search() {
                     var value = document.getElementById("search-bar").value;
                     var option = document.querySelector("#list option[value='" + value + "']");
-                    if (option != null) {
-                        window.location.href = "/View_Post/" + value;
-                    } else
-                        alert("no results found");
+
+                    $.get('/search', {value: value}, function(result){
+                        if (option != null) {
+                            window.location.href = "/View_Post/" + result.post.title + "?currUser=" + result.username;
+                        } 
+                        else
+                            alert("no results found");
+                    });
                 }
             </script>
-            <input type="text" id = "search-bar" list = "list" name="search" size = "100" placeholder="search profile">
+            <input type="text" id = "search-bar" list = "list" name="search" size = "100" placeholder="search post">
             <datalist id="list">
-                {{#each users}}
-                    <option value="{{username}}"></option>
+                {{#each posts}}
+                    <option value="{{title}}"></option>
+                    <option value="{{content}}"></option>
                 {{/each}}
             </datalist>
             <div id = "nav-links">

@@ -29,16 +29,21 @@
                 function search() {
                     var value = document.getElementById("search-bar").value;
                     var option = document.querySelector("#list option[value='" + value + "']");
-                    if (option != null) {
-                        window.location.href = "/View_Profile/" + value;
-                    } else
-                        alert("no results found");
+
+                    $.get('/search', {value: value}, function(result){
+                        if (option != null) {
+                            window.location.href = "/View_Post/" + result.post.title + "?currUser=" + result.username;
+                        } 
+                        else
+                            alert("no results found");
+                    });
                 }
             </script>
-            <input type="text" id = "search-bar" list = "list" name="search" size = "100" placeholder="search profile">
+            <input type="text" id = "search-bar" list = "list" name="search" size = "100" placeholder="search post">
             <datalist id="list">
-                {{#each users}}
-                    <option value="{{username}}"></option>
+                {{#each allposts}}
+                    <option value="{{title}}"></option>
+                    <option value="{{content}}"></option>
                 {{/each}}
             </datalist>
             <div id = "nav-links">
@@ -91,13 +96,13 @@
                         <img  class = "user-icon" src="{{this.filename}}" alt="user_icon" width="32" height="32">
                         <a class = "post-username" href = "/View_Profile/{{username}}" title = "view profile"> {{username}} </a>
                         <p class = "dot"> • </p>
-                        <a class = "post-title" href = "/View_Post/{{username}}/{{title}}" title = "view post"> {{title}} </a>
+                        <a class = "post-title" href = "/View_Post/{{title}}" title = "view post"> {{title}} </a>
                     </div>
                     <br><br>
                     <p class = "post-content"> {{content}} </p>
                     <br>
                     <div class = "post-footer">
-                        <a href = "/View_Post/{{username}}/{{title}}" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
+                        <a href = "/View_Post/{{title}}" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
                         <span class = "comment-count"> {{commentcount}} </span>
                         {{#if (inArray ../user.username upvotes) }}
                             <i class="fa-solid fa-angle-up" title = "upvote" style="color: green; cursor: pointer;"></i>

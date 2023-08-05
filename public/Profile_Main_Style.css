@@ -331,11 +331,6 @@ body {
     margin-right: 10px;
 }
 
-
-::placeholder {
-    color: white;
-}
-
 .dot {
     font-weight: 700;
     margin-left: 10px;
