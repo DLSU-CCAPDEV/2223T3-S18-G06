@@ -10,6 +10,8 @@
             integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" 
             crossorigin="anonymous"></script>
         <script src="/voting.js"></script>
+        <script src="/editDeleteMain.js" type="text/javascript"></script>
+        <script src="/commentDelMain.js" type="text/javascript"></script>
         
         <style>
 
@@ -91,6 +93,11 @@
                 {{else}}
                     <i class="fa-solid fa-angle-down" title = "downvote" style="color: #ffd201; margin-right: 50px; cursor: pointer;"></i>
                 {{/if}}
+
+                {{#if (eq current.username username) }}
+                        <input class="edit-delete-post" type="submit" data-action="delete" data-title="{{post.title}}" data-username="{{current.username}}" value="Delete" style="width: 75px; height: 20px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white; cursor: pointer; margin-left: 350px;">
+                        <input class="edit-delete-post" type="button" data-action="edit" data-title="{{post.title}}" value="Edit Post" style="width: 75px; height: 20px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white; cursor: pointer; margin-left: 2%;">
+                {{/if}}
             </div> 
         </div>
 
@@ -130,40 +137,104 @@
                 </div>
             </form>
         </div>
+
+
         <br>
+
+        <div id="edit-post-main" style="top: 400px;" hidden>
+            <form>
+                <p id="titleVal" name="titleVal" hidden></p>
+                <div class ="edit-first-main"> EDIT POST
+                </div>
+                <div class = "edit-header-main">
+                    <img  class = "user-icon" name="userIcon" src="{{current.dp}}" alt="user_icon" width="32" height="32">
+                    <p class = "edit-username-main" name="createUsername" id="edit-currentUser" style="top:10px;">{{current.username}}</p>
+                    <p class = "dot"> • </p>
+                    <div class = "edit-title-main"> <input type="text" id="edit-title" name="title" style="flex: 1; height: 20px; font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white; position: relative; top: 7px;" disabled><br><br> 
+                    </div>
+                </div>
+
+                <div class = "edit-content-main">
+                    <textarea id="edit-content" name="createContent" rows="5" cols="51" placeholder="Edit a post" style="font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white; width: 100%; resize: none;"></textarea> 
+                </div>
+
+                <div class = "edit-footer-main" style="left: 50px;">
+                    <input class="edit-delete-post" id="cancel-btn" type="button" value="Cancel" style="width: 150px; height: 30px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white;">
+
+                    <input id="edit-post-btn" data-title="" type="submit" value="Edit" style="width: 150px; height: 30px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white;">
+                </div>
+                <br>
+            </form>
+        </div>
 
         <!-- COMMENTS LIST -->
 
         <div id="comment-list">
         <div id="profile-nav">
         <span class="prof-link" id="Comments">Comments</span>
-        </div>   
+        </div>
 
         {{#each comments}}
             <div class = "comment">
-            <div class = "post-header">
-                <img  class = "user-icon" src="{{filename}}" alt="user_icon" width="32" height="32">
-                <a class = "post-username" href = "/View_Profile/{{username}}" title = "view profile"> {{username}} </a>
-            </div> 
-            <br>
-            <p class = "post-content" style="margin-left: -10px"> {{content}} </p> 
-            <div class = "post-footer">
-                <a href = "/comments/{{_id}}" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
-                <span class = "comment-count"> {{commentcount}} </span> 
-            </div> 
+                <div class = "post-header">
+                    <img  class = "user-icon" src="{{filename}}" alt="user_icon" width="32" height="32">
+                    <a class = "post-username" href = "/View_Profile/{{username}}" title = "view profile"> {{username}} </a>
+                </div> 
+                <br>
+                <p class = "post-content" style="margin-left: -10px"> {{content}} </p> 
+                <div class = "post-footer">
+                    <a href = "/comments/{{_id}}" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
+                    <span class = "comment-count"> {{commentcount}} </span> 
+
+                    {{#if (eq ../current.username username) }}
+                        <input class="edit-delete-cmt" type="submit" data-action="delete" data-title="{{../post.title}}" data-username="{{../current.username}}" data-id="{{_id}}" value="Delete" style="width: 75px; height: 20px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white; cursor: pointer; margin-left: 450px;">
+                        <input class="edit-delete-cmt" type="button" data-action="edit" data-id="{{_id}}" data-username="{{../current.username}}" data-title="{{../post.title}}" value="Edit" style="width: 75px; height: 20px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white; cursor: pointer; margin-left: 2%;">
+                    {{/if}}
+                </div> 
+
+                
             </div>
         {{/each}}
 
-            <!-- CREATE COMMENT CONTAINER -->
+            {{!-- <!-- CREATE COMMENT CONTAINER -->
             <div class="comment-container" id="container">
                 <!-- COMMENTS BY THE USER WILL BE APPENDED HERE supposedly -->
 
                     
 
-            </div>
+            </div> --}}
 
         </div>
         <br>
+
+        <div class="create-comment" id="edit-comment-main" style="left: 145px">
+            <form id="comment-form" method="post" action="/editComment" hidden>
+                <input type="hidden" id="currentCommentUsername" name="currentCommentUsername" value="{{current.username}}">
+                <input type="hidden" id="currentCommentId" name="currentCommentId" value="">
+                <input type="hidden" id="currentPostBodyTitle" name="currentPostBodyTitle" value="">
+
+                <div class="create-content">
+                    <div class = "post-header">
+                        <img  class = "user-icon" name="userIcon" src="{{current.dp}}" alt="user_icon" width="32" height="32">
+                        <p class = "create-username" id="currentUser" style="color:white; font-weight:bold;">{{current.username}}</p>
+                        <p class = "dot"> • </p>
+                        <p class="comment-title"> Edit Comment </p>
+                    </div>
+                    <br> <br> <br>
+                    
+                    <div class = "create-content">
+                        <textarea id="create-content" name="editComment" rows="5" cols="50" placeholder="Edit a comment" data-user-icon="{{current.dp}}" data-username="{{current.username}}" style="font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white;" required></textarea>
+                    </div>
+
+                    <div class = "create-footer">
+                        <input class="edit-comment-btn" type="submit" id="editCommentSubmit" value="Save" style="width: 150px; height: 30px; background-color: rgba(32,32,32,255); border-color: rgba(255,210,1,255); color: white;">
+                    </div>
+
+                    <br>
+                
+                </div>
+            </form>
+        </div>
 
         <script src="/login_register.js"></script>
         {{!-- <script src="/Create-Comment.js"></script> --}}

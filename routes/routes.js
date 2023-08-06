@@ -16,8 +16,8 @@ const editProfileController = require('../controllers/editProfileController.js')
 
 const createCommentController = require('../controllers/createCommentController.js');
 
-const deletePostController = require('../controllers/deletePostController.js');
-const editPostController = require('../controllers/editPostController.js');
+const deleteController = require('../controllers/deleteController.js');
+const editController = require('../controllers/editController.js');
 const viewCommentsController = require('../controllers/viewCommentsController.js');
 
 const validation = require('../helpers/validation.js');
@@ -69,9 +69,22 @@ app.get('/View_Profile/:username', viewProfileController.viewProfile);
 app.post('/editProfile/:username', editProfileController.postEdit);
 
 //delete post
-app.get('/delete', deletePostController.delete);
+app.get('/delete', deleteController.delete);
+
+//delete comment
+app.get('/deleteComment', deleteController.deleteComment);
+
+//delete nested comment
+app.get('/deleteNestedComment', deleteController.deleteNestedComment);
+
+app.get('/deleteMainComment', deleteController.deleteMainComment);
+
+app.post('/editMainComment', editController.editMainComment);
 
 // edit post
-app.post('/edit', editPostController.edit);
+app.post('/edit', editController.edit);
+
+// edit comment
+app.post('/editComment', editController.editComment);
 
 module.exports = app;
