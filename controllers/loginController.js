@@ -36,18 +36,23 @@ const loginController = {
                     });
 
                 else {
-                    req.session.username = user.username;
-                    req.session.fname = user.fname;
+                    if(req.body.remember) {
+                        req.session.username = user.username;
+                        req.session.fname = user.fname;
 
-                    const token = jwt.sign({username : user.username}, 'secret_key');
-                    const maxAgeInMilliseconds = 60 * 60 * 1000; // 1 hour
+                        const token = jwt.sign({username : user.username}, 'secret_key');
+                        const maxAgeInMilliseconds = 60 * 60 * 1000; // 1 hour
 
-                    res.cookie('token', token, {
-                        maxAge: maxAgeInMilliseconds,
-                        httpOnly: true,
-                    });
+                        res.cookie('token', token, {
+                            maxAge: maxAgeInMilliseconds,
+                            httpOnly: true,
+                        });
 
-                    res.redirect('/Registered_Homepage/' + user.username);
+                        res.redirect('/Registered_Homepage/' + user.username);
+                    }
+                    else {
+                        res.redirect('/Registered_Homepage/' + user.username);
+                    }
                 }
             });
 
