@@ -68,62 +68,72 @@ const controller = {
     getHomepage: async function(req, res) {
         var username = req.params.username;
 
-        var query = {username: username};
+        if(username != req.session.username) {
+            res.redirect('/Registered_Homepage/' + req.session.username);
+        }
+        else {
+            var query = {username: username};
 
-        var user = await db.findOne(User, query);
+            var user = await db.findOne(User, query);
 
-        var posts = await db.findMany(Post, {});
+            var posts = await db.findMany(Post, {});
 
-        var users = await db.findMany(User, {});
+            var users = await db.findMany(User, {});
 
-        var postsReverse = posts.reverse();
+            var postsReverse = posts.reverse();
 
-        res.render('Registered_Homepage', {
-            posts: postsReverse,
-            user: user,
-            users: users,
+            res.render('Registered_Homepage', {
+                posts: postsReverse,
+                user: user,
+                users: users,
         });
+        }
     },
 
     getProfile: async function(req, res) {
         var username = req.params.username;
+        
+        if(username != req.session.username) {
+            res.redirect('/profile/' + req.session.username);
+        }
+        else {
+            var query = {username: username}
 
-        var query = {username: username}
+            const dp_images = [
+                "/dp_1.jpg",
+                "/dp_2.jpg",
+                "/dp_3.jpg",
+                "/dp_4.jpg",
+                "/dp_5.jpg",
+                "/dp_6.jpg",
+                "/dp_7.jpg",
+                "/dp_8.jpg",
+                "/dp_9.jpg",
+                "/dp_10.jpg",
+                "/dp_11.jpg",
+                "/dp_12.jpg",
+                "/dp_13.jpg",
+                "/dp_14.jpg",
+                "/dp_15.jpg",
+                "/dp_16.jpg",
+                "/dp_17.jpg",
+                "/dp_18.jpg",
+                "/dp_19.jpg",
+                "/dp_20.jpg"
+            ];
 
-        const dp_images = [
-            "/dp_1.jpg",
-            "/dp_2.jpg",
-            "/dp_3.jpg",
-            "/dp_4.jpg",
-            "/dp_5.jpg",
-            "/dp_6.jpg",
-            "/dp_7.jpg",
-            "/dp_8.jpg",
-            "/dp_9.jpg",
-            "/dp_10.jpg",
-            "/dp_11.jpg",
-            "/dp_12.jpg",
-            "/dp_13.jpg",
-            "/dp_14.jpg",
-            "/dp_15.jpg",
-            "/dp_16.jpg",
-            "/dp_17.jpg",
-            "/dp_18.jpg",
-            "/dp_19.jpg",
-            "/dp_20.jpg"
-        ];
+            var posts = await db.findMany(Post, {username: username});
 
-        var posts = await db.findMany(Post, {username: username});
+            var postsReverse = posts.reverse();
 
-        var postsReverse = posts.reverse();
-
-        res.render('profile', {
-            username: username,
-            user: await db.findOne(User, query),
-            dp_images: dp_images,
-            posts: postsReverse,
-            allposts: await db.findMany(Post, {})
-        });
+            res.render('profile', {
+                username: username,
+                user: await db.findOne(User, query),
+                dp_images: dp_images,
+                posts: postsReverse,
+                allposts: await db.findMany(Post, {})
+            });
+        }
     },
 
     upVote: async function(req, res) { 
@@ -137,14 +147,14 @@ const controller = {
 
         if (!post.downvotes.includes(username)) {
             upvote.push(username);
-            db.updateOne(Post, {title: title}, {upvotes: upvote});
+            await db.updateOne(Post, {title: title}, {upvotes: upvote});
         }
         if (post.downvotes.includes(username)) {
             downvote.pop(username);
-            db.updateOne(Post, {title: title}, {downvotes: downvote});
+            await db.updateOne(Post, {title: title}, {downvotes: downvote});
         }
 
-        db.updateOne(Post, {title: title}, {votes: result});
+        await db.updateOne(Post, {title: title}, {votes: result});
     },
 
     downVote: async function(req, res) { 
@@ -158,14 +168,14 @@ const controller = {
 
         if (!post.upvotes.includes(username)) {
             downvote.push(username);
-            db.updateOne(Post, {title: title}, {downvotes: downvote});
+            await db.updateOne(Post, {title: title}, {downvotes: downvote});
         }
         if (post.upvotes.includes(username)) {
             upvote.pop(username);
-            db.updateOne(Post, {title: title}, {upvotes: upvote});
+            await db.updateOne(Post, {title: title}, {upvotes: upvote});
         }
 
-        db.updateOne(Post, {title: title}, {votes: result});
+        await db.updateOne(Post, {title: title}, {votes: result});
     },
 
     getUser: async function(req, res) {

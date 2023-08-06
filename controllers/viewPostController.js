@@ -11,12 +11,14 @@ const viewPostController = {
         var username = post.username;
         var postId = post._id;
         var currUser = req.session.username;
+
+        var current = await db.findOne(User, {username: currUser});
         res.render('View_Post', {
             username: username,
             post,
             posts: await db.findMany(Post, {}),
             comments: await db.findMany(Comment, {parentid: postId}),
-            current: await db.findOne(User, {username: currUser})
+            current: current
         });
     }
 }

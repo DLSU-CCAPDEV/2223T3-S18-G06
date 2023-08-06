@@ -79,7 +79,7 @@
             <br>
             <div class = "post-footer">
                 <a href = "" onclick="refreshPage()" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
-                <span class = "comment-count"> {{comments.length}} </span>
+                <span class = "comment-count"> {{post.commentcount}} </span>
                 {{#if (inArray current.username post.upvotes) }}
                     <i class="fa-solid fa-angle-up" title = "upvote" style="color: green; cursor: pointer;"></i>
                 {{else}}
@@ -149,7 +149,7 @@
             <p class = "post-content" style="margin-left: -10px"> {{content}} </p> 
             <div class = "post-footer">
                 <a href = "/comments/{{_id}}" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
-                {{!-- <span class = "comment-count"> {{getNestedCommentCount _id}} </span> --}}
+                <span class = "comment-count"> {{commentcount}} </span> 
             </div> 
             </div>
         {{/each}}

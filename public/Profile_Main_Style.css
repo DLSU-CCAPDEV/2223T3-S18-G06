@@ -465,6 +465,73 @@ body {
     flex-direction: column;
 }
 
+#edit-post-main{
+    background-color: rgba(32,32,32,255);
+    width: 401px;
+    position: absolute;
+    left: 80px;
+    font-size: 15px;
+    font-family: Roboto, sans-serif;
+    color: rgba(255,210,1,255);
+    border-radius: 5px;
+    padding-left: 25px;
+    padding-right: 25px; 
+    margin-top: 200px;
+}
+
+.edit-first-main{
+    color: white;
+    font-family: cursive;
+    font-weight: 1000;
+    color: rgba(255,210,1,255);
+    display: flex;
+    position: absolute;
+    padding-top: 30px;
+    padding-left: 150px;
+    top: 3px;
+    left: 20px;
+}
+
+.edit-header-main{
+    display: flex;
+    position: relative;
+    top: 70px;
+}
+
+.edit-username-main{
+    font-weight: 1000;
+    color: white;
+    margin: 0;
+    position: relative;
+    top: 5px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 70px;
+}
+
+.edit-title-main{
+    display: flex;
+    width: 100%; 
+    height: auto;
+    font-family: Roboto, sans-serif; 
+    font-size: 15px;
+}
+
+.edit-content-main{
+    padding-bottom: 50px;
+    position: relative;
+    font-size: 20px;
+    color: white;
+    top: 90px;
+}
+.edit-footer-main{
+    display: flex;
+    position: relative;
+    bottom: 10px;
+    left: 5px;
+    margin-top: 80px;
+}
+
 .edit-first {
     color: white;
     display: flex;

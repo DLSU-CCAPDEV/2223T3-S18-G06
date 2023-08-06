@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 
-{{!-- Currently View_Post Format. Will change in a bit --}}
-
-
 <html>
     <head>
         
@@ -55,7 +52,7 @@
                 {{/each}}
             </datalist>
             <div id = "nav-links">
-                <a class = "nav-link" href = "/Registered_Homepage/{{current.username}}" > • Home </a> 
+                <a class = "nav-link" href = "/Registered_Homepage/{{current.username}}" > Home </a> 
                 <a class = "nav-link" href="/profile/{{current.username}}"> Profile </a> 
                 <a class = "nav-link" href = "/logout"> Logout </a> 
             </div>
@@ -71,16 +68,24 @@
 
         <!--- COMMENT --->
         
-            <div class = "post">
-                <div class = "post-header">
-                    <img  class = "user-icon" src="{{mainComment.filename}}" alt="user_icon" width="32" height="32">
-                    <a class = "post-username" href = "#" title = "view profile"> {{mainComment.username}} </a>
-                </div>
-            <br> 
+        <div class = "post">
+            <div class = "post-header">
+                <img  class = "user-icon" src="{{mainComment.filename}}" alt="user_icon" width="32" height="32">
+                {{#if (usernamelink mainComment.username current.username) }}
+                    <a class = "post-username" href = "/profile/{{current.username}}" title = "view profile"> {{mainComment.username}} </a>
+                {{else}}
+                    <a class = "post-username" href = "/View_Profile/{{mainComment.username}}?currUser={{current.username}}" title = "view profile"> {{mainComment.username}} </a>
+                {{/if}}
+            </div>
+            <br>
             <br>
             <p class = "post-content" >{{mainComment.content}}</p>
             <br>
-            </div>
+            <div class = "post-footer">
+                <a href = "/comments/{{mainComment._id}}" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
+                <span class = "comment-count"> {{mainComment.commentcount}} </span>
+            </div> 
+        </div>
 
         <script>
             function refreshPage(){
@@ -133,13 +138,17 @@
             <div class = "comment">
             <div class = "post-header">
                 <img  class = "user-icon" src="{{filename}}" alt="user_icon" width="32" height="32">
-                <a class = "post-username" href = "/View_Profile/{{username}}" title = "view profile"> {{username}} </a>
+                {{#if (usernamelink username ../current.username) }}
+                    <a class = "post-username" href = "/profile/{{../current.username}}" title = "view profile"> {{username}} </a>
+                {{else}}
+                    <a class = "post-username" href = "/View_Profile/{{username}}?currUser={{../current.username}}" title = "view profile"> {{username}} </a>
+                {{/if}}
             </div> 
             <br>
             <p class = "post-content" style="margin-left: -10px"> {{content}} </p>
             <div class = "post-footer">
                 <a href = "/comments/{{_id}}" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
-                <span class = "comment-count"> {{commentcommentcount}} </span>
+                <span class = "comment-count"> {{commentcount}} </span>
             </div> 
             </div>
         {{/each}}

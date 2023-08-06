@@ -6,22 +6,38 @@ const Comment = require('../models/CommentModel.js');
 const viewCommentsController = {
 
     viewComments: async function (req, res) {
-        console.log('Hello Hello');
         var commentId = req.params.commentId;
         var currUser = req.session.username;
 
-        currentComment = await db.findOne(Comment, {_id: commentId});
-        currentUser = await db.findOne(User, {username: currUser});
+        var mainComment = await db.findOne(Comment, {_id: commentId});
+        var current = await db.findOne(User, {username: currUser});
+        var parent = await db.findOne(Post, {_id: mainComment.parentid});
 
-        console.log('Comment Id: ', commentId);
+        if (parent === null)
+            var parent = await db.findOne(Comment, {_id: mainComment.parentid});
+
         res.render('View_Comments', {
-            mainComment: currentComment,
+            mainComment,
             comments: await db.findMany(Comment, {parentid: commentId}),
-            current: currentUser,
-            posts: await db.findMany(Post, {})
+            current,
+            posts: await db.findMany(Post, {}),
+            parent
         });
     }
 
 }
 
 module.exports = viewCommentsController;
+/*
+<div class = "comment">
+            <div class = "post-header">
+                <img  class = "user-icon" src="{{mainComment.filename}}" alt="user_icon" width="32" height="32">
+                <a class = "post-username" href = "/View_Profile/{{mainComment.username}}" title = "view profile"> {{mainComment.username}} </a>
+            </div> 
+            <br>
+            <p class = "post-content" style="margin-left: -10px"> {{content}} </p>
+            <div class = "post-footer">
+                <a href = "/View_Post/{{parent.title}}?currUser={{current.username}}" title = "comment"><i class="fa-solid fa-comment" style="color: #ffd201;"></i></a>
+                <span class = "comment-count"> {{mainComment.commentcount}} </span>
+            </div> 
+        </div> */

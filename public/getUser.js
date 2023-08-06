@@ -24,6 +24,8 @@ $(document).ready(function() {
         var title = $(this).data('title');
         var currUser = $('#currentUser').text();
 
+        console.log('Current User: ', currUser);
+
         $.get('/View_Post/' + title, {currUser: currUser}, function(){
             window.location.href = '/View_Post/' + title + '?currUser=' + currUser;
         });

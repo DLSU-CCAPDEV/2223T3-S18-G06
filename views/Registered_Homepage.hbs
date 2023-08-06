@@ -81,7 +81,7 @@
                     <img  class = "user-icon" name="userIcon" src="{{user.dp}}" alt="user_icon" width="32" height="32">
                     <p class = "create-username" name="createUsername" id="edit-currentUser">{{user.username}}</p>
                     <p class = "dot"> • </p>
-                    <div class = "create-title"> <input type="text" id="edit-title" name="title" style="width: 270px; font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white;"><br><br> 
+                    <div class = "create-title"> <input type="text" id="edit-title" name="title" style="width: 270px; font-family: Roboto, sans-serif; font-size: 15px; background-color: #484848; color: white;" disabled><br><br> 
                     </div>
                 </div>
 
@@ -107,6 +107,7 @@
                     <a class = "post-username" data-username="{{username}}" title = "view profile"> {{username}} </a>
                     <p class = "dot"> • </p>
                     <a class = "post-title" data-title="{{title}}" data-username="{{username}}" title = "view post"> {{title}} </a>
+                    {{!-- <a class = "post-title" href="/View_Post/{{title}}" title = "view post"> {{title}} </a> --}}
                 </div>
                 <p class = "post-content"> {{content}} </p>
                 <div class = "post-footer">

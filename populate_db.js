@@ -165,7 +165,7 @@ async function insertComments(){
   }
 }
 
-//insertPosts();
+//insertPosts(); //Do not use this anymore
 //insertUsers();
 //insertComments();
 

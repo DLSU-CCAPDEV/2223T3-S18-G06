@@ -204,11 +204,24 @@ function hidePost() {
 }
 
 function showEdit() {
-    var edit_post = document.getElementsByClassName('edit-post');
-    var create_post = document.getElementsByClassName('create-post');
+    var edit_post = document.getElementsByClassName('edit-post')[0];
+    var create_post = document.getElementsByClassName('create-post')[0];
+
+    var isDisplayed = window.getComputedStyle(edit_post).display;
+
+    if(isDisplayed === 'none'){
+        create_post.style.display = 'none';
+        edit_post.style.display = 'block';
+    } else{
+        edit_post.style.display = 'none';
+    }
 
     create_post[0].style.display = "none";
     edit_post[0].style.display = "flex";
+}
+
+function showEditPost(){
+
 }
 
 function hideEdit() {

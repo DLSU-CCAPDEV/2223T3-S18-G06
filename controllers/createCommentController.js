@@ -6,23 +6,15 @@ const Post = require('../models/PostModel.js');
 
 const createCommentController = {
     comment: async function (req, res) {
-
-        console.log('Hello');
         var username = req.body.createUsername;
         var postTitle = req.body.currentPostTitle;
 
-        console.log('User: ', username);
-
         var user = await db.findOne(User, {username: username});
-
         var post = await db.findOne(Post, {title: postTitle});
 
         var filename = user.dp;
         var parentId = post._id;
         var content = req.body.createComment;
-
-        console.log('Parent Id of Commnet: ', parentId);
-
 
         var comment = {
             filename: filename,
@@ -31,14 +23,14 @@ const createCommentController = {
             content: content
         }
 
+        var iterate = post.commentcount + 1;
 
         try{
             await db.insertOne(Comment, comment);
+            await db.updateOne(Post, {title: postTitle}, {commentcount: iterate});
         } catch(error){
             console.error('Error inserting document: ', error);
         }
-
-        console.log('Comment saved:', comment);
 
         res.redirect(`/View_Post/` + post.title + '?currUser=' + username);
     },
@@ -65,7 +57,27 @@ const createCommentController = {
             console.error('Error inserting document: ', error);
         }
 
-        console.log('Comment saved:', comment);
+        var end = 0;
+        var parent;
+        var iterate = 0;
+        var child = await db.findOne(Comment, {parentid: parentId});
+
+        while (end === 0) {
+            parent = await db.findOne(Comment, {_id: child.parentid});
+
+            if (parent === null) {
+                parent = await db.findOne(Post, {_id: child.parentid});
+                iterate = parent.commentcount + 1;
+                await db.updateOne(Post, {_id: parent._id}, {commentcount: iterate});
+                end = 1;
+            }
+            else {
+                iterate = parent.commentcount + 1;
+                await db.updateOne(Comment, {_id: parent._id}, {commentcount: iterate});
+                child = parent;
+                parent = null;
+            }
+        }
 
         res.redirect('/comments/' + parentId);
     }
